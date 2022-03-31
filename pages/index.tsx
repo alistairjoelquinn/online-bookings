@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 const Home: NextPage = () => {
    const name = 'alistair'
+   const me = "hell";
   return (
     <>
     <Head>
