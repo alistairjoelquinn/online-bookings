@@ -10,7 +10,7 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.png" />
             </Head>
             <div className="flex min-h-screen flex-col items-center justify-center py-2">
-                <h1 className="text-4xl text-red-500">I am the HOME PAGE</h1>
+                <h1 className="font-lira text-4xl italic text-red-500">I am the home page</h1>
             </div>
         </>
     );
