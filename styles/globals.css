@@ -18,6 +18,6 @@
 
 @layer base {
     body {
-        @apply bg-mypink
+        @apply bg-mypink overflow-hidden
     }
 }
