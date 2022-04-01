@@ -1,7 +1,7 @@
 const MainSection = () => {
     console.log('main section: ');
     return (
-        <main className="flex w-full flex-col items-center font-dank text-myblack">
+        <main style={{ height: '1000px' }} className="flex w-full flex-col items-center font-dank text-myblack">
             <section className="w-4/6 text-xl">
                 <p className="pt-6 pb-6">Hi, I&#39;m Alistair.</p>
                 <p className="pb-6">

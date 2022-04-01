@@ -1,7 +1,7 @@
 import { Linkedin, Github, Mail } from 'grommet-icons';
 
 const Footer = () => (
-    <footer className="absolute bottom-0 left-0 flex items-center justify-evenly gap-10 p-10">
+    <footer className="fixed bottom-0 left-0 flex items-center justify-evenly gap-10 p-10">
         <a href="https://github.com/alistairjoelquinn" target="_blank" rel="noreferrer noopener">
             <Github />
         </a>
