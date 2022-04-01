@@ -6,14 +6,15 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Full Stack Web Solutions</title>
+                <title>Alistair Quinn - Web Developer</title>
                 <link rel="icon" href="/favicon.png" />
             </Head>
             <header className="flex flex-col items-center justify-start py-4 font-dank">
-                <h3 className="text-black-700 py-6 text-5xl italic">alistair quinn</h3>
-                <hr className="h-0.5 w-4/6 rounded border-none bg-black" />
+                <h3 className="py-6 text-5xl italic text-myblack">alistair quinn</h3>
+                <hr className="h-0.5 w-4/6 rounded border-none bg-myblack" />
             </header>
-            <main className="text-black-700 flex w-full flex-col items-center font-dank">
+            <div className="absolute -z-10 h-screen min-w-full max-w-3xl -translate-x-96 -translate-y-96 -rotate-45 bg-myyellow" />
+            <main className="flex w-full flex-col items-center font-dank text-myblack">
                 <section className="w-4/6 text-xl">
                     <p className="pt-6 pb-6">Hi, I&#39;m Alistair.</p>
                     <p className="pb-6">
