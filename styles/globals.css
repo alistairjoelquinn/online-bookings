@@ -3,34 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Lora';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/lora.ttf') format('truetype');
-}
-  
-@font-face {
-    font-family: 'Lora';
-    font-style: italic;
-    font-weight: 400;
-    src: url('/fonts/lora-italic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Josefin';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/JosefinSans.ttf') format('truetype');
-}
-  
-@font-face {
-    font-family: 'Josefin';
-    font-style: italic;
-    font-weight: 400;
-    src: url('/fonts/JosefinSans-italic.ttf') format('truetype');
-}
-
-@font-face {
     font-family: 'DankMono';
     font-style: normal;
     font-weight: 400;
