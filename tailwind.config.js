@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        lira: ['lira', 'lira-italic'],
+        lora: ['Lora', 'serif'],
+        josefin: ['Josefin', 'sans-serif']
       },
     },
   },
