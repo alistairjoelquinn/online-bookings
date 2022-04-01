@@ -9,11 +9,11 @@ const Home: NextPage = () => {
                 <title>Full Stack Web Solutions</title>
                 <link rel="icon" href="/favicon.png" />
             </Head>
-            <header className="flex flex-col items-center justify-start py-2">
-                <h3 className="text-black-700 pt-6 pb-4 font-lora text-4xl italic">alistair quinn</h3>
+            <header className="flex flex-col items-center justify-start py-4 font-dank">
+                <h3 className="text-black-700 py-6 text-5xl italic">alistair quinn</h3>
                 <hr className="h-0.5 w-4/6 rounded border-none bg-black" />
             </header>
-            <main className="text-black-700 flex w-full flex-col items-center font-josefin">
+            <main className="text-black-700 flex w-full flex-col items-center font-dank">
                 <section className="w-4/6 text-xl">
                     <p className="pt-6 pb-6">Hi, I&#39;m Alistair.</p>
                     <p className="pb-6">

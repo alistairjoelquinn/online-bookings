@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         lora: ['Lora', 'serif'],
-        josefin: ['Josefin', 'sans-serif']
+        josefin: ['Josefin', 'sans-serif'],
+        dank: ['DankMono', 'sans-serif'],
       },
     },
   },
