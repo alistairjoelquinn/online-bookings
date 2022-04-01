@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Linkedin, Github, Mail } from 'grommet-icons';
 
 const Home: NextPage = () => {
     console.log('home page');
@@ -27,6 +28,15 @@ const Home: NextPage = () => {
                     </p>
                 </section>
             </main>
+            <footer>
+                <a href="https://github.com/alistairjoelquinn" target="_blank" rel="noreferrer noopener">
+                    <Github />
+                </a>
+                <a href="https://www.linkedin.com/in/alistairjoelquinn/" target="_blank" rel="noreferrer noopener">
+                    <Linkedin />
+                </a>
+                <Mail />
+            </footer>
         </>
     );
 };
