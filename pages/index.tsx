@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Linkedin, Github, Mail } from 'grommet-icons';
 import MainSection from '../components/MainSection';
+import Footer from '../components/Footer';
 
 const Home: NextPage = () => (
     <>
@@ -15,15 +15,7 @@ const Home: NextPage = () => (
         </header>
         <div className="absolute top-0 -left-40 -z-10 h-screen min-w-full max-w-3xl -translate-x-96 -translate-y-96 -rotate-45 bg-myyellow" />
         <MainSection />
-        <footer className="absolute bottom-0 left-0 flex items-center justify-evenly gap-10 p-10">
-            <a href="https://github.com/alistairjoelquinn" target="_blank" rel="noreferrer noopener">
-                <Github />
-            </a>
-            <a href="https://www.linkedin.com/in/alistairjoelquinn/" target="_blank" rel="noreferrer noopener">
-                <Linkedin />
-            </a>
-            <Mail className="cursor-pointer" />
-        </footer>
+        <Footer />
     </>
 );
 
