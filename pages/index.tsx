@@ -13,6 +13,7 @@ const Home: NextPage = () => (
         </Head>
         <Header />
         <MainSection />
+        <div>test</div>
         <Footer />
     </>
 );
