@@ -8,11 +8,10 @@ import Header from '../components/Header';
 const Home: NextPage = () => (
     <>
         <Head>
-            <title>Alistair Quinn - Web Developer</title>
+            <title>Felicity Quinn - English Teacher</title>
             <link rel="icon" href="/favicon.png" />
         </Head>
         <Header />
-        <div className="fixed top-0 -left-40 -z-10 h-screen min-w-full max-w-3xl -translate-x-96 -translate-y-96 -rotate-45 bg-myyellow" />
         <MainSection />
         <Footer />
     </>

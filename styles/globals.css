@@ -17,7 +17,7 @@
 }
 
 @layer base {
-    body {
-        @apply bg-mypink overflow-x-hidden
-    }
+    /* body {
+        @apply bg-gradient-to-bl
+    } */
 }
