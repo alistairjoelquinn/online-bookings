@@ -19,7 +19,19 @@
 }
 
 @layer components {
-    /* body {
-        @apply bg-gradient-to-bl
-    } */
+    a:focus {
+        @apply outline-none;
+    }
+
+    a:focus-visible {
+        @apply ring-blue-800 dark:ring-blue-600 ring-2 ring-opacity-50;
+    }
+
+    .btn {
+        @apply bg-blue-700 text-white hover:text-white hover:bg-blue-800 focus:ring-blue-800 active:bg-blue-900 dark:focus:ring-blue-400 dark:ring-offset-gray-900 inline-block w-full rounded-lg px-5 py-3 text-sm font-semibold shadow-lg focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 sm:w-auto md:px-10 md:py-4 md:text-lg;
+    }
+
+    .input {
+        @apply text-black border-gray-300 focus:ring-blue-800 focus:border-transparent dark:focus:ring-blue-400 rounded-md px-5 py-3 shadow-sm focus:ring-2 focus:ring-opacity-50 dark:focus:ring-4 dark:focus:ring-opacity-50 sm:w-1/2;
+    }
 }
