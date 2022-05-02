@@ -2,21 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'DankMono';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/DankMono.ttf') format('truetype');
-}
-  
-@font-face {
-    font-family: 'DankMono';
-    font-style: italic;
-    font-weight: 400;
-    src: url('/fonts/DankMono-Italic.ttf') format('truetype');
+@layer base {
+    @font-face {
+        font-family: 'DankMono';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/DankMono.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'DankMono';
+        font-style: italic;
+        font-weight: 400;
+        src: url('/fonts/DankMono-Italic.ttf') format('truetype');
+    }
 }
 
-@layer base {
+@layer components {
     /* body {
         @apply bg-gradient-to-bl
     } */
