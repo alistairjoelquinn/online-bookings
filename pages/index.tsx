@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import Footer from '../components/Footer';
 
 const Home: NextPage = () => (
     <section className="flex">
@@ -19,7 +20,7 @@ const Home: NextPage = () => (
             </p>
 
             <Link href="/" passHref>
-                <button type="button" className="btn">
+                <button type="button" className="btn mr-5">
                     Book Online
                 </button>
             </Link>
@@ -38,6 +39,7 @@ const Home: NextPage = () => (
         >
             <polygon points="50,0 100,0 50,100 0,100" />
         </svg>
+        <Footer />
     </section>
 );
 
