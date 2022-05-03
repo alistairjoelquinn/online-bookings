@@ -3,13 +3,13 @@ import type { NextPage } from 'next';
 
 const Home: NextPage = () => (
     <section className="flex">
-        <div className="m-16 h-1/4 w-1/3 overflow-hidden rounded-2xl shadow-xl">
+        <div className="m-16 h-1/5 w-1/4 overflow-hidden rounded-2xl shadow-xl">
             <img src="img/main-image.jpg" className="h-full w-full rounded-2xl object-cover" alt="Felicity Quinn" />
         </div>
-        <div className="max-w-5xl px-4 pt-24 pb-20 text-center lg:w-1/2 lg:max-w-lg lg:text-left">
+        <div className="max-w-5xl px-4 pt-16 pb-20 text-center lg:w-1/2 lg:max-w-lg lg:text-left">
             <h1 className="text-4xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
                 Felicity Quinn
-                <span className="block text-purple-700">English Teacher</span>
+                <span className="block text-5xl text-purple-700">English Teacher</span>
             </h1>
 
             <p className="mx-auto mt-3 max-w-md text-lg tracking-wide text-gray-500 dark:text-gray-400 sm:text-xl md:mt-5 md:max-w-3xl">
