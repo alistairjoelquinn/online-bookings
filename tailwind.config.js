@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable prettier/prettier */
 module.exports = {
+    mode: 'jit',
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     darkMode: 'media',
     theme: {
@@ -46,6 +47,11 @@ module.exports = {
                     },
                 },
             }),
+        },
+    },
+    variants: {
+        extend: {
+            typography: ['dark'],
         },
     },
     plugins: [

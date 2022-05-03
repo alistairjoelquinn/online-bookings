@@ -4,8 +4,8 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 const tv = () => (
-    <>
-        <main className="lg:relative lg:mx-auto lg:max-w-7xl">
+    <main className="bg-gray-50 p-0 text-gray-900 dark:bg-gray-900">
+        <section className="lg:relative lg:mx-auto lg:max-w-7xl">
             <div className="h-64 sm:h-72 md:h-96 lg:absolute lg:right-0 lg:h-full lg:w-1/2">
                 <img className="h-full w-full object-cover" src="img/hero.jpg" alt="Star Wars" />
             </div>
@@ -26,7 +26,7 @@ const tv = () => (
                     </a>
                 </div>
             </div>
-        </main>
+        </section>
 
         <ul className="mx-auto mt-28 space-y-12 px-5 sm:max-w-2xl md:mt-36 lg:mt-32 lg:grid lg:max-w-5xl lg:grid-cols-2 lg:gap-x-8 lg:gap-y-12 lg:space-y-0">
             <li className="rounded-md border bg-blue-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
@@ -233,7 +233,7 @@ const tv = () => (
                 </div>
             </form>
         </div>
-    </>
+    </main>
 );
 
 export default tv;

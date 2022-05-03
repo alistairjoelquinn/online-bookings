@@ -1,14 +1,14 @@
 import type { AppProps } from 'next/app';
-// import Head from 'next/head';
+import Head from 'next/head';
 
 import '../styles/globals.css';
 
 const App = ({ Component, pageProps }: AppProps) => (
     <>
-        {/* <Head>
+        <Head>
             <title>Felicity Quinn - English Teacher</title>
             <link rel="icon" href="/favicon.png" />
-        </Head> */}
+        </Head>
         <Component {...pageProps} />
     </>
 );
