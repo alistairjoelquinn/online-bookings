@@ -16,9 +16,6 @@
         font-weight: 400;
         src: url('/fonts/DankMono-Italic.ttf') format('truetype');
     }
-}
-
-@layer base {
     a:focus {
         @apply outline-none;
     }
