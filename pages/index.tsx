@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
+import Link from 'next/link';
 
 const Home: NextPage = () => (
     <section className="flex">
@@ -12,16 +13,21 @@ const Home: NextPage = () => (
                 <span className="block text-5xl text-purple-700 md:text-6xl lg:text-5xl">English Teacher</span>
             </div>
 
-            <p className="mx-auto mt-3 max-w-xl text-lg tracking-wide text-gray-500 dark:text-gray-400 sm:text-xl md:mt-5 md:max-w-xl">
+            <p className="mb-10 mt-3 max-w-lg text-2xl tracking-wide text-gray-500 dark:text-gray-400 md:mt-5 md:max-w-lg">
                 Hi, I&apos;m Felicity. I&apos;m an English teacher from Scotland, living in Berlin, Germany. I&apos;m
                 passionate about helping people from all over the world to reach their language learning goals smiling.
             </p>
 
-            <div className="mt-10">
-                <a href="/home" className="btn">
+            <Link href="/" passHref>
+                <button type="button" className="btn">
                     Book Online
-                </a>
-            </div>
+                </button>
+            </Link>
+            <Link href="/" passHref>
+                <button type="button" className="btn-invert">
+                    Learn More
+                </button>
+            </Link>
         </div>
         <svg
             className="absolute inset-y-0 right-0 hidden h-full w-3/4 translate-x-1/2 transform text-purple-700 opacity-75 lg:block"

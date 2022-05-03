@@ -12,17 +12,14 @@
     p {
         font-family: Lora;
     }
-    a:focus {
-        @apply outline-none;
-    }
-
-    a:focus-visible {
-        @apply ring-purple-800 dark:ring-purple-600 ring-2 ring-opacity-50;
-    }
 }
 
 @layer components {
     .btn {
+        @apply tracking-wide bg-purple-700 text-white hover:text-white hover:bg-purple-800 focus:ring-purple-800 active:bg-purple-900 dark:focus:ring-purple-400 dark:ring-offset-gray-900 inline-block w-full rounded-lg px-5 py-3 text-sm font-semibold shadow-lg focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 sm:w-auto md:px-10 md:py-4 md:text-lg;
+    }
+
+    .btn-invert {
         @apply tracking-wide bg-purple-700 text-white hover:text-white hover:bg-purple-800 focus:ring-purple-800 active:bg-purple-900 dark:focus:ring-purple-400 dark:ring-offset-gray-900 inline-block w-full rounded-lg px-5 py-3 text-sm font-semibold shadow-lg focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 sm:w-auto md:px-10 md:py-4 md:text-lg;
     }
 
