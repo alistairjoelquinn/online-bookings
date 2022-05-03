@@ -7,10 +7,10 @@ const Home: NextPage = () => (
             <img src="img/main-image.jpg" className="h-full w-full rounded-2xl object-cover" alt="Felicity Quinn" />
         </div>
         <div className="max-w-6xl px-4 pt-16 pb-20 text-left lg:w-1/2 lg:max-w-xl">
-            <h1 className="text-4xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
-                Felicity Quinn
-                <span className="block text-5xl text-purple-700">English Teacher</span>
-            </h1>
+            <div className="text-4xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
+                <h3>Felicity Quinn</h3>
+                <span className="block text-5xl text-purple-700 md:text-6xl lg:text-5xl">English Teacher</span>
+            </div>
 
             <p className="mx-auto mt-3 max-w-xl text-lg tracking-wide text-gray-500 dark:text-gray-400 sm:text-xl md:mt-5 md:max-w-xl">
                 Hi, I&apos;m Felicity. I&apos;m an English teacher from Scotland, living in Berlin, Germany. I&apos;m
