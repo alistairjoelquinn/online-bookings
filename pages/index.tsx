@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import { Moon } from 'grommet-icons';
+
 import Footer from '../components/Footer';
 
 const Home: NextPage = () => (
