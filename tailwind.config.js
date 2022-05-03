@@ -23,7 +23,7 @@ module.exports = {
                             color: theme('colors.gray.300'),
                         },
                         a: {
-                            color: theme('colors.blue.400'),
+                            color: theme('colors.purple.400'),
                         },
                         strong: {
                             color: theme('colors.white'),

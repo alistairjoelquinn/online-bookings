@@ -13,7 +13,7 @@ const tv = () => (
             <div className="max-w-5xl px-4 pt-8 pb-20 text-center lg:w-1/2 lg:max-w-lg lg:py-48 lg:text-left">
                 <h1 className="text-4xl font-extrabold tracking-tight dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
                     Watch your favorite
-                    <span className="block text-blue-700">movies and TV shows</span>
+                    <span className="block text-purple-700">movies and TV shows</span>
                 </h1>
 
                 <p className="mx-auto mt-3 max-w-md text-lg text-gray-500 dark:text-gray-400 sm:text-xl md:mt-5 md:max-w-3xl">
@@ -29,7 +29,7 @@ const tv = () => (
         </section>
 
         <ul className="mx-auto mt-28 space-y-12 px-5 sm:max-w-2xl md:mt-36 lg:mt-32 lg:grid lg:max-w-5xl lg:grid-cols-2 lg:gap-x-8 lg:gap-y-12 lg:space-y-0">
-            <li className="rounded-md border bg-blue-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
+            <li className="rounded-md border bg-purple-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
                 <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:h-full lg:gap-8">
                     <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
                         <img
@@ -42,7 +42,7 @@ const tv = () => (
                     <div className="space-y-4 sm:relative sm:col-span-2 sm:h-full">
                         <div className="space-y-1 text-lg font-medium leading-6">
                             <h3 className="dark:text-white">Black Widow</h3>
-                            <p className="text-blue-600">Movie</p>
+                            <p className="text-purple-600">Movie</p>
                         </div>
 
                         <p className="text-base text-gray-500 line-clamp-5">
@@ -56,7 +56,7 @@ const tv = () => (
                 </div>
             </li>
 
-            <li className="rounded-md border bg-blue-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
+            <li className="rounded-md border bg-purple-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
                 <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:h-full lg:gap-8">
                     <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
                         <img className="rounded-lg object-cover shadow-lg" src="img/dune.jpg" alt="Dune" />
@@ -65,7 +65,7 @@ const tv = () => (
                     <div className="space-y-4 sm:relative sm:col-span-2 sm:h-full">
                         <div className="space-y-1 text-lg font-medium leading-6">
                             <h3 className="dark:text-white">Dune</h3>
-                            <p className="text-blue-600">Movie</p>
+                            <p className="text-purple-600">Movie</p>
                         </div>
 
                         <p className="text-base text-gray-500 line-clamp-5">
@@ -81,7 +81,7 @@ const tv = () => (
                 </div>
             </li>
 
-            <li className="rounded-md border bg-blue-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
+            <li className="rounded-md border bg-purple-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
                 <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:h-full lg:gap-8">
                     <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
                         <img
@@ -94,7 +94,7 @@ const tv = () => (
                     <div className="space-y-4 sm:relative sm:col-span-2 sm:h-full">
                         <div className="space-y-1 text-lg font-medium leading-6">
                             <h3 className="dark:text-white">Loki</h3>
-                            <p className="text-blue-600">TV Show</p>
+                            <p className="text-purple-600">TV Show</p>
                         </div>
 
                         <p className="text-base text-gray-500 line-clamp-5">
@@ -109,7 +109,7 @@ const tv = () => (
                 </div>
             </li>
 
-            <li className="rounded-md border bg-blue-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
+            <li className="rounded-md border bg-purple-50 px-3 py-5 dark:border-gray-700 dark:bg-gray-800 lg:h-[17.6rem]">
                 <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:h-full lg:gap-8">
                     <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
                         <img
@@ -122,7 +122,7 @@ const tv = () => (
                     <div className="space-y-4 sm:relative sm:col-span-2 sm:h-full">
                         <div className="space-y-1 text-lg font-medium leading-6">
                             <h3 className="dark:text-white">Mare of Easttown</h3>
-                            <p className="text-blue-600">TV Show</p>
+                            <p className="text-purple-600">TV Show</p>
                         </div>
 
                         <p className="text-base text-gray-500 line-clamp-5">
@@ -137,7 +137,7 @@ const tv = () => (
             </li>
         </ul>
 
-        <div className="prose prose-blue mx-auto px-5 py-20 dark:prose-dark md:px-0 lg:prose-lg lg:mt-24">
+        <div className="prose prose-purple mx-auto px-5 py-20 dark:prose-dark md:px-0 lg:prose-lg lg:mt-24">
             <hr className="mx-auto w-20" />
 
             <h2>Whats this?</h2>
