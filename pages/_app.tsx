@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Layout from '../components/Layout';
 
 import '../styles/globals.css';
 
@@ -9,7 +10,9 @@ const App = ({ Component, pageProps }: AppProps) => (
             <title>Felicity Quinn - English Teacher</title>
             <link rel="icon" href="/favicon.png" />
         </Head>
-        <Component {...pageProps} />
+        <Layout>
+            <Component {...pageProps} />
+        </Layout>
     </section>
 );
 
