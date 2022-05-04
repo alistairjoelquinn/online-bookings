@@ -9,7 +9,7 @@ const Home: NextPage = () => (
             <span className="block text-5xl text-purple-700 md:text-6xl lg:text-5xl">English Teacher</span>
         </div>
 
-        <p className="mb-10 mt-3 max-w-lg text-2xl tracking-wide text-gray-500 dark:text-gray-400 md:mt-5 md:max-w-lg">
+        <p className="para">
             Hi, I&apos;m Felicity. I&apos;m an English teacher from Scotland, living in Berlin, Germany. I&apos;m
             passionate about helping people from all over the world to reach their language learning goals smiling.
         </p>
