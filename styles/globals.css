@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    width: 100vw;
+    overflow: hidden;
+}
+
 @layer base {
     @font-face {
         font-family: 'Lora';
@@ -16,14 +21,14 @@
 
 @layer components {
     .btn {
-        @apply tracking-wide bg-purple-700 text-white hover:text-white hover:bg-purple-800 focus:ring-purple-800 active:bg-purple-900 dark:focus:ring-purple-400 dark:ring-offset-gray-900 inline-block w-full rounded-lg px-5 py-3 text-sm font-semibold shadow-lg focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 sm:w-auto md:px-10 md:py-4 md:text-lg;
+        @apply inline-block w-full rounded-lg bg-purple-700 px-5 py-3 text-sm font-semibold tracking-wide text-white shadow-lg hover:bg-purple-800 hover:text-white focus:outline-none focus:ring focus:ring-purple-800 focus:ring-opacity-50 focus:ring-offset-2 active:bg-purple-900 dark:ring-offset-gray-900 dark:focus:ring-purple-400 sm:w-auto md:px-10 md:py-4 md:text-lg;
     }
 
     .btn-invert {
-        @apply tracking-wide text-purple-600 bg-white border-2 border-purple-300 hover:bg-gray-50 hover:text-purple-800 focus:ring-purple-800 active:bg-gray-200 dark:focus:ring-purple-400 dark:bg-gray-200 dark:ring-offset-gray-900 inline-block w-full rounded-lg px-5 py-3 text-sm font-semibold shadow-lg focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 sm:w-auto md:px-10 md:py-4 md:text-lg;
+        @apply inline-block w-full rounded-lg border-2 border-purple-300 bg-white px-5 py-3 text-sm font-semibold tracking-wide text-purple-600 shadow-lg hover:bg-gray-50 hover:text-purple-800 focus:outline-none focus:ring focus:ring-purple-800 focus:ring-opacity-50 focus:ring-offset-2 active:bg-gray-200 dark:bg-gray-200 dark:ring-offset-gray-900 dark:focus:ring-purple-400 sm:w-auto md:px-10 md:py-4 md:text-lg;
     }
 
     .input {
-        @apply text-black border-gray-300 focus:ring-purple-800 focus:border-transparent dark:focus:ring-purple-400 rounded-md px-5 py-3 shadow-sm focus:ring-2 focus:ring-opacity-50 dark:focus:ring-4 dark:focus:ring-opacity-50 sm:w-1/2;
+        @apply rounded-md border-gray-300 px-5 py-3 text-black shadow-sm focus:border-transparent focus:ring-2 focus:ring-purple-800 focus:ring-opacity-50 dark:focus:ring-4 dark:focus:ring-purple-400 dark:focus:ring-opacity-50 sm:w-1/2;
     }
 }
