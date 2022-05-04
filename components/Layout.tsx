@@ -1,3 +1,5 @@
+import Footer from './Footer';
+
 const Layout: React.FC = ({ children }) => (
     <div>
         {children}
@@ -10,6 +12,7 @@ const Layout: React.FC = ({ children }) => (
         >
             <polygon points="50,0 100,0 50,100 0,100" />
         </svg>
+        <Footer />
     </div>
 );
 

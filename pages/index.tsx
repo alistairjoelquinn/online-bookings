@@ -2,8 +2,6 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 
-import Footer from '../components/Footer';
-
 const Home: NextPage = () => (
     <section className="flex flex-col md:flex-row">
         <div className="m-0 h-full w-screen overflow-hidden rounded-none shadow-xl md:m-16 md:h-1/5 md:w-1/5 md:rounded-lg">
@@ -35,16 +33,6 @@ const Home: NextPage = () => (
                 </button>
             </Link>
         </div>
-        <svg
-            className="absolute inset-y-0 right-0 hidden h-full w-3/4 translate-x-1/2 transform text-purple-700 opacity-75 lg:block"
-            fill="currentColor"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-        >
-            <polygon points="50,0 100,0 50,100 0,100" />
-        </svg>
-        <Footer />
     </section>
 );
 
