@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    width: 100vw;
-    overflow-x: hidden;
-}
-
 @layer base {
     @font-face {
         font-family: 'Lora';
@@ -16,6 +11,10 @@ body {
     }
     p {
         font-family: Lora;
+    }
+    body {
+        width: 100vw;
+        overflow-x: hidden;
     }
 }
 
