@@ -1,17 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
 import Link from 'next/link';
-import { Moon } from 'grommet-icons';
 
 import Footer from '../components/Footer';
 
 const Home: NextPage = () => (
-    <section className="flex">
-        <div className="m-16 h-1/5 w-1/5 overflow-hidden rounded-full shadow-xl lg:w-1/4 lg:rounded-2xl">
-            <img src="img/main-image.jpg" className="h-full w-full rounded-2xl object-cover" alt="Felicity Quinn" />
+    <section className="flex flex-col md:flex-row">
+        <div className="m-0 h-full w-screen overflow-hidden rounded-none shadow-xl md:m-16 md:h-1/5 md:w-1/5 md:rounded-lg">
+            <img
+                src="img/main-image.jpg"
+                className="h-full w-full rounded-none object-cover md:rounded-2xl"
+                alt="Felicity Quinn"
+            />
         </div>
-        <div className="max-w-6xl px-4 pt-16 pb-20 text-left lg:w-1/2 lg:max-w-xl">
-            <div className="text-4xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
+        <div className="max-w-6xl px-4 pt-5 pb-0 text-left md:pt-16 md:pb-20 lg:w-1/2 lg:max-w-xl">
+            <div className="text-5xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
                 <h3>Felicity Quinn</h3>
                 <span className="block text-5xl text-purple-700 md:text-6xl lg:text-5xl">English Teacher</span>
             </div>
@@ -22,12 +25,12 @@ const Home: NextPage = () => (
             </p>
 
             <Link href="/" passHref>
-                <button type="button" className="btn mr-5">
+                <button type="button" className="btn mr-5 mb-5 md:mb-0">
                     Book Online
                 </button>
             </Link>
             <Link href="/" passHref>
-                <button type="button" className="btn-invert">
+                <button type="button" className="btn-invert mb-5 md:mb-0">
                     Learn More
                 </button>
             </Link>
