@@ -7,7 +7,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                dank: ['DankMono', 'sans-serif'],
+                lora: ['Lora', 'serif'],
             },
             typography: theme => ({
                 dark: {
