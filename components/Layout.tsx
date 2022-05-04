@@ -11,7 +11,7 @@ const Layout: React.FC = ({ children }) => (
             />
         </div>
 
-        <div className="">{children}</div>
+        {children}
         <svg
             className="absolute inset-y-0 right-0 hidden h-full w-3/4 translate-x-1/2 transform text-purple-700 opacity-75 lg:block"
             fill="currentColor"
