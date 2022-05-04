@@ -1,6 +1,6 @@
 const About = () => (
-    <div className="h-screen pt-6 md:pt-16">
-        <section className="h-4/5 max-w-6xl overflow-scroll px-4 pt-0 text-left lg:max-w-xl">
+    <div className="pt-6 md:h-screen md:pt-16">
+        <section className="max-w-6xl overflow-scroll px-4 pt-0 text-left md:h-4/5 lg:max-w-xl">
             <div className="text-5xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
                 <h3>About me.</h3>
             </div>

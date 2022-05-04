@@ -33,6 +33,6 @@ body {
     }
 
     .para {
-        @apply mb-10 mt-3 max-w-lg text-2xl tracking-wide text-gray-500 dark:text-gray-400 md:mt-5 md:max-w-lg;
+        @apply mb-10 mt-3 text-2xl tracking-wide text-gray-500 dark:text-gray-400 md:mt-5 md:max-w-lg;
     }
 }
