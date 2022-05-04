@@ -1,7 +1,16 @@
+/* eslint-disable @next/next/no-img-element */
 import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => (
-    <div>
+    <section className="flex flex-col md:flex-row">
+        <div className="m-0 h-full w-screen overflow-hidden rounded-none shadow-xl md:m-16 md:h-1/5 md:w-1/5 md:rounded-lg">
+            <img
+                src="img/main-image.jpg"
+                className="h-full w-full rounded-none object-cover md:rounded-2xl"
+                alt="Felicity Quinn"
+            />
+        </div>
+
         {children}
         <svg
             className="absolute inset-y-0 right-0 hidden h-full w-3/4 translate-x-1/2 transform text-purple-700 opacity-75 lg:block"
@@ -13,7 +22,7 @@ const Layout: React.FC = ({ children }) => (
             <polygon points="50,0 100,0 50,100 0,100" />
         </svg>
         <Footer />
-    </div>
+    </section>
 );
 
 export default Layout;
