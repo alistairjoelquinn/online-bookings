@@ -1,5 +1,5 @@
 const About = () => (
-    <section className="h-96 max-w-6xl overflow-scroll px-4 pb-0 text-left md:mt-16 md:pb-20 lg:w-1/2 lg:max-w-xl">
+    <section className="max-w-6xl overflow-scroll px-4 pb-0 text-left md:mt-16 md:pb-20 lg:w-1/2 lg:max-w-xl">
         <p className="para mt-0 pt-0">
             I have a background in English Literature and Creative Writing and worked for many years in the hospitality
             industry. In 2020 I combined my love of English with my passion for working with and meeting new people. I
