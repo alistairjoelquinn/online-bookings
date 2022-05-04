@@ -1,6 +1,10 @@
 const About = () => (
-    <section className="max-w-6xl overflow-scroll px-4 pb-0 text-left md:mt-16 md:pb-20 lg:w-1/2 lg:max-w-xl">
-        <p className="para mt-0 pt-0">
+    <section className="h-2/5 max-w-6xl overflow-scroll px-4 pb-0 text-left md:mt-16 md:pb-20 lg:max-w-xl">
+        <div className="text-5xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
+            <h3>About me.</h3>
+            {/* <span className="block text-5xl text-purple-700 md:text-6xl lg:text-5xl">English Teacher</span> */}
+        </div>
+        <p className="para">
             I have a background in English Literature and Creative Writing and worked for many years in the hospitality
             industry. In 2020 I combined my love of English with my passion for working with and meeting new people. I
             now teach in a language school here in Berlin as well as online.

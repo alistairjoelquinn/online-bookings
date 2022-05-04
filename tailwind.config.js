@@ -9,12 +9,6 @@ module.exports = {
             fontFamily: {
                 dank: ['DankMono', 'sans-serif'],
             },
-            colors: {
-                mybrown: '#CF8E80',
-                mypink: '#FCDDF2',
-                myyellow: '#F9EA9A',
-                myblack: '#2F2F2F',
-            },
             typography: theme => ({
                 dark: {
                     css: {
