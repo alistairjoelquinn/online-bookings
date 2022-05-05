@@ -2,8 +2,8 @@
 import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => (
-    <section className="flex min-h-screen w-screen flex-col bg-gray-50 text-gray-900 dark:bg-gray-900 md:flex-row">
-        <div className="m-0 h-full w-screen overflow-hidden rounded-none shadow-xl md:m-16 md:h-1/5 md:w-1/5 md:rounded-lg">
+    <section className="flex min-h-screen w-screen flex-col bg-gray-50 bg-gradient-to-r from-gray-100 to-white text-gray-900 dark:bg-gray-900 md:flex-row">
+        <div className="m-0 h-full w-screen overflow-hidden rounded-none shadow-xl md:m-16 md:h-1/5 md:w-1/5 md:rounded-2xl">
             <img
                 src="img/main-image.jpg"
                 className="h-full w-full rounded-none object-cover md:rounded-2xl"
@@ -19,7 +19,7 @@ const Layout: React.FC = ({ children }) => (
             preserveAspectRatio="none"
             aria-hidden="true"
         >
-            <polygon points="50,0 100,0 50,100 0,100" />
+            <polygon className="bg-gradient-to-r from-purple-800" points="50,0 100,0 50,100 0,100" />
         </svg>
         <Footer />
     </section>

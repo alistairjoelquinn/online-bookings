@@ -9,6 +9,9 @@ module.exports = {
             fontFamily: {
                 lora: ['Lora', 'serif'],
             },
+            colors: {
+                offwhite: '#F0F0F0',
+            },
             typography: theme => ({
                 dark: {
                     css: {
