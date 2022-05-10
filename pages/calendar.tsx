@@ -2,14 +2,15 @@ import { useMemo, useState } from 'react';
 import getWeek from '../lib/getWeek';
 import { FormattedDate } from '../models/calendar';
 
+const getCurrentDate = () =>
+    new Date()
+        .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
+        .split('/')
+        .reverse()
+        .join('/');
+
 const Calendar = () => {
-    const [selectedDate, setSelectedDate] = useState(() =>
-        new Date()
-            .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
-            .split('/')
-            .reverse()
-            .join('/'),
-    );
+    const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
 
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setSelectedDate(e.target.value);
@@ -22,12 +23,17 @@ const Calendar = () => {
                 <input type="date" onChange={dateChangeHandler} />
             </div>
             {week && (
-                <div className="grid h-96 grid-cols-7 gap-2">
+                <div className="grid h-80 grid-cols-7 gap-2">
                     {week.map((day, i) => (
-                        <div className="flex h-full flex-col gap-2" key={day.id}>
-                            <div className="rounded-lg bg-purple-400">10am</div>
-                            <div className="rounded-lg bg-purple-400">1pm</div>
-                            <div className="rounded-lg bg-purple-400">4pm</div>
+                        <div
+                            className={`flex w-20 flex-col justify-between gap-2 ${
+                                day.id === selectedDate ? 'ring-2 ring-purple-800 ring-opacity-50' : ''
+                            }`}
+                            key={day.id}
+                        >
+                            <div className="h-24 rounded-lg bg-purple-400">10am</div>
+                            <div className="h-24 rounded-lg bg-purple-400">1pm</div>
+                            <div className="h-24 rounded-lg bg-purple-400">4pm</div>
                         </div>
                     ))}
                 </div>
