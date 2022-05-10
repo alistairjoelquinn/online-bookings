@@ -19,8 +19,11 @@ const Calendar = () => {
     return (
         <section className="relative z-10 pt-5 dark:text-gray-100 md:pt-16">
             <div className="flex flex-row">
-                <span>Select date:</span>
+                <span className="text-md py-3 pr-5 font-extrabold dark:text-gray-100 md:text-2xl lg:text-3xl">
+                    Select a date:
+                </span>
                 <input
+                    value={selectedDate}
                     type="date"
                     onChange={dateChangeHandler}
                     className="rounded-lg border-2 border-purple-300 bg-white px-5 py-3 text-black shadow-md "
@@ -34,7 +37,7 @@ const Calendar = () => {
                             <div
                                 className={`flex w-24 flex-col justify-between gap-4 rounded-lg ${
                                     day.id === selectedDate
-                                        ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2'
+                                        ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2 dark:ring-offset-gray-900'
                                         : ''
                                 }`}
                             >
