@@ -14,7 +14,7 @@ const Home: NextPage = () => (
             passionate about helping people from all over the world to reach their language learning goals smiling.
         </p>
 
-        <Link href="/" passHref>
+        <Link href="/calendar" passHref>
             <button type="button" className="btn mr-5 mb-5 md:mb-0">
                 Book Online
             </button>

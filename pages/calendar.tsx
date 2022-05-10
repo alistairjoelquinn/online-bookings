@@ -16,8 +16,7 @@ const Calendar = () => {
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setSelectedDate(e.target.value);
 
     return (
-        <section className="dark:text-gray-100">
-            <h1>Calendar page</h1>
+        <section className="relative z-10 pt-5 dark:text-gray-100 md:pt-16">
             <div className="flex flex-col">
                 <span>Select date:</span>
                 <input type="date" onChange={dateChangeHandler} />
