@@ -29,13 +29,13 @@ const Calendar = () => {
                             <div
                                 className={`flex w-24 flex-col justify-between gap-4 rounded-lg ${
                                     day.id === selectedDate
-                                        ? 'ring-2 ring-purple-900 ring-opacity-50 ring-offset-2'
+                                        ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2'
                                         : ''
                                 }`}
                             >
-                                <div className="h-24 rounded-lg bg-purple-400">10am</div>
-                                <div className="h-24 rounded-lg bg-purple-400">1pm</div>
-                                <div className="h-24 rounded-lg bg-purple-400">4pm</div>
+                                <div className="input">10am</div>
+                                <div className="input">1pm</div>
+                                <div className="input">4pm</div>
                             </div>
                         </div>
                     ))}
