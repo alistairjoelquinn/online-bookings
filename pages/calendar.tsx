@@ -16,24 +16,28 @@ const Calendar = () => {
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setSelectedDate(e.target.value);
 
     return (
-        <section className="dark:text-gray-100 lg:max-w-xl">
+        <section className="dark:text-gray-100">
             <h1>Calendar page</h1>
-            <div className="flex flex-col pb-3">
+            <div className="flex flex-col">
                 <span>Select date:</span>
                 <input type="date" onChange={dateChangeHandler} />
             </div>
             {week && (
                 <div className="grid h-80 grid-cols-7 gap-2">
                     {week.map((day, i) => (
-                        <div
-                            className={`flex w-20 flex-col justify-between gap-2 ${
-                                day.id === selectedDate ? 'ring-2 ring-purple-800 ring-opacity-50' : ''
-                            }`}
-                            key={day.id}
-                        >
-                            <div className="h-24 rounded-lg bg-purple-400">10am</div>
-                            <div className="h-24 rounded-lg bg-purple-400">1pm</div>
-                            <div className="h-24 rounded-lg bg-purple-400">4pm</div>
+                        <div key={day.id}>
+                            <h1 className="py-3">{day.value}</h1>
+                            <div
+                                className={`flex w-24 flex-col justify-between gap-4 rounded-lg ${
+                                    day.id === selectedDate
+                                        ? 'ring-2 ring-purple-900 ring-opacity-50 ring-offset-2'
+                                        : ''
+                                }`}
+                            >
+                                <div className="h-24 rounded-lg bg-purple-400">10am</div>
+                                <div className="h-24 rounded-lg bg-purple-400">1pm</div>
+                                <div className="h-24 rounded-lg bg-purple-400">4pm</div>
+                            </div>
                         </div>
                     ))}
                 </div>
