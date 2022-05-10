@@ -27,8 +27,8 @@
         @apply inline-block w-full rounded-lg border-2 border-purple-300 bg-white px-5 py-3 text-sm font-semibold tracking-wide text-purple-600 shadow-lg hover:bg-gray-50 hover:text-purple-800 focus:outline-none focus:ring focus:ring-purple-800 focus:ring-opacity-50 focus:ring-offset-2 active:bg-gray-200 dark:bg-gray-200 dark:ring-offset-gray-900 dark:focus:ring-purple-400 sm:w-auto md:px-10 md:py-4 md:text-lg;
     }
 
-    .input {
-        @apply h-24 rounded-lg border-2 border-purple-300 bg-white px-5 py-3 text-black shadow-md focus:border-transparent focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 dark:focus:ring-4 dark:focus:ring-purple-400 dark:focus:ring-opacity-50;
+    .calendar-day {
+        @apply h-24 rounded-lg border-2 border-purple-300 bg-white px-5 py-3 text-black shadow-md;
     }
 
     .para {
