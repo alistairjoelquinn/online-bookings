@@ -10,8 +10,9 @@ const Home: NextPage = () => (
         </div>
 
         <p className="para">
-            Hi, I&apos;m Felicity. I&apos;m an English teacher from Scotland, living in Berlin, Germany. I&apos;m
-            passionate about helping people from all over the world to reach their language learning goals smiling.
+            Hi, I&apos;m Felicity. I&apos;m an English teacher from Scotland, currently based in Berlin, Germany.
+            I&apos;m passionate about helping people from all over the world reach their language learning goals
+            smiling.
         </p>
 
         <Link href="/calendar" passHref>
