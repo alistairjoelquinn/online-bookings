@@ -13,7 +13,8 @@ const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
 
-    const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setSelectedDate(e.target.value);
+    const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+        setSelectedDate(e.target.value.split('-').join('/'));
 
     return (
         <section className="relative z-10 pt-5 dark:text-gray-100 md:pt-16">
@@ -27,7 +28,7 @@ const Calendar = () => {
             </div>
             {week && (
                 <div className="grid h-80 grid-cols-7 gap-2">
-                    {week.map((day, i) => (
+                    {week.map(day => (
                         <div key={day.id}>
                             <h1 className="py-3 text-center">{day.value}</h1>
                             <div
