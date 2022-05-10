@@ -4,7 +4,11 @@ import { FormattedDate } from '../models/calendar';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(() =>
-        new Date().toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' }),
+        new Date()
+            .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
+            .split('/')
+            .reverse()
+            .join('/'),
     );
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
 
@@ -18,9 +22,11 @@ const Calendar = () => {
                 <input type="date" onChange={dateChangeHandler} />
             </div>
             {week && (
-                <div>
+                <div className="grid grid-cols-7 ">
                     {week.map((day, i) => (
-                        <div key={day.id}>{day.id}</div>
+                        <div className="bg-purple-400 " key={day.id}>
+                            {day.id}
+                        </div>
                     ))}
                 </div>
             )}
