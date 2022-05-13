@@ -1,6 +1,7 @@
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import Calendar from '../components/Calendar';
+import Login from '../components/Login';
 
 const Bookings = () => {
     const { data: session } = useSession();
@@ -25,21 +26,9 @@ const Bookings = () => {
         }
     };
 
-    return (
-        <div>
-            <h3>Bookings page</h3>
-            {passwordAuthenticated ||
-                (session ? (
-                    <div className="spin" />
-                ) : (
-                    <>
-                        <p>Please enter the password to make a booking...</p>
-                        <input className="input" />
-                    </>
-                ))}
-            {passwordAuthenticated && <Calendar />}
-        </div>
-    );
+    if (passwordAuthenticated) return <Calendar />;
+
+    return <div>{session ? <div className="spin" /> : <Login />}</div>;
 };
 
 export default Bookings;
