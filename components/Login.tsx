@@ -1,18 +1,44 @@
+import { getCsrfToken } from 'next-auth/react';
+import { useState } from 'react';
+
 interface Props {
-    setPassword: (val: string) => void;
-    checkPassword: () => void;
+    setPasswordAuthenticated: (val: boolean) => void;
+    setError: (val: string) => void;
 }
 
-const Login = ({ setPassword, checkPassword }: Props) => {
-    const submitUserPassword = (e: React.FormEvent) => {
+const Login = ({ setPasswordAuthenticated, setError }: Props) => {
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        checkPassword();
+        const csrfToken = await getCsrfToken();
+
+        try {
+            const res = await fetch('/api/auth/callback/credentials', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ password, csrfToken }),
+            });
+            if (
+                res.url ===
+                `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/signin?callbackUrl=${process.env.NEXT_PUBLIC_NEXTAUTH_URL}&error=CredentialsSignin`
+            ) {
+                setError('Incorrect password!');
+            } else {
+                setPasswordAuthenticated(true);
+            }
+        } catch (err) {
+            setError('Oops, something went wrong!');
+        }
     };
 
     return (
-        <form onSubmit={submitUserPassword}>
+        <form onSubmit={handleSubmit}>
             <p>Please enter the password to make a booking...</p>
-            <input className="input" onChange={e => setPassword(e.target.value)} />
+            <input name="password" type="password" className="input" onChange={e => setPassword(e.target.value)} />
             <button type="submit" className="button">
                 Submit
             </button>

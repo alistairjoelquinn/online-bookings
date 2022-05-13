@@ -6,17 +6,14 @@ export default NextAuth({
         CredentialsProvider({
             name: 'Credentials',
             credentials: {
-                username: { label: 'Username', type: 'text', placeholder: 'username' },
                 password: { label: 'Password', type: 'password', placeholder: 'password' },
             },
             async authorize(credentials) {
-                if (!credentials || !credentials.username || !credentials.password) {
+                console.log('credentials: ', credentials);
+                if (!credentials || !credentials.password) {
                     return null;
                 }
-                if (
-                    credentials.username === process.env.NEXT_AUTH_USERNAME &&
-                    credentials.password === process.env.NEXT_AUTH_PASSWORD
-                ) {
+                if (credentials.password === process.env.NEXT_AUTH_PASSWORD) {
                     return {
                         accepted: true,
                     };
@@ -25,9 +22,6 @@ export default NextAuth({
             },
         }),
     ],
-    pages: {
-        signIn: '/signin',
-    },
     secret: process.env.NEXT_AUTH_SECRET,
     debug: true,
     logger: {
