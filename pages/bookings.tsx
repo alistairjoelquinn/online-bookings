@@ -1,16 +1,19 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import Calendar from '../components/Calendar';
 
 const Bookings = () => {
-    const [dasswordAuthenticated, setPasswordAuthenticated] = useState(false);
     const router = useRouter();
     const { data: session } = useSession({
         required: true,
         onUnauthenticated() {
-            router.replace('/signin');
+            // router.replace('/');
         },
     });
+    const [passwordAuthenticated, setPasswordAuthenticated] = useState(false);
+    const [error, setError] = useState('');
+    const [password, setPassword] = useState('');
 
     const checkPassword = async () => {
         const res = await fetch('/api/check-password', {
@@ -29,7 +32,13 @@ const Bookings = () => {
         }
     };
 
-    return <div>Bookings</div>;
+    return (
+        <div>
+            <h3>Bookings page</h3>
+            {passwordAuthenticated || (!session ? <div className="spin" /> : <input />)}
+            {passwordAuthenticated && <Calendar />}
+        </div>
+    );
 };
 
 export default Bookings;

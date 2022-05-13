@@ -15,7 +15,7 @@ const Home: NextPage = () => (
             smiling.
         </p>
 
-        <Link href="/calendar" passHref>
+        <Link href="/bookings" passHref>
             <button type="button" className="btn mr-5 mb-5 md:mb-0">
                 Book Online
             </button>

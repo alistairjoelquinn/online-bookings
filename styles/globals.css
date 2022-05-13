@@ -17,8 +17,8 @@
         overflow-x: hidden;
     }
     .spin {
-        border: solid 8px rgb(252, 240, 225);
-        border-bottom-color: rgb(235, 170, 91);
+        border: solid 8px rgb(216 180 254);
+        border-bottom-color: rgb(126 34 206);
         border-radius: 50%;
         height: 100px;
         width: 100px;
