@@ -10,6 +10,7 @@ export default NextAuth({
             },
             async authorize(credentials) {
                 console.log('credentials: ', credentials);
+                console.log('process.env.NEXT_AUTH_PASSWORD;: ', process.env.NEXT_AUTH_PASSWORD);
                 if (!credentials || !credentials.password) {
                     return null;
                 }
@@ -22,6 +23,9 @@ export default NextAuth({
             },
         }),
     ],
+    pages: {
+        signIn: '/bookings',
+    },
     secret: process.env.NEXT_AUTH_SECRET,
     debug: true,
     logger: {
