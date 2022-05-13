@@ -26,9 +26,14 @@ const Bookings = () => {
         }
     };
 
+    if (error) return <p className="error">Oops, something unexpected went wrong!</p>;
     if (passwordAuthenticated) return <Calendar />;
 
-    return <div>{session ? <div className="spin" /> : <Login />}</div>;
+    return (
+        <div>
+            {session ? <div className="spin" /> : <Login checkPassword={checkPassword} setPassword={setPassword} />}
+        </div>
+    );
 };
 
 export default Bookings;
