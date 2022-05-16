@@ -16,9 +16,10 @@
         width: 100vw;
         overflow-x: hidden;
     }
-    .open-section {
-        /* border-radius: 20px; */
-        background-color: green;
+    .open-slot + .available,
+    .booked + .available,
+    .open-slot + .booked,
+    .available + .booked {
         border-radius: 10px 10px 0 0;
     }
     .spin {

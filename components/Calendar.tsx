@@ -10,56 +10,22 @@ import {
 } from '../lib/dates';
 import { AvailableTime, FormattedDate } from '../models/calendar';
 
-const checkSlot = (time: string, bookingData: any, dayId: string, index: number) => {
-    const timeArray = generateScheduleTimes(dayId);
-
-    const prevSlot = timeArray[index - 1];
-
-    let prevSlotStatus = 'open-slot';
+const checkSlot = (time: string, bookingData: any) => {
     let currentStatus = 'open-slot';
-
-    // let open = true;
-    bookingData?.[0].forEach((item: AvailableTime) => {
-        if (new Date(prevSlot) >= new Date(item.start) && new Date(prevSlot) <= new Date(item.end)) {
-            prevSlotStatus = 'available';
-        }
-    });
-    bookingData?.[1].forEach((item: AvailableTime) => {
-        if (new Date(prevSlot) >= new Date(item.start) && new Date(prevSlot) <= new Date(item.end)) {
-            prevSlotStatus = 'booked';
-        }
-    });
 
     bookingData?.[0].forEach((item: AvailableTime) => {
         if (new Date(time) >= new Date(item.start) && new Date(time) <= new Date(item.end)) {
             currentStatus = 'available';
         }
     });
+
     bookingData?.[1].forEach((item: AvailableTime) => {
-        if (new Date(time) >= new Date(item.start) && new Date(time) <= new Date(item.end)) {
+        if (new Date(time) >= new Date(item.start) && new Date(time) < new Date(item.end)) {
             currentStatus = 'booked';
         }
     });
 
-    let returnValue = '';
-    console.log('prevSlotStatus: ', prevSlotStatus);
-    console.log('currentStatus: ', currentStatus);
-
-    if (prevSlotStatus === 'open-slot' && currentStatus === 'available') {
-        returnValue = 'open-section';
-    }
-    if (prevSlotStatus === 'open-slot' && currentStatus === 'booked') {
-        returnValue = 'open-section';
-    }
-
-    if (prevSlotStatus === 'available' && currentStatus === 'booked') {
-        returnValue = 'open-section';
-    }
-    if (prevSlotStatus === 'booked' && currentStatus === 'available') {
-        returnValue = 'open-section';
-    }
-
-    return returnValue;
+    return currentStatus;
 };
 
 const Calendar = () => {
@@ -99,17 +65,11 @@ const Calendar = () => {
                                 }`}
                             >
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
-                                    {generateScheduleTimes(day.id).map((time, i) => (
-                                        // console.log('time: ', time);
+                                    {generateScheduleTimes(day.id).map(time => (
                                         <div
                                             id="booking"
                                             key={time}
-                                            className={`${checkSlot(
-                                                time,
-                                                bookingData,
-                                                day.id,
-                                                i,
-                                            )} h-2 ${bookingData?.[0]
+                                            className={`${checkSlot(time, bookingData)} h-2 ${bookingData?.[0]
                                                 .map(
                                                     (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
