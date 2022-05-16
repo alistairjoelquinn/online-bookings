@@ -1,10 +1,13 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import Layout from '../components/Layout';
 
 import '../styles/globals.css';
+
+const queryClient = new QueryClient();
 
 const App = ({ Component, pageProps }: AppProps) => (
     <SessionProvider session={pageProps.session}>
@@ -12,9 +15,11 @@ const App = ({ Component, pageProps }: AppProps) => (
             <title>Felicity Quinn - English Teacher</title>
             <link rel="icon" href="/favicon.png" />
         </Head>
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <QueryClientProvider client={queryClient}>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </QueryClientProvider>
     </SessionProvider>
 );
 
