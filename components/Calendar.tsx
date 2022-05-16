@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useQuery } from 'react-query';
 
 import { getWeek, getCurrentDate, scheduleTimes } from '../lib/dates';
 import { FormattedDate } from '../models/calendar';
@@ -7,9 +8,14 @@ const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
 
+    const { isLoading, isError, data } = useQuery('initial-times', getInitialTimes);
+
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedDate(e.target.value.split('-').join('/'));
     };
+
+    if (isLoading) return <div className="spin" />;
+    if (isError) return <span>Oops, something unexpected went wrong!</span>;
 
     return (
         <section className="relative z-10 pt-5 dark:text-gray-100 md:pt-16">
