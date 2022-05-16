@@ -8,7 +8,7 @@ import {
     getInitialAvailableTimes,
     generateScheduleTimes,
 } from '../lib/dates';
-import { FormattedDate } from '../models/calendar';
+import { AvailableTime, FormattedDate } from '../models/calendar';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
@@ -47,14 +47,22 @@ const Calendar = () => {
                                 }`}
                             >
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
-                                    {generateScheduleTimes(day.id).map(time => {
-                                        console.log('time: ', time);
-                                        return (
-                                            <div key={time} className="h-2 bg-blue-300">
-                                                {/* test */}
-                                            </div>
-                                        );
-                                    })}
+                                    {generateScheduleTimes(day.id).map(time => (
+                                        // console.log('time: ', time);
+                                        <div
+                                            key={time}
+                                            className={`h-2 ${bookingData?.[0]
+                                                .map((item: AvailableTime) => {
+                                                    console.log('item: ', item);
+                                                    console.log(
+                                                        'new Date(time) > new Date(item.start): ',
+                                                        new Date(time) >= new Date(item.start),
+                                                    );
+                                                    return new Date(time) >= new Date(item.start) && 'bg-blue-400';
+                                                })
+                                                .filter(Boolean)}`}
+                                        />
+                                    ))}
                                 </div>
                                 {scheduleTimesLabel.map((time: string, i: number) => (
                                     <span
