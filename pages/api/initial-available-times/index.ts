@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const data = await db.collection('available').find().toArray();
 
-    console.log('data: ', data);
+    console.log('data from MONGO: ', data);
 
     return res.json(data);
 };
