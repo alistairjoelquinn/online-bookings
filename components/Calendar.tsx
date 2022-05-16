@@ -41,14 +41,16 @@ const Calendar = () => {
                             <h1 className="py-3 text-center">{day.value}</h1>
                             <div
                                 onClick={() => setSelectedDate(day.id)}
-                                className={`calendar-day flex w-24 flex-col justify-between gap-2 rounded-lg p-1 text-sm ${
+                                className={`calendar-day flex w-36 flex-col justify-between rounded-lg p-1 text-xs ${
                                     day.id === selectedDate
                                         ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2 dark:ring-offset-gray-900'
                                         : ''
                                 }`}
                             >
                                 {scheduleTimes.map((time: string, i: number) => (
-                                    <span key={time + i}>{time}</span>
+                                    <span className="pb-3" key={time + i}>
+                                        {time}
+                                    </span>
                                 ))}
                             </div>
                         </div>
