@@ -52,14 +52,12 @@ const Calendar = () => {
                                         <div
                                             key={time}
                                             className={`h-2 ${bookingData?.[0]
-                                                .map((item: AvailableTime) => {
-                                                    console.log('item: ', item);
-                                                    console.log(
-                                                        'new Date(time) > new Date(item.start): ',
-                                                        new Date(time) >= new Date(item.start),
-                                                    );
-                                                    return new Date(time) >= new Date(item.start) && 'bg-blue-400';
-                                                })
+                                                .map(
+                                                    (item: AvailableTime) =>
+                                                        new Date(time) >= new Date(item.start) &&
+                                                        new Date(time) <= new Date(item.end) &&
+                                                        'bg-blue-400',
+                                                )
                                                 .filter(Boolean)}`}
                                         />
                                     ))}
