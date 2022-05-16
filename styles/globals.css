@@ -30,6 +30,10 @@
         border-right: 1px solid green;
         border-radius: 0 0 10px 10px;
     }
+    .available-block-center {
+        border-left: 1px solid green;
+        border-right: 1px solid green;
+    }
     .open-slot + .booked,
     .available + .booked {
         border-top: 1px solid red;
@@ -43,6 +47,10 @@
         border-left: 1px solid red;
         border-right: 1px solid red;
         border-radius: 0 0 10px 10px;
+    }
+    .booked-block-center {
+        border-left: 1px solid red;
+        border-right: 1px solid red;
     }
     .spin {
         border: solid 8px rgb(216 180 254);

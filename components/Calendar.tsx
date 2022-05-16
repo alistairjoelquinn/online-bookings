@@ -50,11 +50,17 @@ const checkSlot = (time: string, bookingData: any, dayId: string, index: number)
     ) {
         closingBlockFormat = 'available-block-end';
     }
+    if (currentStatus === 'available' && nextStatus === 'available') {
+        closingBlockFormat = 'available-block-center';
+    }
     if (
         (currentStatus === 'booked' && nextStatus === 'available') ||
         (currentStatus === 'booked' && nextStatus === 'open-slot')
     ) {
         closingBlockFormat = 'booked-block-end';
+    }
+    if (currentStatus === 'booked' && nextStatus === 'booked') {
+        closingBlockFormat = 'booked-block-center';
     }
 
     return [currentStatus, closingBlockFormat];
