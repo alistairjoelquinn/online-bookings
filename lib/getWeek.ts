@@ -19,14 +19,16 @@ const getWeek = (date: string) => {
         return dateSet;
     });
 
-    return dateValues.map(dateValue => ({
-        id: dateValue
-            .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
-            .split('/')
-            .reverse()
-            .join('/'),
-        value: dateValue.toLocaleDateString('en-uk', { weekday: 'short', day: 'numeric', month: '2-digit' }),
-    }));
+    return dateValues
+        .map(dateValue => ({
+            id: dateValue
+                .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
+                .split('/')
+                .reverse()
+                .join('/'),
+            value: dateValue.toLocaleDateString('en-uk', { weekday: 'short', day: 'numeric', month: '2-digit' }),
+        }))
+        .slice(1, -1);
 };
 
 export default getWeek;

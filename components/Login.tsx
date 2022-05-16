@@ -23,8 +23,8 @@ const Login = ({ setPasswordAuthenticated, setError }: Props) => {
                 body: JSON.stringify({ password, csrfToken }),
             });
             console.log('res: ', res);
-            const data = res.json();
-            console.log('data: ', data);
+            const test = res.json();
+            console.log('test: ', test);
             if (
                 res.url ===
                 `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/signin?callbackUrl=${process.env.NEXT_PUBLIC_NEXTAUTH_URL}&error=CredentialsSignin`

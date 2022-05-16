@@ -13,8 +13,9 @@ const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
 
-    const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+    const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedDate(e.target.value.split('-').join('/'));
+    };
 
     return (
         <section className="relative z-10 pt-5 dark:text-gray-100 md:pt-16">

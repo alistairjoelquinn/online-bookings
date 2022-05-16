@@ -15,11 +15,14 @@ export default NextAuth({
                     return null;
                 }
                 if (credentials.password === process.env.NEXT_AUTH_PASSWORD) {
+                    console.log('winner');
                     return {
                         accepted: true,
                     };
                 }
-                return null;
+                return {
+                    accepted: false,
+                };
             },
         }),
     ],

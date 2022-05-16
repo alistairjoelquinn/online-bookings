@@ -5,8 +5,10 @@ import Login from '../components/Login';
 
 const Bookings = () => {
     const { data: session } = useSession();
-    const [passwordAuthenticated, setPasswordAuthenticated] = useState(false);
+    const [passwordAuthenticated, setPasswordAuthenticated] = useState(true);
     const [error, setError] = useState('');
+
+    console.log('session: ', session);
 
     if (error) return <p className="error">Oops, something unexpected went wrong!</p>;
     if (passwordAuthenticated) return <Calendar />;
