@@ -16,6 +16,10 @@
         width: 100vw;
         overflow-x: hidden;
     }
+    .open-slot + #booking.bg-yellow-400 {
+        /* border-radius: 20px; */
+        background-color: green;
+    }
     .spin {
         border: solid 8px rgb(216 180 254);
         border-bottom-color: rgb(126 34 206);

@@ -10,6 +10,23 @@ import {
 } from '../lib/dates';
 import { AvailableTime, FormattedDate } from '../models/calendar';
 
+const checkSlot = (time: string, bookingData: any) => {
+    console.log('time, bookingData: ', time, bookingData);
+    let open = true;
+    bookingData?.[0].forEach((item: AvailableTime) => {
+        if (new Date(time) >= new Date(item.start) && new Date(time) <= new Date(item.end)) {
+            open = false;
+        }
+    });
+    bookingData?.[1].forEach((item: AvailableTime) => {
+        if (new Date(time) >= new Date(item.start) && new Date(time) <= new Date(item.end)) {
+            open = false;
+        }
+    });
+    console.log('open: ', open);
+    return open;
+};
+
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
@@ -50,31 +67,30 @@ const Calendar = () => {
                                     {generateScheduleTimes(day.id).map(time => (
                                         // console.log('time: ', time);
                                         <div
+                                            id="booking"
                                             key={time}
-                                            className={`h-2 ${bookingData?.[0]
+                                            className={`${
+                                                checkSlot(time, bookingData) ? 'open-slot' : ''
+                                            } h-2 ${bookingData?.[0]
                                                 .map(
                                                     (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
                                                         new Date(time) <= new Date(item.end) &&
                                                         'bg-blue-400',
                                                 )
-                                                .filter(Boolean)} 
-                                                ${bookingData?.[1]
-                                                    .map(
-                                                        (item: AvailableTime) =>
-                                                            new Date(time) >= new Date(item.start) &&
-                                                            new Date(time) < new Date(item.end) &&
-                                                            'bg-yellow-400',
-                                                    )
-                                                    .filter(Boolean)}`}
+                                                .filter(Boolean)}${bookingData?.[1]
+                                                .map(
+                                                    (item: AvailableTime) =>
+                                                        new Date(time) >= new Date(item.start) &&
+                                                        new Date(time) < new Date(item.end) &&
+                                                        ' bg-yellow-400',
+                                                )
+                                                .filter(Boolean)}`}
                                         />
                                     ))}
                                 </div>
                                 {scheduleTimesLabel.map((time: string, i: number) => (
-                                    <span
-                                        className="relative z-20 bg-transparent pb-3 text-gray-600 dark:text-gray-400"
-                                        key={time + i}
-                                    >
+                                    <span className="relative z-20 bg-transparent pb-3 text-gray-600" key={time + i}>
                                         {time}
                                     </span>
                                 ))}
