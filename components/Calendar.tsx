@@ -4,6 +4,8 @@ import getWeek from '../lib/getWeek';
 import { scheduleTimes } from '../lib/times';
 import { FormattedDate } from '../models/calendar';
 
+console.log('scheduleTimes: ', scheduleTimes);
+
 const getCurrentDate = () =>
     new Date()
         .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
@@ -33,20 +35,20 @@ const Calendar = () => {
                 />
             </div>
             {week && (
-                <div className="grid h-96 grid-cols-7 gap-4">
+                <div className="grid grid-cols-5 gap-4">
                     {week.map(day => (
                         <div key={day.id}>
                             <h1 className="py-3 text-center">{day.value}</h1>
                             <div
                                 onClick={() => setSelectedDate(day.id)}
-                                className={`calendar-day flex w-24 flex-col justify-between gap-4 rounded-lg p-1 text-gray-400 ${
+                                className={`calendar-day flex w-24 flex-col justify-between gap-2 rounded-lg p-1 text-sm ${
                                     day.id === selectedDate
                                         ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2 dark:ring-offset-gray-900'
                                         : ''
                                 }`}
                             >
-                                {scheduleTimes.map((time: string) => (
-                                    <span key={time}>{time}</span>
+                                {scheduleTimes.map((time: string, i: number) => (
+                                    <span key={time + i}>{time}</span>
                                 ))}
                             </div>
                         </div>
