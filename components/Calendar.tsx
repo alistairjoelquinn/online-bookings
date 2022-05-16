@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
+
 import getWeek from '../lib/getWeek';
+import { scheduleTimes } from '../lib/times';
 import { FormattedDate } from '../models/calendar';
 
 const getCurrentDate = () =>
@@ -31,26 +33,21 @@ const Calendar = () => {
                 />
             </div>
             {week && (
-                <div className="grid h-80 grid-cols-7 gap-2">
+                <div className="grid h-96 grid-cols-7 gap-4">
                     {week.map(day => (
                         <div key={day.id}>
                             <h1 className="py-3 text-center">{day.value}</h1>
                             <div
-                                className={`flex w-24 flex-col justify-between gap-4 rounded-lg ${
+                                onClick={() => setSelectedDate(day.id)}
+                                className={`calendar-day flex w-24 flex-col justify-between gap-4 rounded-lg p-1 text-gray-400 ${
                                     day.id === selectedDate
                                         ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2 dark:ring-offset-gray-900'
                                         : ''
                                 }`}
                             >
-                                <div className="calendar-day" onClick={() => setSelectedDate(day.id)}>
-                                    10am
-                                </div>
-                                <div className="calendar-day" onClick={() => setSelectedDate(day.id)}>
-                                    1pm
-                                </div>
-                                <div className="calendar-day" onClick={() => setSelectedDate(day.id)}>
-                                    4pm
-                                </div>
+                                {scheduleTimes.map((time: string) => (
+                                    <span key={time}>{time}</span>
+                                ))}
                             </div>
                         </div>
                     ))}
