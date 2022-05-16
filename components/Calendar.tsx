@@ -1,17 +1,7 @@
 import { useMemo, useState } from 'react';
 
-import getWeek from '../lib/getWeek';
-import { scheduleTimes } from '../lib/times';
+import { getWeek, getCurrentDate, scheduleTimes } from '../lib/dates';
 import { FormattedDate } from '../models/calendar';
-
-console.log('scheduleTimes: ', scheduleTimes);
-
-const getCurrentDate = () =>
-    new Date()
-        .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
-        .split('/')
-        .reverse()
-        .join('/');
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
@@ -41,7 +31,7 @@ const Calendar = () => {
                             <h1 className="py-3 text-center">{day.value}</h1>
                             <div
                                 onClick={() => setSelectedDate(day.id)}
-                                className={`calendar-day flex w-36 flex-col justify-between rounded-lg p-1 text-xs ${
+                                className={`calendar-day flex w-36 flex-col justify-between rounded-lg py-2 px-1 text-xs ${
                                     day.id === selectedDate
                                         ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2 dark:ring-offset-gray-900'
                                         : ''

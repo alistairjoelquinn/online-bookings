@@ -31,4 +31,13 @@ const getWeek = (date: string) => {
         .slice(1, -1);
 };
 
-export default getWeek;
+const getCurrentDate = () =>
+    new Date()
+        .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
+        .split('/')
+        .reverse()
+        .join('/');
+
+const scheduleTimes = ['- 07:00am', '-', '-', '- 10:00am', '-', '-', '- 01:00pm', '-', '-', '- 04:00pm', '-', '-'];
+
+export { getWeek, getCurrentDate, scheduleTimes };
