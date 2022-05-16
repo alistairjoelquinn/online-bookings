@@ -40,6 +40,10 @@ const getCurrentDate = () =>
 
 const scheduleTimes = ['- 07:00am', '-', '-', '- 10:00am', '-', '-', '- 01:00pm', '-', '-', '- 04:00pm', '-', '-'];
 
-const getInitialAvailableTimes = () => fetch('/api/initial-available-times').then(res => res.json());
+const getInitialAvailableTimes = () =>
+    Promise.all([
+        fetch('/api/initial-available-times').then(res => res.json()),
+        fetch('/api/initial-available-bookings').then(res => res.json()),
+    ]);
 
 export { getWeek, getCurrentDate, scheduleTimes, getInitialAvailableTimes };
