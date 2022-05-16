@@ -56,7 +56,7 @@
     }
 
     .booked {
-        @apply border-l-2 border-r-2 border-red-300;
+        @apply border-l-2 border-r-2 border-purple-300;
     }
 
     .open-slot + .booked,
@@ -65,7 +65,7 @@
     }
 
     .available {
-        @apply border-l-2 border-r-2 border-green-300;
+        @apply border-l-2 border-r-2 border-green-400;
     }
 
     .open-slot + .available,
@@ -75,5 +75,10 @@
 
     .end {
         @apply rounded-b-md border-b-2;
+    }
+
+    .available:first-child,
+    .booked:first-child {
+        @apply mt-1 rounded-t-md border-t-2 border-l-2 border-r-2;
     }
 }

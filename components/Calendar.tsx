@@ -50,7 +50,6 @@ const Calendar = () => {
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
                                     {generateScheduleTimes(day.id).map((time, i) => (
                                         <div
-                                            id="booking"
                                             key={time}
                                             className={`${checkSlot(time, bookingData, day.id, i).join(
                                                 ' ',
@@ -59,14 +58,14 @@ const Calendar = () => {
                                                     (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
                                                         new Date(time) <= new Date(item.end) &&
-                                                        'bg-blue-400',
+                                                        'bg-green-300',
                                                 )
                                                 .filter(Boolean)}${bookingData?.[1]
                                                 .map(
                                                     (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
                                                         new Date(time) < new Date(item.end) &&
-                                                        ' bg-yellow-400',
+                                                        ' bg-purple-200',
                                                 )
                                                 .filter(Boolean)}`}
                                         />
