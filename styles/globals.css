@@ -22,16 +22,28 @@
         border-left: 1px solid green;
         border-right: 1px solid green;
         border-radius: 10px 10px 0 0;
+        margin-top: 2px;
     }
-
+    .available-block-end {
+        border-bottom: 1px solid green;
+        border-left: 1px solid green;
+        border-right: 1px solid green;
+        border-radius: 0 0 10px 10px;
+    }
     .open-slot + .booked,
     .available + .booked {
         border-top: 1px solid red;
         border-left: 1px solid red;
         border-right: 1px solid red;
         border-radius: 10px 10px 0 0;
+        margin-top: 2px;
     }
-
+    .booked-block-end {
+        border-bottom: 1px solid red;
+        border-left: 1px solid red;
+        border-right: 1px solid red;
+        border-radius: 0 0 10px 10px;
+    }
     .spin {
         border: solid 8px rgb(216 180 254);
         border-bottom-color: rgb(126 34 206);

@@ -42,9 +42,22 @@ const checkSlot = (time: string, bookingData: any, dayId: string, index: number)
         }
     });
 
-    const isEndOfBlock = currentStatus !== nextStatus;
+    let closingBlockFormat;
 
-    return [currentStatus, isEndOfBlock];
+    if (
+        (currentStatus === 'available' && nextStatus === 'booked') ||
+        (currentStatus === 'available' && nextStatus === 'open-slot')
+    ) {
+        closingBlockFormat = 'available-block-end';
+    }
+    if (
+        (currentStatus === 'booked' && nextStatus === 'available') ||
+        (currentStatus === 'booked' && nextStatus === 'open-slot')
+    ) {
+        closingBlockFormat = 'booked-block-end';
+    }
+
+    return [currentStatus, closingBlockFormat];
 };
 
 const Calendar = () => {
@@ -88,9 +101,9 @@ const Calendar = () => {
                                         <div
                                             id="booking"
                                             key={time}
-                                            className={`${
-                                                checkSlot(time, bookingData, day.id, i)[0]
-                                            } h-2 ${bookingData?.[0]
+                                            className={`${checkSlot(time, bookingData, day.id, i).join(
+                                                ' ',
+                                            )} h-2 ${bookingData?.[0]
                                                 .map(
                                                     (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
