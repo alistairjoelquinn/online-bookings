@@ -17,11 +17,21 @@
         overflow-x: hidden;
     }
     .open-slot + .available,
-    .booked + .available,
-    .open-slot + .booked,
-    .available + .booked {
+    .booked + .available {
+        border-top: 1px solid green;
+        border-left: 1px solid green;
+        border-right: 1px solid green;
         border-radius: 10px 10px 0 0;
     }
+
+    .open-slot + .booked,
+    .available + .booked {
+        border-top: 1px solid red;
+        border-left: 1px solid red;
+        border-right: 1px solid red;
+        border-radius: 10px 10px 0 0;
+    }
+
     .spin {
         border: solid 8px rgb(216 180 254);
         border-bottom-color: rgb(126 34 206);

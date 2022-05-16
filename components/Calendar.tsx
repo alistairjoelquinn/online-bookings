@@ -10,8 +10,13 @@ import {
 } from '../lib/dates';
 import { AvailableTime, FormattedDate } from '../models/calendar';
 
-const checkSlot = (time: string, bookingData: any) => {
+const checkSlot = (time: string, bookingData: any, dayId: string, index: number) => {
+    const dayTimeArray = generateScheduleTimes(dayId);
+
+    const nextSlot = dayTimeArray[index + 1];
+
     let currentStatus = 'open-slot';
+    let nextStatus = 'open-slot';
 
     bookingData?.[0].forEach((item: AvailableTime) => {
         if (new Date(time) >= new Date(item.start) && new Date(time) <= new Date(item.end)) {
@@ -25,7 +30,21 @@ const checkSlot = (time: string, bookingData: any) => {
         }
     });
 
-    return currentStatus;
+    bookingData?.[0].forEach((item: AvailableTime) => {
+        if (new Date(nextSlot) >= new Date(item.start) && new Date(nextSlot) <= new Date(item.end)) {
+            nextStatus = 'available';
+        }
+    });
+
+    bookingData?.[1].forEach((item: AvailableTime) => {
+        if (new Date(nextSlot) >= new Date(item.start) && new Date(nextSlot) < new Date(item.end)) {
+            nextStatus = 'booked';
+        }
+    });
+
+    const isEndOfBlock = currentStatus !== nextStatus;
+
+    return [currentStatus, isEndOfBlock];
 };
 
 const Calendar = () => {
@@ -65,11 +84,13 @@ const Calendar = () => {
                                 }`}
                             >
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
-                                    {generateScheduleTimes(day.id).map(time => (
+                                    {generateScheduleTimes(day.id).map((time, i) => (
                                         <div
                                             id="booking"
                                             key={time}
-                                            className={`${checkSlot(time, bookingData)} h-2 ${bookingData?.[0]
+                                            className={`${
+                                                checkSlot(time, bookingData, day.id, i)[0]
+                                            } h-2 ${bookingData?.[0]
                                                 .map(
                                                     (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
