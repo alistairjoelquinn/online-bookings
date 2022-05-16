@@ -16,22 +16,6 @@
         width: 100vw;
         overflow-x: hidden;
     }
-    .open-slot + .available,
-    .booked + .available {
-        border-top: 1px solid green;
-        border-left: 1px solid green;
-        border-right: 1px solid green;
-        border-radius: 10px 10px 0 0;
-        margin-top: 1px;
-    }
-    .open-slot + .booked,
-    .available + .booked {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        border-right: 1px solid red;
-        border-radius: 10px 10px 0 0;
-        margin-top: 1px;
-    }
     .spin {
         border: solid 8px rgb(216 180 254);
         border-bottom-color: rgb(126 34 206);
@@ -75,8 +59,18 @@
         @apply border-l-2 border-r-2 border-red-300;
     }
 
+    .open-slot + .booked,
+    .available + .booked {
+        @apply mt-1 rounded-t-md border-t-2 border-l-2 border-r-2;
+    }
+
     .available {
         @apply border-l-2 border-r-2 border-green-300;
+    }
+
+    .open-slot + .available,
+    .booked + .available {
+        @apply mt-1 rounded-t-md border-t-2 border-l-2 border-r-2;
     }
 
     .end {
