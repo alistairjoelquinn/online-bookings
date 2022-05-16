@@ -13,7 +13,7 @@ const Calendar = () => {
     console.log('data: ', data);
 
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedDate(e.target.value.split('-').join('/'));
+        setSelectedDate(e.target.value);
     };
 
     if (status === 'loading') return <div className="spin" />;

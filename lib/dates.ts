@@ -25,7 +25,7 @@ const getWeek = (date: string) => {
                 .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
                 .split('/')
                 .reverse()
-                .join('/'),
+                .join('-'),
             value: dateValue.toLocaleDateString('en-uk', { weekday: 'short', day: 'numeric', month: '2-digit' }),
         }))
         .slice(1, -1);
@@ -36,7 +36,7 @@ const getCurrentDate = () =>
         .toLocaleDateString('en-UK', { year: 'numeric', month: 'numeric', day: 'numeric' })
         .split('/')
         .reverse()
-        .join('/');
+        .join('-');
 
 const scheduleTimes = ['- 07:00am', '-', '-', '- 10:00am', '-', '-', '- 01:00pm', '-', '-', '- 04:00pm', '-', '-'];
 
