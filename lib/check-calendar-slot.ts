@@ -10,7 +10,7 @@ export const checkSlot = (time: string, bookingData: any, dayId: string, index: 
     let nextStatus = 'open-slot';
 
     bookingData?.[0].forEach((item: AvailableTime) => {
-        if (new Date(time) >= new Date(item.start) && new Date(time) <= new Date(item.end)) {
+        if (new Date(time) >= new Date(item.start) && new Date(time) < new Date(item.end)) {
             currentStatus = 'available';
         }
     });
@@ -22,7 +22,7 @@ export const checkSlot = (time: string, bookingData: any, dayId: string, index: 
     });
 
     bookingData?.[0].forEach((item: AvailableTime) => {
-        if (new Date(nextSlot) >= new Date(item.start) && new Date(nextSlot) <= new Date(item.end)) {
+        if (new Date(nextSlot) >= new Date(item.start) && new Date(nextSlot) < new Date(item.end)) {
             nextStatus = 'available';
         }
     });

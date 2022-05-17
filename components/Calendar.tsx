@@ -57,7 +57,7 @@ const Calendar = () => {
                                                 .map(
                                                     (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
-                                                        new Date(time) <= new Date(item.end) &&
+                                                        new Date(time) < new Date(item.end) &&
                                                         'bg-green-300',
                                                 )
                                                 .filter(Boolean)}${bookingData?.[1]
