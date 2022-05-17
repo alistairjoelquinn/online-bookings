@@ -11,13 +11,9 @@ const Bookings = () => {
 
     if (error) return <p className="error">{error}</p>;
     if (status === 'authenticated') return <Calendar />;
-
-    return (
-        <div>
-            {status === 'unauthenticated' && <p>Sorry, that was the wrong password</p>}
-            {status === 'loading' ? <div className="spin" /> : <Login setError={setError} />}
-        </div>
-    );
+    if (status === 'loading') return <div className="spin" />;
+    if (status === 'unauthenticated') return <Login setError={setError} />;
+    return null;
 };
 
 export default Bookings;

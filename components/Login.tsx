@@ -28,6 +28,7 @@ const Login = ({ setError }: Props) => {
 
     return (
         <div className="relative z-10 pt-6 md:h-screen md:pt-16">
+            {status === 'unauthenticated' && <p>Sorry, that was the wrong password</p>}
             <p className="para my-0">
                 To use the online booking portal you need a password. You can request a password by emailing:
             </p>
