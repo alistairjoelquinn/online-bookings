@@ -39,18 +39,27 @@ const Login = ({ setPasswordAuthenticated, setError }: Props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <p>To use the online booking portal you require a password. </p>
-            <input
-                name="password"
-                type="password"
-                className="input w-full"
-                onChange={e => setPassword(e.target.value)}
-            />
-            <button type="submit" className="btn">
-                Submit
-            </button>
-        </form>
+        <div className="relative z-10 pt-6 md:h-screen md:pt-16">
+            <p className="para my-0">
+                To use the online booking portal you need a password. You can request a password by emailing:
+            </p>
+            <code className="block py-4">englishwithfelicity@gmail.com</code>
+            <p className="para mt-0 mb-4">
+                This password will log you in for 2 months, so you won&apos;t need to enter it again for subsequent
+                bookings!
+            </p>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <input
+                    name="password"
+                    type="password"
+                    className="input w-full"
+                    onChange={e => setPassword(e.target.value)}
+                />
+                <button type="submit" className="btn">
+                    Submit
+                </button>
+            </form>
+        </div>
     );
 };
 
