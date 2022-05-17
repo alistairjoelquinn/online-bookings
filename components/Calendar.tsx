@@ -27,7 +27,7 @@ const Calendar = () => {
     if (status === 'error') return <span>Oops, something unexpected went wrong!</span>;
 
     return (
-        <section className="relative z-10 pt-5 dark:text-gray-100 md:pt-16">
+        <section className="relative z-10 p-5 dark:text-gray-100 md:mr-6 md:pt-16">
             <div className="flex flex-row">
                 <span className="text-md py-3 pr-5 font-extrabold dark:text-gray-100 md:text-2xl lg:text-3xl">
                     Select a date:
@@ -37,11 +37,11 @@ const Calendar = () => {
             {week && (
                 <div className="grid grid-cols-5 gap-4">
                     {week.map(day => (
-                        <div key={day.id}>
-                            <h1 className="py-3 text-center">{day.value}</h1>
+                        <div className="flex flex-col items-center" key={day.id}>
+                            <h1 className="py-3 text-center text-lg md:text-sm lg:text-lg">{day.value}</h1>
                             <div
                                 onClick={() => setSelectedDate(day.id)}
-                                className={`relative z-10 flex h-full w-36 flex-col justify-between rounded-lg border-2 border-purple-300 bg-white py-2 px-1 text-xs shadow-md ${
+                                className={`relative z-10 flex h-full w-28 flex-col justify-between rounded-lg border-2 border-purple-300 bg-white py-2 px-1 text-xs shadow-md md:w-24 xl:w-36 ${
                                     day.id === selectedDate
                                         ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2 dark:ring-offset-gray-900'
                                         : ''
