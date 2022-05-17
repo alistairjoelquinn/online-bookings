@@ -55,30 +55,22 @@
         @apply rounded-lg border-2 border-purple-300 px-5 py-3 text-black shadow-md focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-opacity-40 focus:ring-offset-2 dark:focus:ring-4 dark:focus:ring-purple-400 dark:focus:ring-opacity-50 sm:w-1/2;
     }
 
-    .booked {
-        @apply border-l-2 border-r-2 border-purple-300;
-    }
-
     .open-slot + .booked,
     .available + .booked {
-        @apply mt-1 rounded-t-md border-t-2 border-l-2 border-r-2;
-    }
-
-    .available {
-        @apply border-l-2 border-r-2 border-green-400;
+        @apply rounded-t-md;
     }
 
     .open-slot + .available,
     .booked + .available {
-        @apply mt-1 rounded-t-md border-t-2 border-l-2 border-r-2;
+        @apply rounded-t-md;
     }
 
     .end {
-        @apply rounded-b-md border-b-2;
+        @apply rounded-b-md;
     }
 
     .available:first-child,
     .booked:first-child {
-        @apply mt-1 rounded-t-md border-t-2 border-l-2 border-r-2;
+        @apply rounded-t-md;
     }
 }
