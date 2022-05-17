@@ -43,7 +43,9 @@ const Login = ({ setPasswordAuthenticated, setError }: Props) => {
             <p className="para my-0">
                 To use the online booking portal you need a password. You can request a password by emailing:
             </p>
-            <code className="block py-4">englishwithfelicity@gmail.com</code>
+            <p className="block py-5 text-center font-sans text-xl tracking-wider text-gray-600 dark:text-gray-400">
+                englishwithfelicity@gmail.com
+            </p>
             <p className="para mt-0 mb-4">
                 This password will log you in for 2 months, so you won&apos;t need to enter it again for subsequent
                 bookings!

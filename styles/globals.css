@@ -16,6 +16,9 @@
         width: 100vw;
         overflow-x: hidden;
     }
+    h3 {
+        user-select: none;
+    }
     .spin {
         border: solid 8px rgb(216 180 254);
         border-bottom-color: rgb(126 34 206);
@@ -48,7 +51,7 @@
     }
 
     .para {
-        @apply mb-10 mt-3 text-2xl tracking-wide text-gray-500 dark:text-gray-400 md:mt-5 md:max-w-lg;
+        @apply mb-10 mt-3 select-none text-2xl tracking-wide text-gray-500 dark:text-gray-400 md:mt-5 md:max-w-lg;
     }
 
     .input {
