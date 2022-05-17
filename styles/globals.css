@@ -57,12 +57,12 @@
 
     .open-slot + .booked,
     .available + .booked {
-        @apply mt-0.5 rounded-t-md;
+        @apply rounded-t-md;
     }
 
     .open-slot + .available,
     .booked + .available {
-        @apply mt-0.5 rounded-t-md;
+        @apply rounded-t-md;
     }
 
     .end {

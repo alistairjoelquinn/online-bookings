@@ -72,7 +72,7 @@ const Calendar = () => {
                                     ))}
                                 </div>
                                 {scheduleTimesLabel.map((time: string, i: number) => (
-                                    <span className="relative z-20 bg-transparent pb-3 text-gray-600" key={time + i}>
+                                    <span className="relative z-20 h-8 bg-transparent text-gray-600" key={time + i}>
                                         {time}
                                     </span>
                                 ))}
