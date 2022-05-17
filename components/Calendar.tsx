@@ -41,7 +41,7 @@ const Calendar = () => {
                             <h1 className="py-3 text-center text-lg md:text-sm lg:text-lg">{day.value}</h1>
                             <div
                                 onClick={() => setSelectedDate(day.id)}
-                                className={`relative z-10 flex h-full w-28 flex-col justify-between rounded-lg border-2 border-purple-300 bg-white py-2 px-1 text-xs shadow-md md:w-24 xl:w-36 ${
+                                className={`relative z-10 flex h-full w-28 flex-col justify-between rounded-lg border-2 border-purple-300 bg-white py-2 px-1 text-xs shadow-md md:w-20 lg:w-28 xl:w-36 ${
                                     day.id === selectedDate
                                         ? 'ring-2 ring-yellow-300 ring-opacity-75 ring-offset-2 dark:ring-offset-gray-900'
                                         : ''
