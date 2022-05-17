@@ -1,4 +1,5 @@
 import { getCsrfToken, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
 const Login = ({ setError }: Props) => {
     const { status } = useSession();
     const [password, setPassword] = useState('');
+    const router = useRouter();
+    console.log('router: ', router);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,11 +27,12 @@ const Login = ({ setError }: Props) => {
             console.log('err: ', err);
             setError(err.message);
         });
+        window.location.replace('/bookings?login=true');
     };
 
     return (
         <div className="relative z-10 pt-6 md:h-screen md:pt-16">
-            {status === 'unauthenticated' && <p>Sorry, that was the wrong password</p>}
+            {status === 'unauthenticated' && router.query.login && <p>Sorry, that was the wrong password</p>}
             <p className="para my-0">
                 To use the online booking portal you need a password. You can request a password by emailing:
             </p>
