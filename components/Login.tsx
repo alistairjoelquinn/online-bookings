@@ -39,10 +39,15 @@ const Login = ({ setPasswordAuthenticated, setError }: Props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <p>Please enter the password to make a booking...</p>
-            <input name="password" type="password" className="input" onChange={e => setPassword(e.target.value)} />
-            <button type="submit" className="button">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <p>To use the online booking portal you require a password. </p>
+            <input
+                name="password"
+                type="password"
+                className="input w-full"
+                onChange={e => setPassword(e.target.value)}
+            />
+            <button type="submit" className="btn">
                 Submit
             </button>
         </form>

@@ -5,7 +5,7 @@ import Login from '../components/Login';
 
 const Bookings = () => {
     const { data: session } = useSession();
-    const [passwordAuthenticated, setPasswordAuthenticated] = useState(true);
+    const [passwordAuthenticated, setPasswordAuthenticated] = useState(false);
     const [error, setError] = useState('');
 
     console.log('session: ', session);
@@ -15,7 +15,7 @@ const Bookings = () => {
 
     return (
         <div>
-            {session ? (
+            {!session ? (
                 <div className="spin" />
             ) : (
                 <Login setPasswordAuthenticated={setPasswordAuthenticated} setError={setError} />

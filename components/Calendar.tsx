@@ -16,9 +16,7 @@ const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
 
-    // const { status, data: bookingData } = useQuery('initial-available-times', getInitialAvailableTimes);
-
-    const status = 'error';
+    const { status, data: bookingData } = useQuery('initial-available-times', getInitialAvailableTimes);
 
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedDate(e.target.value);
