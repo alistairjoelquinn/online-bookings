@@ -15,16 +15,21 @@ const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
 
-    const { status, data: bookingData } = useQuery('initial-available-times', getInitialAvailableTimes);
+    // const { status, data: bookingData } = useQuery('initial-available-times', getInitialAvailableTimes);
 
-    console.log('bookingData: ', bookingData);
+    const status = 'error';
 
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedDate(e.target.value);
     };
 
     if (status === 'loading' || !week) return <div className="spin" />;
-    if (status === 'error') return <span>Oops, something unexpected went wrong!</span>;
+    if (status === 'error')
+        return (
+            <span className=" relative z-10 flex p-5 font-lora text-2xl dark:text-gray-100 md:mr-6 md:pt-16">
+                Oops, something unexpected went wrong!
+            </span>
+        );
 
     return (
         <section className="relative z-10 p-5 dark:text-gray-100 md:mr-6 md:pt-16">
