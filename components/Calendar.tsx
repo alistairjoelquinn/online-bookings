@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { checkSlot } from '../lib/check-calendar-slot';
@@ -26,9 +27,14 @@ const Calendar = () => {
     if (status === 'loading' || !week) return <div className="spin" />;
     if (status === 'error')
         return (
-            <span className=" relative z-10 flex p-5 font-lora text-2xl dark:text-gray-100 md:mr-6 md:pt-16">
-                Oops, something unexpected went wrong!
-            </span>
+            <div className=" relative z-10 flex flex-col p-5 text-2xl dark:text-gray-100 md:mr-6 md:pt-16">
+                <p className="mb-4 font-lora">Oops, something unexpected went wrong!</p>
+                <Link href="/" passHref>
+                    <button type="button" className="btn mr-5 mb-5 w-56 md:mb-0">
+                        Back To Safety
+                    </button>
+                </Link>
+            </div>
         );
 
     return (
