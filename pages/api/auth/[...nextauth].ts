@@ -20,9 +20,7 @@ export default NextAuth({
                         accepted: true,
                     };
                 }
-                return {
-                    accepted: false,
-                };
+                return null;
             },
         }),
     ],
