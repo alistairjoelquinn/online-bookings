@@ -10,7 +10,6 @@ const Login = ({ setError }: Props) => {
     const { status } = useSession();
     const [password, setPassword] = useState('');
     const router = useRouter();
-    console.log('router: ', router);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -32,7 +31,9 @@ const Login = ({ setError }: Props) => {
 
     return (
         <div className="relative z-10 pt-6 md:h-screen md:pt-16">
-            {status === 'unauthenticated' && router.query.login && <p>Sorry, that was the wrong password</p>}
+            {status === 'unauthenticated' && router.query.login && (
+                <p className="para mb-4 text-red-400">Sorry, that was the wrong password. Please try again.</p>
+            )}
             <p className="para my-0">
                 To use the online booking portal you need a password. You can request a password by emailing:
             </p>

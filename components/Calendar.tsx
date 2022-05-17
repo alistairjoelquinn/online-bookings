@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
+import { useRouter } from 'next/router';
+
 import { checkSlot } from '../lib/check-calendar-slot';
 
 import {
@@ -15,12 +17,17 @@ import { AvailableTime, FormattedDate } from '../models/calendar';
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
+    const router = useRouter();
 
     const { status, data: bookingData } = useQuery('initial-available-times', getInitialAvailableTimes);
 
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedDate(e.target.value);
     };
+
+    useEffect(() => {
+        router.replace('/bookings');
+    }, []);
 
     if (status === 'loading' || !week) return <div className="spin" />;
     if (status === 'error')
