@@ -5,21 +5,17 @@ import Login from '../components/Login';
 
 const Bookings = () => {
     const { data: session, status } = useSession();
-    const [passwordAuthenticated, setPasswordAuthenticated] = useState(false);
     const [error, setError] = useState('');
 
     console.log('session: ', session);
 
     if (error) return <p className="error">{error}</p>;
-    if (passwordAuthenticated) return <Calendar />;
+    if (status === 'authenticated') return <Calendar />;
 
     return (
         <div>
-            {status === 'loading' ? (
-                <div className="spin" />
-            ) : (
-                <Login setPasswordAuthenticated={setPasswordAuthenticated} setError={setError} />
-            )}
+            {status === 'unauthenticated' && <p>Sorry, that was the wrong password</p>}
+            {status === 'loading' ? <div className="spin" /> : <Login setError={setError} />}
         </div>
     );
 };
