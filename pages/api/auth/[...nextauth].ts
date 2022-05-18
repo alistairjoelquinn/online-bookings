@@ -9,14 +9,8 @@ export default NextAuth({
                 password: { label: 'Password', type: 'password', placeholder: 'password' },
             },
             async authorize(credentials) {
-                console.log('credentials: ', credentials);
-                console.log('process.env.NEXT_AUTH_PASSWORD;: ', process.env.NEXT_AUTH_PASSWORD);
-                if (!credentials || !credentials.password) {
-                    console.log('block one');
-                    return null;
-                }
+                if (!credentials || !credentials.password) return null;
                 if (credentials.password === process.env.NEXT_AUTH_PASSWORD) {
-                    console.log('winner');
                     return {
                         id: 'allowed',
                         name: 'logged in user',
@@ -31,9 +25,6 @@ export default NextAuth({
     },
     secret: process.env.NEXT_AUTH_SECRET,
     debug: true,
-    jwt: {
-        maxAge: 60 * 60 * 24 * 7 * 2,
-    },
     logger: {
         error(code, metadata) {
             console.error(code, metadata);
