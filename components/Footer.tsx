@@ -20,7 +20,6 @@ const Footer = ({ setShowEmailModal }: Props) => (
         <a href="https://www.linkedin.com/in/felicity-quinn-9a4019235/" target="_blank" rel="noreferrer noopener">
             <Linkedin className="cursor-pointer" />
         </a>
-        <Instagram className="cursor-pointer" />
         <Moon className="cursor-pointer" onClick={updateDarkModePreference} />
     </footer>
 );
