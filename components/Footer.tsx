@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, Moon } from 'grommet-icons';
+import { Linkedin, Mail, Moon } from 'grommet-icons';
 
 interface Props {
     setShowEmailModal: (val: boolean) => void;

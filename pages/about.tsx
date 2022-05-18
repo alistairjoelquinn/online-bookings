@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const About = () => (
     <div className="relative z-10 pt-6 md:h-screen md:pt-16">
         <section className="max-w-6xl overflow-scroll px-4 pt-0 text-left md:h-4/5 lg:max-w-xl">
@@ -26,6 +28,16 @@ const About = () => (
                 conversation prompt questions. If you have a particular area of interest, I&apos;m happy to create a
                 list of questions specific to this topic.
             </p>
+            <Link href="/bookings" passHref>
+                <button type="button" className="btn mr-5 mb-5 md:mb-0">
+                    Book Now
+                </button>
+            </Link>
+            <Link href="/" passHref>
+                <button type="button" className="btn-invert mb-5 md:mb-0">
+                    Home
+                </button>
+            </Link>
         </section>
     </div>
 );
