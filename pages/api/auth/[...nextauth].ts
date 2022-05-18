@@ -12,7 +12,6 @@ export default NextAuth({
                 if (!credentials || !credentials.password) return null;
                 if (credentials.password === process.env.NEXT_AUTH_PASSWORD) {
                     return {
-                        id: 'allowed',
                         name: 'logged in user',
                     };
                 }
