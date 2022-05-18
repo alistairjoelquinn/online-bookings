@@ -9,7 +9,6 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "@headlessui/react": "^1.6.1",
         "grommet-icons": "^4.7.0",
         "mongodb": "^4.5.0",
         "next": "latest",
