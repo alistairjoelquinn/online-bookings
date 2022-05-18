@@ -53,7 +53,10 @@ const Calendar = () => {
                 </span>
                 <input value={selectedDate} type="date" onChange={dateChangeHandler} className="input flex-grow" />
                 <div className="flex items-center justify-evenly gap-10 py-1 pl-5">
-                    <CircleInformation className="cursor-pointer" />
+                    <CircleInformation
+                        onMouseOver={e => (e.currentTarget.children[0].style.stroke = 'red')}
+                        className="cursor-pointer"
+                    />
                     <Add className="cursor-pointer" />
                 </div>
             </div>
