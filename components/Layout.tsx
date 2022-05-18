@@ -5,6 +5,7 @@ import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => {
     const [showEmailModal, setShowEmailModal] = useState(false);
+
     return (
         <section className="flex min-h-screen w-screen flex-col bg-white from-gray-100 text-gray-900 dark:bg-gray-900 dark:from-gray-900 md:flex-row md:bg-gradient-to-r">
             <div className="m-0 h-full w-screen overflow-hidden rounded-none shadow-md md:m-16 md:h-1/5 md:w-1/5 md:rounded-2xl md:shadow-xl">
