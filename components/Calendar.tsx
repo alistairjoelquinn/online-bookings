@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 
+import { Add, CircleInformation } from 'grommet-icons';
 import { checkSlot } from '../lib/check-calendar-slot';
 
 import {
@@ -46,11 +47,15 @@ const Calendar = () => {
 
     return (
         <section className="relative z-10 p-5 dark:text-gray-100 md:mr-6 md:pt-16">
-            <div className="flex flex-row">
+            <div className="flex flex-row justify-between">
                 <span className="text-md py-3 pr-5 font-extrabold dark:text-gray-100 md:text-2xl lg:text-3xl">
                     Select a date:
                 </span>
-                <input value={selectedDate} type="date" onChange={dateChangeHandler} className="input" />
+                <input value={selectedDate} type="date" onChange={dateChangeHandler} className="input flex-grow" />
+                <div className="flex items-center justify-evenly gap-10 py-1 pl-5">
+                    <CircleInformation className="cursor-pointer" />
+                    <Add className="cursor-pointer" />
+                </div>
             </div>
             {week && (
                 <div className="grid grid-cols-5 gap-4">
