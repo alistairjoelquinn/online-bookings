@@ -5,7 +5,14 @@ const Footer = () => (
         <Mail className="cursor-pointer" />
         <Linkedin className="cursor-pointer" />
         <Instagram className="cursor-pointer" />
-        <Moon className="cursor-pointer" />
+        <Moon
+            className="cursor-pointer"
+            onClick={() =>
+                document.documentElement.classList.contains('dark')
+                    ? document.documentElement.classList.remove('dark')
+                    : document.documentElement.classList.add('dark')
+            }
+        />
     </footer>
 );
 

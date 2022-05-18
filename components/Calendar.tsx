@@ -14,6 +14,7 @@ import {
     generateScheduleTimes,
 } from '../lib/dates';
 import { AvailableTime, FormattedDate } from '../models/calendar';
+import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
@@ -53,11 +54,8 @@ const Calendar = () => {
                 </span>
                 <input value={selectedDate} type="date" onChange={dateChangeHandler} className="input flex-grow" />
                 <div className="flex items-center justify-evenly gap-10 py-1 pl-5">
-                    <CircleInformation
-                        onMouseOver={e => (e.currentTarget.children[0].style.stroke = 'red')}
-                        className="cursor-pointer"
-                    />
-                    <Add className="cursor-pointer" />
+                    <CircleInformation {...iconHoverEventHandlers()} className="cursor-pointer" />
+                    <Add {...iconHoverEventHandlers()} className="cursor-pointer" />
                 </div>
             </div>
             {week && (
