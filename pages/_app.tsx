@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import Layout from '../components/Layout';
 
 import '../styles/globals.css';
@@ -11,7 +11,7 @@ import '../styles/globals.css';
 const queryClient = new QueryClient();
 
 const App = ({ Component, pageProps }: AppProps) => {
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
         }
