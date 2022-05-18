@@ -44,6 +44,15 @@ module.exports = {
                     },
                 },
             }),
+            keyframes: {
+                fade: {
+                    '0%': { opacity: 0 },
+                    '100%': { opacity: 0.6 },
+                },
+            },
+            animation: {
+                fade: 'fade 0.3s ease-in',
+            },
         },
     },
     variants: {

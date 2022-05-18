@@ -39,6 +39,14 @@
             transform: translate(-50%, -50%) rotate(360deg);
         }
     }
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 0.5;
+        }
+    }
 }
 
 @layer components {

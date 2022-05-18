@@ -7,7 +7,7 @@ interface Props {
 const EmailModal = ({ setShowEmailModal }: Props) => (
     <>
         <div
-            className="absolute inset-0 z-30 flex items-center justify-center bg-gray-600 opacity-40"
+            className="absolute inset-0 z-30 flex animate-fade items-center justify-center bg-gray-600 opacity-60"
             onClick={() => setShowEmailModal(false)}
         />
         <div className="absolute left-1/2 top-1/2 z-40 max-w-screen-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border-2 border-gray-800 bg-white p-20 opacity-100">
