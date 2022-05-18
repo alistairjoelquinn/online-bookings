@@ -54,8 +54,8 @@ const Calendar = () => {
                 </span>
                 <input value={selectedDate} type="date" onChange={dateChangeHandler} className="input flex-grow" />
                 <div className="flex items-center justify-evenly gap-10 py-1 pl-5">
-                    <CircleInformation {...iconHoverEventHandlers()} className="cursor-pointer" />
-                    <Add {...iconHoverEventHandlers()} className="cursor-pointer" />
+                    <CircleInformation {...iconHoverEventHandlers()} cursor="pointer" />
+                    <Add {...iconHoverEventHandlers()} cursor="pointer" />
                 </div>
             </div>
             {week && (
