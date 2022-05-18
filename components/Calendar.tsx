@@ -26,8 +26,10 @@ const Calendar = () => {
     };
 
     useEffect(() => {
-        router.replace('/bookings');
-    }, []);
+        if (router.query.login) {
+            router.replace('/bookings');
+        }
+    }, [router]);
 
     if (status === 'loading' || !week) return <div className="spin" />;
     if (status === 'error')
