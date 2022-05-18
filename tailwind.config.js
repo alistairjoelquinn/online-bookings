@@ -45,13 +45,18 @@ module.exports = {
                 },
             }),
             keyframes: {
-                fade: {
+                in: {
                     '0%': { opacity: 0 },
                     '100%': { opacity: 0.6 },
                 },
+                reveal: {
+                    '0%': { opacity: 0 },
+                    '100%': { opacity: 1 },
+                },
             },
             animation: {
-                fade: 'fade 0.3s ease-in',
+                in: 'in 0.3s ease-in-out',
+                reveal: 'reveal 0.3s ease-in-out',
             },
         },
     },
