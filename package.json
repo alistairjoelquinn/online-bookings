@@ -9,7 +9,7 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "heroicons": "^1.0.6",
+        "grommet-icons": "^4.7.0",
         "mongodb": "^4.5.0",
         "next": "latest",
         "next-auth": "^4.3.4",
