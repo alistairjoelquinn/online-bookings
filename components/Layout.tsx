@@ -13,7 +13,7 @@ const Layout: React.FC = ({ children }) => {
 
     return (
         <section className="flex min-h-screen w-screen flex-col bg-white from-gray-100 text-gray-900 dark:bg-gray-900 dark:from-gray-900 md:flex-row md:bg-gradient-to-r">
-            <div className="item-center m-0 flex h-full w-screen flex-col overflow-hidden md:m-16 md:h-1/5 md:w-1/5">
+            <div className="item-center overflow-hiddenp-2 m-0 flex h-full w-screen flex-col md:m-16 md:h-1/5 md:w-1/5">
                 <div className="rounded-none shadow-md md:rounded-2xl md:shadow-xl">
                     <img
                         src="img/main-image.jpg"
