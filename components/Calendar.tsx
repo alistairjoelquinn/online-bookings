@@ -15,6 +15,8 @@ import {
 } from '../lib/dates';
 import { AvailableTime, FormattedDate } from '../models/calendar';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
+import InfoModal from './Modal-Info';
+import BookingsModal from './Modal-Bookings';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
@@ -67,6 +69,8 @@ const Calendar = () => {
                     <Add {...iconHoverEventHandlers()} cursor="pointer" />
                 </div>
             </div>
+            <InfoModal />
+            <BookingsModal />
             {week && (
                 <div className="grid grid-cols-5 gap-4">
                     {week.map(day => (

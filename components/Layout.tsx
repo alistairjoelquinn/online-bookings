@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-import EmailModal from './EmailModal';
+import EmailModal from './Modal-Email';
 import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => {
