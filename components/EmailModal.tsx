@@ -1,5 +1,6 @@
 import { Copy } from 'grommet-icons';
 import React from 'react';
+import writeTextToClipboard from '../lib/write-text-to-clipboard';
 
 interface Props {
     setShowEmailModal: (val: boolean) => void;
@@ -12,7 +13,7 @@ const EmailModal = ({ setShowEmailModal }: Props) => (
             <p className="pb-6 text-xl tracking-wide text-gray-600 sm:text-2xl md:text-3xl">
                 englishwithfelicity@gmail.com
             </p>
-            <Copy cursor="pointer" />
+            <Copy onClick={() => writeTextToClipboard('englishwithfelicity@gmail.com')} cursor="pointer" />
         </div>
     </>
 );
