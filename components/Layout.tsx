@@ -8,13 +8,12 @@ import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => {
     const router = useRouter();
-    console.log('router: ', router);
     const [showEmailModal, setShowEmailModal] = useState(false);
 
     return (
         <section className="flex min-h-screen w-screen flex-col bg-white from-gray-100 text-gray-900 dark:bg-gray-900 dark:from-gray-900 md:flex-row md:bg-gradient-to-r">
             <div className="item-center m-0 flex h-full w-screen flex-col overflow-hidden md:m-16 md:h-1/5 md:w-1/5 md:p-2">
-                <div className="rounded-none shadow-md md:rounded-2xl md:shadow-lg">
+                <div className="mb-4 rounded-none shadow-md md:rounded-2xl md:shadow-lg">
                     <img
                         src="img/main-image.jpg"
                         className="h-full w-full rounded-none object-cover md:rounded-2xl"
@@ -23,7 +22,7 @@ const Layout: React.FC = ({ children }) => {
                 </div>
                 {router.pathname === '/bookings' && (
                     <Link href="/" passHref>
-                        <button type="button" className="btn-invert mx-4 my-8 animate-reveal md:mx-0 md:w-full">
+                        <button type="button" className="btn-invert mx-4 mt-4 mb-8 animate-reveal md:mx-0 md:w-full">
                             Home
                         </button>
                     </Link>

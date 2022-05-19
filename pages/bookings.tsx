@@ -5,10 +5,8 @@ import Calendar from '../components/Calendar';
 import Login from '../components/Login';
 
 const Bookings = () => {
-    const { data: session, status } = useSession();
+    const { status } = useSession();
     const [error, setError] = useState('');
-
-    console.log('session: ', session);
 
     if (error) return <p className="error">{error}</p>;
     if (status === 'loading') return <div className="spin" />;

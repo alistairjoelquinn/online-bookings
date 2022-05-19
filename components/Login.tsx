@@ -23,7 +23,6 @@ const Login = ({ setError }: Props) => {
             },
             body: JSON.stringify({ password, csrfToken }),
         }).catch(err => {
-            console.log('err: ', err);
             setError(err.message);
         });
         window.location.replace('/bookings?login=true');
