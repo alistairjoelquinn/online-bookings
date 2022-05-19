@@ -40,6 +40,16 @@ const About = () => (
                 I&apos;ve also taught many students who wish simply to prepare for an interview or a presentation and
                 polish their language in order to sound more fluent and more professional.
             </p>
+            <p className="para">
+                I also offer Proofreading and Editing as a service. Be it a resume, cover letter, presentation, or short
+                story, I will proofread it to ensure spelling and grammar are pristine and edit where a change in
+                sentence structure, or word use, is required to convey the desired tone.
+            </p>
+            <p className="para">
+                As you can see, there is something for everyone. You can select which service you would like when you
+                click on the &apos;Book Now&apos; button. If you are still unsure then you can send me an email to
+                discuss the options further. I look forward to speaking with you soon!
+            </p>
             <Link href="/bookings" passHref>
                 <button type="button" className="btn mr-5 mb-5 md:mb-0">
                     Book Now
