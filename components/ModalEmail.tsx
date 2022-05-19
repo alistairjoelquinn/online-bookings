@@ -2,7 +2,7 @@ import { Copy } from 'grommet-icons';
 import React, { useState } from 'react';
 
 import writeTextToClipboard from '../lib/write-text-to-clipboard';
-import ModalContainer from './Modal-Container';
+import ModalContainer from './ModalContainer';
 
 interface Props {
     setShowEmailModal: (val: boolean) => void;

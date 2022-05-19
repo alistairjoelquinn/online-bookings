@@ -1,4 +1,4 @@
-import ModalContainer from './Modal-Container';
+import ModalContainer from './ModalContainer';
 
 interface Props {
     closeModal: (val: boolean) => void;

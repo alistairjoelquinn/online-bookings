@@ -76,4 +76,8 @@
     .booked:first-child {
         @apply rounded-t-md;
     }
+
+    .modal {
+        @apply font-sans;
+    }
 }

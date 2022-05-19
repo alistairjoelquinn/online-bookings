@@ -14,8 +14,8 @@ import {
 import { checkSlot } from '../lib/check-calendar-slot';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 import { AvailableTime, FormattedDate } from '../models/calendar';
-import InfoModal from './Modal-Info';
-import BookingsModal from './Modal-Bookings';
+import InfoModal from './ModalInfo';
+import BookingsModal from './ModalBookings';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
