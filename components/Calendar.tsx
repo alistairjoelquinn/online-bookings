@@ -21,6 +21,7 @@ import BookingsModal from './Modal-Bookings';
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const [infoWindowIsVisible, setInfoWindowIsVisible] = useState(false);
+    const [bookingsWindowIsVisible, setBookingsWindowIsVisible] = useState(false);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
     const router = useRouter();
 
@@ -66,11 +67,15 @@ const Calendar = () => {
                         {...iconHoverEventHandlers()}
                         cursor="pointer"
                     />
-                    <Add {...iconHoverEventHandlers()} cursor="pointer" />
+                    <Add
+                        onClick={() => setBookingsWindowIsVisible(true)}
+                        {...iconHoverEventHandlers()}
+                        cursor="pointer"
+                    />
                 </div>
             </div>
-            <InfoModal />
-            <BookingsModal />
+            {infoWindowIsVisible && <InfoModal />}
+            {bookingsWindowIsVisible && <BookingsModal />}
             {week && (
                 <div className="grid grid-cols-5 gap-4">
                     {week.map(day => (
