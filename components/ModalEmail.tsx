@@ -23,7 +23,7 @@ const EmailModal = ({ setShowEmailModal }: Props) => {
 
     return (
         <ModalContainer closeModal={setShowEmailModal}>
-            <p className="modal pb-6 text-xl tracking-wide text-gray-600 sm:text-2xl md:text-3xl">
+            <p className="modal pb-6 text-xl tracking-wide text-gray-600 dark:text-gray-100 sm:text-2xl md:text-3xl">
                 englishwithfelicity@gmail.com
             </p>
             {!isCopied ? (
