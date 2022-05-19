@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const About = () => (
-    <div className="relative z-10 pt-6 md:h-screen md:pt-16">
+    <div className="relative z-10 animate-reveal pt-6 md:h-screen md:pt-16">
         <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-4/5 lg:max-w-xl">
             <div className="text-5xl font-extrabold dark:text-gray-100 sm:text-5xl md:text-6xl lg:text-5xl">
                 <h3>About me.</h3>

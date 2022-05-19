@@ -23,7 +23,7 @@ const Layout: React.FC = ({ children }) => {
                 </div>
                 {router.pathname === '/bookings' && (
                     <Link href="/" passHref>
-                        <button type="button" className="btn-invert mx-4 my-8 md:mx-0 md:w-full">
+                        <button type="button" className="btn-invert mx-4 my-8 animate-reveal md:mx-0 md:w-full">
                             Home
                         </button>
                     </Link>

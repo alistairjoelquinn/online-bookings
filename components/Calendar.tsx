@@ -51,7 +51,7 @@ const Calendar = () => {
         );
 
     return (
-        <section className="relative z-10 p-5 dark:text-gray-100 md:mr-6 md:pt-16">
+        <section className="relative z-10 animate-reveal p-5 dark:text-gray-100 md:mr-6 md:pt-16">
             <div className="flex flex-row justify-between">
                 <span className="text-md py-3 pr-5 font-extrabold dark:text-gray-100 md:text-2xl lg:text-3xl">
                     Select a date:

@@ -30,7 +30,7 @@ const Login = ({ setError }: Props) => {
     };
 
     return (
-        <div className="relative z-10 pt-6 md:h-screen md:pt-16">
+        <div className="relative z-10 animate-reveal pt-6 md:h-screen md:pt-16">
             <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-4/5 lg:max-w-xl">
                 {status === 'unauthenticated' && router.query.login && (
                     <p className="para mb-4 text-red-400">Sorry, that was the wrong password. Please try again.</p>
