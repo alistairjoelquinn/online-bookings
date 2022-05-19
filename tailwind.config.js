@@ -49,9 +49,14 @@ module.exports = {
                     '0%': { opacity: 0 },
                     '100%': { opacity: 1 },
                 },
+                shroud: {
+                    '0%': { opacity: 0 },
+                    '100%': { opacity: 0.7 },
+                },
             },
             animation: {
                 reveal: 'reveal 0.5s ease-in-out',
+                shroud: 'shroud 0.5s ease-in-out',
             },
         },
     },
