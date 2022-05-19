@@ -18,6 +18,7 @@ import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
+    const [infoWindowIsVisible, setInfoWindowIsVisible] = useState(false);
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
     const router = useRouter();
 
@@ -58,7 +59,11 @@ const Calendar = () => {
                 </span>
                 <input value={selectedDate} type="date" onChange={dateChangeHandler} className="input flex-grow" />
                 <div className="flex items-center justify-evenly gap-10 py-1 pl-5">
-                    <CircleInformation {...iconHoverEventHandlers()} cursor="pointer" />
+                    <CircleInformation
+                        onClick={() => setInfoWindowIsVisible(true)}
+                        {...iconHoverEventHandlers()}
+                        cursor="pointer"
+                    />
                     <Add {...iconHoverEventHandlers()} cursor="pointer" />
                 </div>
             </div>
