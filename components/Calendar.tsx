@@ -2,9 +2,7 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
-
 import { Add, CircleInformation } from 'grommet-icons';
-import { checkSlot } from '../lib/check-calendar-slot';
 
 import {
     getWeek,
@@ -13,8 +11,9 @@ import {
     getInitialAvailableTimes,
     generateScheduleTimes,
 } from '../lib/dates';
-import { AvailableTime, FormattedDate } from '../models/calendar';
+import { checkSlot } from '../lib/check-calendar-slot';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
+import { AvailableTime, FormattedDate } from '../models/calendar';
 import InfoModal from './Modal-Info';
 import BookingsModal from './Modal-Bookings';
 

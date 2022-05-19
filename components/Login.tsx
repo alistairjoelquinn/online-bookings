@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { getCsrfToken, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 interface Props {
     setError: (val: string) => void;

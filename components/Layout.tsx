@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import EmailModal from './Modal-Email';

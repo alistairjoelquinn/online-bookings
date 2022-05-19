@@ -1,11 +1,10 @@
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { useEffect } from 'react';
 import Layout from '../components/Layout';
-
 import '../styles/globals.css';
 
 const queryClient = new QueryClient();
