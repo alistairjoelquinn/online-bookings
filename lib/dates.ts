@@ -11,7 +11,7 @@ const getWeek = (date: string) => {
     const dateValues = days.map((day, i) => {
         if (day) return day;
 
-        const dayVal = i > currentDay ? -i + currentDay : currentDay - i;
+        const dayVal = currentDay - i;
 
         const weekDayDate = currentDate.getDate() - dayVal;
         const dateSet = new Date(new Date(currentDate).setDate(weekDayDate));
