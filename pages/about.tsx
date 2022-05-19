@@ -28,6 +28,18 @@ const About = () => (
                 conversation prompt questions. If you have a particular area of interest, I&apos;m happy to create a
                 list of questions specific to this topic.
             </p>
+            <p className="para">
+                If English is required for your job, and you wish to become comfortable and confident enough to face
+                every situation you may encounter at work, I recommend booking Business English lessons.
+            </p>
+            <p className="para">
+                I teach General Business English working with level appropriate Business Result textbooks. These books
+                cover a wide array of topics and will build your confidence in the workplace.
+            </p>
+            <p className="para">
+                I&apos;ve also taught many students who wish simply to prepare for an interview or a presentation and
+                polish their language in order to sound more fluent and more professional.
+            </p>
             <Link href="/bookings" passHref>
                 <button type="button" className="btn mr-5 mb-5 md:mb-0">
                     Book Now
