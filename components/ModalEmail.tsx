@@ -23,10 +23,14 @@ const EmailModal = ({ setShowEmailModal }: Props) => {
 
     return (
         <ModalContainer closeModal={setShowEmailModal}>
-            <p className="pb-6 text-xl tracking-wide text-gray-600 sm:text-2xl md:text-3xl">
+            <p className="modal pb-6 text-xl tracking-wide text-gray-600 sm:text-2xl md:text-3xl">
                 englishwithfelicity@gmail.com
             </p>
-            {!isCopied ? <Copy onClick={copyClickHandler} cursor="pointer" /> : <p>Copied to clipboard!</p>}
+            {!isCopied ? (
+                <Copy onClick={copyClickHandler} cursor="pointer" />
+            ) : (
+                <p className="modal">Copied to clipboard</p>
+            )}
         </ModalContainer>
     );
 };
