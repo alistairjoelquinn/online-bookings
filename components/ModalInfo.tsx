@@ -6,16 +6,16 @@ interface Props {
 
 const InfoModal = ({ closeModal }: Props) => (
     <ModalContainer closeModal={closeModal}>
-        <div className="flex flex-col justify-evenly">
+        <div className="flex flex-col justify-evenly text-sm md:text-base">
             <p className="modal pb-8">
                 Select a date to see my availability. When you select a date the full week will be displayed. The
                 currently selected date is always outlined in yellow.
             </p>
-            <div className="flex justify-start pb-4 pl-8">
+            <div className="flex justify-start md:pb-4 md:pl-8">
                 <div className="mx-4 h-8 w-8 rounded-full bg-green-300" />
                 <p className="modal">Available times are highlighted in green</p>
             </div>
-            <div className="flex justify-start pb-8 pl-8">
+            <div className="flex items-center justify-start pb-8 md:pl-8">
                 <div className="mx-4 h-8 w-8 rounded-full bg-purple-200" />
                 <p className="modal">Booked slots are blocked out in purple</p>
             </div>
