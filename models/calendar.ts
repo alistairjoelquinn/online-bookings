@@ -9,3 +9,12 @@ export interface AvailableTime {
     end: string;
     date: string;
 }
+
+export interface BookedTime {
+    _id: string;
+    start: string;
+    end: string;
+    date: string;
+    name: string;
+    email: string;
+}
