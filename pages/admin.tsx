@@ -76,18 +76,16 @@ const Admin = () => {
                     ?.filter((item: BookedTime) => new Date(item.start) > new Date())
                     .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
                     .reverse()}
-                <h4 className="my-4 border-b-2 border-gray-500 text-lg">My available times:</h4>
-                {available?.map((item: AvailableTime) => (
-                    <AvailableCard item={item} key={item._id} />
-                ))}
-                <h4 className="my-4 border-b-2 border-gray-500 text-lg">Previous bookings</h4>
-                {booked && booked.filter((item: BookedTime) => new Date(item.start) < new Date()).length < 1 && (
-                    <p>No upcoming bookings...</p>
-                )}
-                {booked
-                    ?.filter((item: BookedTime) => new Date(item.start) < new Date())
-                    .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
-                    .reverse()}
+                <h4 className="my-4 border-b-2 border-gray-500 text-lg">Upcoming availability:</h4>
+                {available &&
+                    available.filter((item: AvailableTime) => new Date(item.start) > new Date()).length < 1 && (
+                        <p>No upcoming availability...</p>
+                    )}
+                {available
+                    ?.filter((item: AvailableTime) => new Date(item.start) > new Date())
+                    .map((item: AvailableTime) => (
+                        <AvailableCard item={item} key={item._id} />
+                    ))}
             </section>
         </div>
     );
