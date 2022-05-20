@@ -48,6 +48,7 @@ const Login = ({ setError }: Props) => {
                     <input
                         name="password"
                         type="password"
+                        placeholder="Password"
                         className="input w-full"
                         onChange={e => setPassword(e.target.value)}
                     />

@@ -52,6 +52,7 @@ const Admin = () => {
                         <input
                             name="password"
                             type="password"
+                            placeholder="Admin Password"
                             className="input w-full"
                             onChange={e => setAdminPassword(e.target.value)}
                         />
