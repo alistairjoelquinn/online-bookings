@@ -16,20 +16,26 @@ const Admin = () => {
         getAvailableTimesAndBookings,
     );
 
-    const handleSubmit = async () => {
-        const res = await fetch('/api/check-admin-password', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ adminPassword }),
-        });
-        const authData = await res.json();
-        if (authData.admin) {
-            setAdminAuthenticated(true);
-        } else {
-            setError('Incorrect password');
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const res = await fetch('/api/check-admin-password', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ adminPassword }),
+            });
+            const authData = await res.json();
+            console.log('authData: ', authData);
+            if (authData.admin) {
+                setAdminAuthenticated(true);
+            } else {
+                setError('Incorrect password');
+            }
+        } catch (err) {
+            setError('Bad things just happened - try again');
         }
     };
 
@@ -39,6 +45,9 @@ const Admin = () => {
         return (
             <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
                 <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-5/6 lg:max-w-xl">
+                    <h4 className="mb-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">
+                        {error || 'Identify Yourself'}
+                    </h4>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                         <input
                             name="password"
@@ -55,7 +64,6 @@ const Admin = () => {
         );
     }
     if (status === 'loading') return <div className="spin" />;
-    if (error) return <div>{error}</div>;
 
     return (
         <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
