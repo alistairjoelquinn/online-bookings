@@ -25,10 +25,9 @@ const Admin = () => {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ adminPassword }),
+                body: JSON.stringify({ password: adminPassword }),
             });
             const authData = await res.json();
-            console.log('authData: ', authData);
             if (authData.admin) {
                 setAdminAuthenticated(true);
             } else {
