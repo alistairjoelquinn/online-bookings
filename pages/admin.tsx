@@ -23,8 +23,16 @@ const Admin = () => {
                         <p>{item.name}</p>
                         <p>{item.email}</p>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi beatae nesciunt, veritatis,
-                            libero voluptatibus eius dolores architecto ipsa,
+                            {new Date(item.date).toLocaleDateString('en-uk', {
+                                weekday: 'short',
+                                day: 'numeric',
+                                month: '2-digit',
+                                year: 'numeric',
+                            })}
+                        </p>
+                        <p>
+                            From: {new Date(item.start).toLocaleTimeString().slice(0, -3)} To:{' '}
+                            {new Date(item.end).toLocaleTimeString().slice(0, -3)}
                         </p>
                     </div>
                 ))}
