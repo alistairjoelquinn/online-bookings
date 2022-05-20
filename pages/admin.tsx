@@ -21,18 +21,16 @@ const Admin = () => {
                 )}
                 {booked
                     ?.filter((item: BookedTime) => new Date(item.start) > new Date())
-                    .map((item: BookedTime) => (
-                        <BookingCard key={item._id} item={item} />
-                    ))}
+                    .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
+                    .reverse()}
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">Previous bookings</h4>
                 {booked?.filter((item: BookedTime) => new Date(item.start) < new Date()).length < 1 && (
                     <p>No upcoming bookings...</p>
                 )}
                 {booked
                     ?.filter((item: BookedTime) => new Date(item.start) < new Date())
-                    .map((item: BookedTime) => (
-                        <BookingCard key={item._id} item={item} />
-                    ))}
+                    .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
+                    .reverse()}
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">My available times:</h4>
                 {available?.map((item: AvailableTime) => (
                     <p key={item._id}>{item._id}</p>
