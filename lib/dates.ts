@@ -88,10 +88,10 @@ const generateScheduleTimes = (date: string) => [
     `${date}T18:00:00.000Z`,
 ];
 
-const getInitialAvailableTimes = () =>
+const getAvailableTimesAndBookings = () =>
     Promise.all([
-        fetch('/api/initial-available-times').then(res => res.json()),
-        fetch('/api/initial-available-bookings').then(res => res.json()),
+        fetch('/api/available-times').then(res => res.json()),
+        fetch('/api/current-bookings').then(res => res.json()),
     ]);
 
-export { getWeek, getCurrentDate, scheduleTimesLabel, getInitialAvailableTimes, generateScheduleTimes };
+export { getWeek, getCurrentDate, scheduleTimesLabel, getAvailableTimesAndBookings, generateScheduleTimes };

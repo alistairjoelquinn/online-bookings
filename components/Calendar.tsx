@@ -8,7 +8,7 @@ import {
     getWeek,
     getCurrentDate,
     scheduleTimesLabel,
-    getInitialAvailableTimes,
+    getAvailableTimesAndBookings,
     generateScheduleTimes,
 } from '../lib/dates';
 import { checkSlot } from '../lib/check-calendar-slot';
@@ -24,7 +24,7 @@ const Calendar = () => {
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
     const router = useRouter();
 
-    const { status, data: bookingData } = useQuery('initial-available-times', getInitialAvailableTimes);
+    const { status, data: bookingData } = useQuery('get-available-times-and-bookings', getAvailableTimesAndBookings);
 
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value) {
