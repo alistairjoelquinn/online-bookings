@@ -9,11 +9,29 @@ import type { AvailableTime, BookedTime } from '../models/calendar';
 const Admin = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [adminPassword, setAdminPassword] = useState('');
+    const [error, setError] = useState('');
 
     const { status, data }: { status: string; data: [AvailableTime[], BookedTime[]] | undefined } = useQuery(
         'get-available-times-and-bookings',
         getAvailableTimesAndBookings,
     );
+
+    const handleSubmit = async () => {
+        const res = await fetch('/api/check-admin-password', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ adminPassword }),
+        });
+        const authData = await res.json();
+        if (authData.admin) {
+            setAdminAuthenticated(true);
+        } else {
+            setError('Incorrect password');
+        }
+    };
 
     const [available, booked] = data || [null, null];
 
@@ -37,6 +55,7 @@ const Admin = () => {
         );
     }
     if (status === 'loading') return <div className="spin" />;
+    if (error) return <div>{error}</div>;
 
     return (
         <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
