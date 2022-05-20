@@ -67,7 +67,12 @@ const Admin = () => {
     return (
         <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
             <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-5/6 lg:max-w-xl">
-                <h3 className="mb-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">Admin Page</h3>
+                <div className="mt-4 flex items-center justify-between">
+                    <h3 className="mr-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">Admin Page</h3>
+                    <button type="button" className="btn mr-5 mb-5 md:mb-0">
+                        Display All
+                    </button>
+                </div>
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">Upcoming bookings</h4>
                 {booked && booked.filter((item: BookedTime) => new Date(item.start) > new Date()).length < 1 && (
                     <p>No upcoming bookings...</p>
