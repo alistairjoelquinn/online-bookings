@@ -4,8 +4,8 @@ interface Props {
     closeModal: (val: boolean) => void;
 }
 
-const BookingsModal = ({ closeModal }: Props) => (
+const ModalBookings = ({ closeModal }: Props) => (
     <ModalContainer closeModal={closeModal}>Bookings Modal</ModalContainer>
 );
 
-export default BookingsModal;
+export default ModalBookings;

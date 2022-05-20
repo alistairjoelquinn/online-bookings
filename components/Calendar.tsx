@@ -14,8 +14,8 @@ import {
 import { checkSlot } from '../lib/check-calendar-slot';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 import { AvailableTime, FormattedDate } from '../models/calendar';
-import InfoModal from './ModalInfo';
-import BookingsModal from './ModalBookings';
+import ModalInfo from './ModalInfo';
+import ModalBookings from './ModalBookings';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
@@ -73,8 +73,8 @@ const Calendar = () => {
                     />
                 </div>
             </div>
-            {infoWindowIsVisible && <InfoModal closeModal={setInfoWindowIsVisible} />}
-            {bookingsWindowIsVisible && <BookingsModal closeModal={setBookingsWindowIsVisible} />}
+            {infoWindowIsVisible && <ModalInfo closeModal={setInfoWindowIsVisible} />}
+            {bookingsWindowIsVisible && <ModalBookings closeModal={setBookingsWindowIsVisible} />}
             {week && (
                 <div className="grid grid-cols-5 gap-4">
                     {week.map(day => (

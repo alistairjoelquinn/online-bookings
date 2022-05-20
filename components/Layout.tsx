@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import EmailModal from './ModalEmail';
+import ModalEmail from './ModalEmail';
 import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => {
@@ -31,7 +31,7 @@ const Layout: React.FC = ({ children }) => {
                     </Link>
                 )}
             </div>
-            {showEmailModal && <EmailModal setShowEmailModal={setShowEmailModal} />}
+            {showEmailModal && <ModalEmail setShowEmailModal={setShowEmailModal} />}
             {children}
             <svg
                 className="absolute inset-y-0 right-0 -z-0 hidden h-full w-3/4 translate-x-1/2 transform text-purple-700 opacity-75 lg:block"

@@ -4,7 +4,7 @@ interface Props {
     closeModal: (val: boolean) => void;
 }
 
-const InfoModal = ({ closeModal }: Props) => (
+const ModalInfo = ({ closeModal }: Props) => (
     <ModalContainer closeModal={closeModal}>
         <div className="flex flex-col justify-evenly text-sm md:text-base">
             <p className="modal pb-8">
@@ -28,4 +28,4 @@ const InfoModal = ({ closeModal }: Props) => (
     </ModalContainer>
 );
 
-export default InfoModal;
+export default ModalInfo;

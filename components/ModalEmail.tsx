@@ -8,7 +8,7 @@ interface Props {
     setShowEmailModal: (val: boolean) => void;
 }
 
-const EmailModal = ({ setShowEmailModal }: Props) => {
+const ModalEmail = ({ setShowEmailModal }: Props) => {
     const [isCopied, setIsCopied] = useState(false);
 
     const copyClickHandler = async () => {
@@ -35,4 +35,4 @@ const EmailModal = ({ setShowEmailModal }: Props) => {
     );
 };
 
-export default EmailModal;
+export default ModalEmail;
