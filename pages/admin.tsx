@@ -74,7 +74,9 @@ const Admin = () => {
                         {!displayAll ? 'Display All' : 'Display Less'}
                     </button>
                 </div>
-                <h4 className="my-4 border-b-2 border-gray-500 text-lg">Upcoming bookings</h4>
+                <h4 className="my-4 border-b-2 border-gray-500 text-lg">
+                    {!displayAll ? 'Upcoming bookings' : 'All bookings'}
+                </h4>
                 {booked && booked.filter((item: BookedTime) => new Date(item.start) > new Date()).length < 1 && (
                     <p>No upcoming bookings...</p>
                 )}
@@ -82,7 +84,9 @@ const Admin = () => {
                     ?.filter((item: BookedTime) => new Date(item.start) > new Date())
                     .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
                     .reverse()}
-                <h4 className="my-4 border-b-2 border-gray-500 text-lg">Upcoming availability:</h4>
+                <h4 className="my-4 border-b-2 border-gray-500 text-lg">
+                    {!displayAll ? 'Upcoming availability' : 'All availability'}
+                </h4>
                 {available &&
                     available.filter((item: AvailableTime) => new Date(item.start) > new Date()).length < 1 && (
                         <p>No upcoming availability...</p>
