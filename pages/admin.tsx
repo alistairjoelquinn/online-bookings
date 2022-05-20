@@ -41,6 +41,8 @@ const Admin = () => {
 
     const [available, booked] = data || [null, null];
 
+    console.log('push to deploy new password');
+
     if (!adminAuthenticated) {
         return (
             <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
