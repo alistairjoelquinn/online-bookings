@@ -17,7 +17,7 @@ const BookingCard = ({ item }: { item: AvailableTime }) => (
                 {new Date(item.end).toLocaleTimeString().slice(0, -3)}
             </p>
         </div>
-        <div>
+        <div className="self-start">
             <Edit />
         </div>
     </div>
