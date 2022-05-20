@@ -80,10 +80,12 @@ const Admin = () => {
                 {booked && booked.filter((item: BookedTime) => new Date(item.start) > new Date()).length < 1 && (
                     <p>No upcoming bookings...</p>
                 )}
-                {booked
-                    ?.filter((item: BookedTime) => new Date(item.start) > new Date())
-                    .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
-                    .reverse()}
+                {!displayAll
+                    ? booked
+                          ?.filter((item: BookedTime) => new Date(item.start) > new Date())
+                          .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
+                          .reverse()
+                    : booked?.map((item: BookedTime) => <BookingCard key={item._id} item={item} />).reverse()}
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">
                     {!displayAll ? 'Upcoming availability' : 'All availability'}
                 </h4>
@@ -91,11 +93,11 @@ const Admin = () => {
                     available.filter((item: AvailableTime) => new Date(item.start) > new Date()).length < 1 && (
                         <p>No upcoming availability...</p>
                     )}
-                {available
-                    ?.filter((item: AvailableTime) => new Date(item.start) > new Date())
-                    .map((item: AvailableTime) => (
-                        <AvailableCard item={item} key={item._id} />
-                    ))}
+                {!displayAll
+                    ? available
+                          ?.filter((item: AvailableTime) => new Date(item.start) > new Date())
+                          .map((item: AvailableTime) => <AvailableCard item={item} key={item._id} />)
+                    : available?.map((item: AvailableTime) => <AvailableCard item={item} key={item._id} />)}
             </section>
         </div>
     );
