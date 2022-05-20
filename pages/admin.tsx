@@ -10,6 +10,7 @@ const Admin = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [adminPassword, setAdminPassword] = useState('');
     const [error, setError] = useState('');
+    const [displayAll, setDisplayAll] = useState(false);
 
     const { status, data }: { status: string; data: [AvailableTime[], BookedTime[]] | undefined } = useQuery(
         'get-available-times-and-bookings',
@@ -65,12 +66,12 @@ const Admin = () => {
     if (status === 'loading') return <div className="spin" />;
 
     return (
-        <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
-            <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-5/6 lg:max-w-xl">
+        <div className="relative z-10 w-4/6 animate-reveal pt-6  dark:text-gray-100 md:h-screen md:pt-16">
+            <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-full lg:max-w-xl">
                 <div className="mt-4 flex items-center justify-between">
                     <h3 className="mr-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">Admin Page</h3>
-                    <button type="button" className="btn mr-5 mb-5 md:mb-0">
-                        Display All
+                    <button onClick={() => setDisplayAll(val => !val)} type="button" className="btn mr-5 mb-5 md:mb-0">
+                        {!displayAll ? 'Display All' : 'Display Less'}
                     </button>
                 </div>
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">Upcoming bookings</h4>
