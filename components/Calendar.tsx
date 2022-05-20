@@ -43,7 +43,7 @@ const Calendar = () => {
     if (status === 'loading' || !week) return <div className="spin" />;
     if (status === 'error')
         return (
-            <div className=" relative z-10 flex flex-col p-5 text-2xl dark:text-gray-100 md:mr-6 md:pt-16">
+            <div className="relative z-10 flex flex-col p-5 text-2xl dark:text-gray-100 md:mr-6 md:pt-16">
                 <p className="mb-4 font-lora">Oops, something unexpected went wrong!</p>
                 <Link href="/" passHref>
                     <button type="button" className="btn mr-5 mb-5 w-56 md:mb-0">
