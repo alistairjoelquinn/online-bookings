@@ -3,6 +3,25 @@ import { useQuery } from 'react-query';
 import { getAvailableTimesAndBookings } from '../lib/dates';
 import type { AvailableTime, BookedTime } from '../models/calendar';
 
+const BookingCard = ({ item }: { item: BookedTime }) => (
+    <div className="my-2 flex w-80 animate-reveal flex-col items-start gap-2 rounded-lg border-2 border-purple-400 bg-white px-2 py-4 opacity-100 dark:bg-gray-900 sm:w-auto">
+        <p>{item.name}</p>
+        <p>{item.email}</p>
+        <p>
+            {new Date(item.date).toLocaleDateString('en-uk', {
+                weekday: 'short',
+                day: 'numeric',
+                month: '2-digit',
+                year: 'numeric',
+            })}
+        </p>
+        <p>
+            From: {new Date(item.start).toLocaleTimeString().slice(0, -3)} To:{' '}
+            {new Date(item.end).toLocaleTimeString().slice(0, -3)}
+        </p>
+    </div>
+);
+
 const Admin = () => {
     const { status, data } = useQuery('get-available-times-and-bookings', getAvailableTimesAndBookings);
 
@@ -16,25 +35,7 @@ const Admin = () => {
                 <h3 className="mb-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">Admin Page</h3>
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">Upcoming bookings</h4>
                 {booked?.map((item: BookedTime) => (
-                    <div
-                        key={item._id}
-                        className="my-2 flex w-80 animate-reveal flex-col items-start gap-2 rounded-lg border-2 border-purple-400 bg-white px-2 py-4 opacity-100 dark:bg-gray-900 sm:w-auto"
-                    >
-                        <p>{item.name}</p>
-                        <p>{item.email}</p>
-                        <p>
-                            {new Date(item.date).toLocaleDateString('en-uk', {
-                                weekday: 'short',
-                                day: 'numeric',
-                                month: '2-digit',
-                                year: 'numeric',
-                            })}
-                        </p>
-                        <p>
-                            From: {new Date(item.start).toLocaleTimeString().slice(0, -3)} To:{' '}
-                            {new Date(item.end).toLocaleTimeString().slice(0, -3)}
-                        </p>
-                    </div>
+                    <BookingCard key={item._id} item={item} />
                 ))}
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">Old bookings</h4>
                 {booked?.map((item: BookedTime) => (
