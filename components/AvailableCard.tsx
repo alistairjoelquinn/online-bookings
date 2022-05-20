@@ -18,7 +18,7 @@ const BookingCard = ({ item }: { item: AvailableTime }) => (
             </p>
         </div>
         <div className="self-start">
-            <Edit />
+            <Edit cursor="pointer" />
         </div>
     </div>
 );
