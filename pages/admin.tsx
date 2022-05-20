@@ -13,6 +13,8 @@ const Admin = () => {
 
     const [available, booked] = data || [null, null];
 
+    if (status === 'loading') return <div className="spin" />;
+
     return (
         <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
             <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-4/5 lg:max-w-xl">
