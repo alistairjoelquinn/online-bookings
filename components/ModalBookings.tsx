@@ -7,13 +7,23 @@ interface Props {
 }
 
 interface BookingData {
-    date?: string;
-    name?: string;
-    type?: 'cefr' | 'conversation' | 'business';
+    date: string;
+    from: string;
+    until: string;
+    name: string;
+    email: string;
+    type: 'cefr' | 'conversation' | 'business' | '';
 }
 
 const ModalBookings = ({ closeModal, date }: Props) => {
-    const [bookingData, setBookingData] = useState<BookingData>({ date });
+    const [bookingData, setBookingData] = useState<BookingData>({
+        date,
+        from: '',
+        until: '',
+        name: '',
+        email: '',
+        type: '',
+    });
 
     const updateBookingData = (e: any) => {
         if (!e.target.value) return;
