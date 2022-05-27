@@ -14,7 +14,6 @@ interface BookingData {
 
 const ModalBookings = ({ closeModal, date }: Props) => {
     const [bookingData, setBookingData] = useState<BookingData>({});
-    console.log('bookingData: ', bookingData);
 
     const updateBookingData = (e: any) => {
         setBookingData(prevData => ({
@@ -23,24 +22,38 @@ const ModalBookings = ({ closeModal, date }: Props) => {
         }));
     };
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        console.log('e: ', e);
+    };
+
     return (
         <ModalContainer closeModal={closeModal}>
-            <div className="mb-4 flex">
-                <label
-                    className="text-md py-3 pr-5 font-extrabold dark:text-gray-100 md:text-lg lg:text-xl"
-                    htmlFor="date"
-                >
-                    Select a date:
-                    <input
-                        value={date}
-                        name="date"
-                        type="date"
-                        onChange={updateBookingData}
-                        className="input ml-4 flex-grow"
-                    />
-                </label>
-            </div>
-            <p className="modal">What type of lesson would you like to book?</p>
+            <p className="modal">
+                To complete the booking I need a few more details. Please fill in the remaining fields then click Book
+                Now.
+            </p>
+
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div className="mb-4 flex">
+                    <label
+                        className="text-md py-3 pr-5 font-extrabold dark:text-gray-100 md:text-lg lg:text-xl"
+                        htmlFor="date"
+                    >
+                        Select a date:
+                        <input
+                            value={date}
+                            name="date"
+                            type="date"
+                            onChange={updateBookingData}
+                            className="input ml-4 flex-grow"
+                        />
+                    </label>
+                </div>
+                <p className="modal">What type of lesson would you like to book?</p>
+                <button type="submit" className="btn">
+                    Book Now
+                </button>
+            </form>
         </ModalContainer>
     );
 };
