@@ -17,6 +17,7 @@ export interface BookingData {
 
 const ModalBookings = ({ closeModal, date }: Props) => {
     const [error, setError] = useState('');
+    const [submitted, setSubmitted] = useState(false);
     const [bookingData, setBookingData] = useState<BookingData>({
         date,
         from: '',
@@ -33,12 +34,29 @@ const ModalBookings = ({ closeModal, date }: Props) => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
             setError('Remember to fill out all the input fields...');
         }
         console.log('bookingData: ', bookingData);
+        const res = await fetch('/api/submit-user-booking', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bookingData),
+        });
+        const data = await res.json();
+        console.log('data: ', data);
+        if (data.error) {
+            setError(data.error);
+        } else if (data.success === 'true') {
+            router.push('/thanks');
+        } else {
+            setError('Something unexpected went wrong!');
+        }
     };
 
     return (

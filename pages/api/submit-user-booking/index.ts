@@ -11,7 +11,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const error = validateIncomingValues(req.body);
 
-    if (error) return res.json({ error });
+    if (error) return res.status(400).json({ error });
 
     const { db } = await connectToDatabase();
 
