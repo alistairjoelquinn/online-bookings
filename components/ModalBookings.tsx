@@ -16,6 +16,7 @@ export interface BookingData {
 }
 
 const ModalBookings = ({ closeModal, date }: Props) => {
+    const [error, setError] = useState('');
     const [bookingData, setBookingData] = useState<BookingData>({
         date,
         from: '',
@@ -26,8 +27,6 @@ const ModalBookings = ({ closeModal, date }: Props) => {
     });
 
     const updateBookingData = (e: any) => {
-        if (!e.target.value) return;
-
         setBookingData(prevData => ({
             ...prevData,
             [e.target.name]: e.target.value,
@@ -36,16 +35,19 @@ const ModalBookings = ({ closeModal, date }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
+            setError('Remember to fill out all the input fields...');
+        }
         console.log('bookingData: ', bookingData);
     };
 
     return (
         <ModalContainer closeModal={closeModal}>
             <p className="modal mb-4">
-                To complete the booking I need a few more details. Please fill in the remaining fields then click Book
-                Now.
+                {!error
+                    ? 'To complete the booking I need a few more details. Please fill in the remaining fields then click Book Now.'
+                    : error}
             </p>
-
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="flex w-full justify-end">
                     <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
