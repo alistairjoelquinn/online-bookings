@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BookingFormFields from './BookingFormFields';
+import BookingThanksPanel from './BookingThanksPanel';
 import ModalContainer from './ModalContainer';
 
 interface Props {
@@ -70,7 +71,7 @@ const ModalBookings = ({ closeModal, date }: Props) => {
                     handleSubmit={handleSubmit}
                 />
             ) : (
-                <p>Thank you for submitting your booking</p>
+                <BookingThanksPanel data={bookingData} />
             )}
         </ModalContainer>
     );
