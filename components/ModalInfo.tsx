@@ -20,8 +20,7 @@ const ModalInfo = ({ closeModal }: Props) => (
                 <p className="modal mb-2 sm:mb-auto">Booked slots are blocked out in purple</p>
             </div>
             <p className="modal pb-6">
-                Once you have found a suitable time either click on the day you have selected, or click on the plus
-                icon, and enter in the remaining details.
+                Once you have found a suitable time click on the plus icon, and enter in the remaining details.
             </p>
             <p className="modal">Once complete, your appointment details will be displayed.</p>
         </div>
