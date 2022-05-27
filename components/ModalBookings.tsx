@@ -7,13 +7,13 @@ interface Props {
 }
 
 interface BookingData {
-    date?: Date;
+    date?: string;
     name?: string;
     type?: 'cefr' | 'conversation' | 'business';
 }
 
 const ModalBookings = ({ closeModal, date }: Props) => {
-    const [bookingData, setBookingData] = useState<BookingData>({});
+    const [bookingData, setBookingData] = useState<BookingData>({ date });
 
     const updateBookingData = (e: any) => {
         setBookingData(prevData => ({
@@ -23,7 +23,7 @@ const ModalBookings = ({ closeModal, date }: Props) => {
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        console.log('e: ', e);
+        e.preventDefault();
         console.log('bookingData: ', bookingData);
     };
 
