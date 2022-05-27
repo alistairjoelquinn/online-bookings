@@ -24,32 +24,35 @@ const ModalBookings = ({ closeModal, date }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         console.log('e: ', e);
+        console.log('bookingData: ', bookingData);
     };
 
     return (
         <ModalContainer closeModal={closeModal}>
-            <p className="modal">
+            <p className="modal mb-4">
                 To complete the booking I need a few more details. Please fill in the remaining fields then click Book
                 Now.
             </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="mb-4 flex">
-                    <label
-                        className="text-md py-3 pr-5 font-extrabold dark:text-gray-100 md:text-lg lg:text-xl"
-                        htmlFor="date"
-                    >
+                <div className="flex w-full justify-end">
+                    <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                         Select a date:
-                        <input
-                            value={date}
-                            name="date"
-                            type="date"
-                            onChange={updateBookingData}
-                            className="input ml-4 flex-grow"
-                        />
-                    </label>
+                    </p>
+                    <input value={date} name="date" type="date" onChange={updateBookingData} className="input w-96" />
                 </div>
-                <p className="modal">What type of lesson would you like to book?</p>
+                <div className="flex w-full justify-end">
+                    <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
+                        Full Name:
+                    </p>
+                    <input name="fullname" type="text" onChange={updateBookingData} className="input w-96" />
+                </div>
+                <div className="flex w-full justify-end">
+                    <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
+                        Email Address:
+                    </p>
+                    <input name="email" type="email" onChange={updateBookingData} className="input w-96" />
+                </div>
                 <button type="submit" className="btn">
                     Book Now
                 </button>
