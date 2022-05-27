@@ -20,7 +20,7 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit }: Pro
                     Select a date:
                 </p>
                 <input
-                    value={date}
+                    defaultValue={date}
                     required
                     name="date"
                     type="date"
