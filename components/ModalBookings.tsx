@@ -43,6 +43,16 @@ const ModalBookings = ({ closeModal, date }: Props) => {
                 </div>
                 <div className="flex w-full justify-end">
                     <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
+                        From:
+                    </p>
+                    <input name="from" type="time" onChange={updateBookingData} className="input mr-8 w-36" />
+                    <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
+                        Until:
+                    </p>
+                    <input name="until" type="time" onChange={updateBookingData} className="input w-36" />
+                </div>
+                <div className="flex w-full justify-end">
+                    <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                         Full Name:
                     </p>
                     <input name="fullname" type="text" onChange={updateBookingData} className="input w-96" />
@@ -57,7 +67,7 @@ const ModalBookings = ({ closeModal, date }: Props) => {
                     <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                         Booking Type:
                     </p>
-                    <select name="type" onChange={updateBookingData} className="input w-96">
+                    <select name="type" onChange={updateBookingData} className="input w-96 pr-4">
                         <option value="cefr">CEFR level class: A2 - C1</option>
                         <option value="conversation">Conversation class</option>
                         <option value="business">Business English class</option>
