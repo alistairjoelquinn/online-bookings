@@ -16,6 +16,8 @@ const ModalBookings = ({ closeModal, date }: Props) => {
     const [bookingData, setBookingData] = useState<BookingData>({ date });
 
     const updateBookingData = (e: any) => {
+        if (!e.target.value) return;
+
         setBookingData(prevData => ({
             ...prevData,
             [e.target.name]: e.target.value,
@@ -45,7 +47,7 @@ const ModalBookings = ({ closeModal, date }: Props) => {
                     <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                         From:
                     </p>
-                    <input name="from" type="time" onChange={updateBookingData} className="input mr-8 w-36" />
+                    <input name="from" type="time" onChange={updateBookingData} className="input mr-7 w-36" />
                     <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                         Until:
                     </p>
@@ -68,6 +70,7 @@ const ModalBookings = ({ closeModal, date }: Props) => {
                         Booking Type:
                     </p>
                     <select name="type" onChange={updateBookingData} className="input w-96 pr-4">
+                        <option value="">Choose an option...</option>
                         <option value="cefr">CEFR level class: A2 - C1</option>
                         <option value="conversation">Conversation class</option>
                         <option value="business">Business English class</option>
