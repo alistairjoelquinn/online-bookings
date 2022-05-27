@@ -6,7 +6,7 @@ interface Props {
     date: string;
 }
 
-interface BookingData {
+export interface BookingData {
     date: string;
     from: string;
     until: string;
@@ -74,7 +74,7 @@ const ModalBookings = ({ closeModal, date }: Props) => {
                     <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                         Full Name:
                     </p>
-                    <input name="fullname" required type="text" onChange={updateBookingData} className="input w-96" />
+                    <input name="name" required type="text" onChange={updateBookingData} className="input w-96" />
                 </div>
                 <div className="flex w-full justify-end">
                     <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
