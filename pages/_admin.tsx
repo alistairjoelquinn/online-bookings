@@ -7,6 +7,7 @@ import AvailableCard from '../components/AvailableCard';
 import { getAvailableTimesAndBookings } from '../lib/dates';
 import type { AvailableTime, BookedTime } from '../models/calendar';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
+import ModalAdmin from '../components/ModalAdmin';
 
 const Admin = () => {
     const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
@@ -72,6 +73,8 @@ const Admin = () => {
 
     return (
         <div className="relative z-10 w-4/6 animate-reveal pt-6  dark:text-gray-100 md:h-screen md:pt-16">
+            {adminWindowIsVisible && <ModalAdmin closeModal={setAdminWindowIsVisible} />}
+
             <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-full lg:max-w-xl">
                 <div className="mt-4 flex items-center justify-between">
                     <h3 className="mr-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">Admin Page</h3>
