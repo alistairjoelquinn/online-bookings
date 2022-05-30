@@ -10,8 +10,8 @@ interface Props {
 
 export interface BookingData {
     date: string;
-    from: string;
-    until: string;
+    start: string;
+    end: string;
     name: string;
     email: string;
     type: 'cefr' | 'conversation' | 'business' | '';

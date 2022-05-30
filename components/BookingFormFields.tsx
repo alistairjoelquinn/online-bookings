@@ -30,9 +30,9 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit }: Pro
             </div>
             <div className="flex w-full justify-end">
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">From:</p>
-                <input name="from" required type="time" onChange={updateBookingData} className="input mr-7 w-36" />
+                <input name="start" required type="time" onChange={updateBookingData} className="input mr-7 w-36" />
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">Until:</p>
-                <input name="until" required type="time" onChange={updateBookingData} className="input w-36" />
+                <input name="end" required type="time" onChange={updateBookingData} className="input w-36" />
             </div>
             <div className="flex w-full justify-end">
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
