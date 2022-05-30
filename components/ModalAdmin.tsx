@@ -1,12 +1,42 @@
 import { useState } from 'react';
+
 import ModalContainer from './ModalContainer';
+import type { AvailableTime } from '../models/calendar';
 
 interface Props {
     closeModal: (val: boolean) => void;
 }
 
 const ModalAdmin = ({ closeModal }: Props) => {
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
+    const [availableTime, setAvailableTime] = useState<AvailableTime>({
+        date: '',
+        start: '',
+        end: '',
+    });
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (Object.values(availableTime).filter(Boolean).length !== Object.values(availableTime).length) {
+            setError('Remember to fill out all the input fields...');
+        }
+        const res = await fetch('/api/submit-user-booking', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(availableTime),
+        });
+        const data = await res.json();
+        if (data.error) {
+            setError(data.error);
+        } else if (data.success === true) {
+            setSubmitted(true);
+        } else {
+            setError('Something unexpected went wrong!');
+        }
+    };
 
     return (
         <ModalContainer closeModal={closeModal}>

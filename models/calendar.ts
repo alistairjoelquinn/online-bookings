@@ -4,7 +4,7 @@ export interface FormattedDate {
 }
 
 export interface AvailableTime {
-    _id: string;
+    _id?: string;
     start: string;
     end: string;
     date: string;
