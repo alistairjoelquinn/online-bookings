@@ -6,6 +6,8 @@ import connectToDatabase from '../../../lib/mongodb';
 import isoify from '../../../lib/isoify';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+    console.log('req.body: ', req.body);
+
     const session = await getSession({ req });
 
     if (!session) return res.status(401);
@@ -17,6 +19,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { db } = await connectToDatabase();
 
     const { acknowledged } = await db.collection('booked').insertOne(isoify(req.body));
+
+    console.log('acknowledged: ', acknowledged);
 
     return res.status(acknowledged ? 200 : 400).json({ success: !!acknowledged });
 };

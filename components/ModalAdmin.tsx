@@ -49,11 +49,7 @@ const ModalAdmin = ({ closeModal }: Props) => {
     return (
         <ModalContainer closeModal={closeModal}>
             <div className="flex flex-col justify-evenly text-sm md:text-base">
-                <p className="modal mb-4">
-                    {!error
-                        ? 'To complete the booking I need a few more details. Please fill in the remaining fields then click Book Now.'
-                        : error}
-                </p>
+                <p className="modal mb-4 text-xl font-semibold">{!error ? 'Enter your availability:' : error}</p>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div className="flex w-full justify-end">
                         <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
