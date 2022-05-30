@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useQueryClient } from 'react-query';
+
 import BookingFormFields from './BookingFormFields';
 import BookingThanksPanel from './BookingThanksPanel';
 import ModalContainer from './ModalContainer';
@@ -18,6 +20,7 @@ export interface BookingData {
 }
 
 const ModalBookings = ({ closeModal, date }: Props) => {
+    const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [bookingData, setBookingData] = useState<BookingData>({
@@ -41,7 +44,6 @@ const ModalBookings = ({ closeModal, date }: Props) => {
         if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
             setError('Remember to fill out all the input fields...');
         }
-        console.log('bookingData: ', bookingData);
         const res = await fetch('/api/submit-user-booking', {
             method: 'POST',
             headers: {
@@ -51,11 +53,11 @@ const ModalBookings = ({ closeModal, date }: Props) => {
             body: JSON.stringify(bookingData),
         });
         const data = await res.json();
-        console.log('data: ', data);
         if (data.error) {
             setError(data.error);
         } else if (data.success === true) {
             setSubmitted(true);
+            queryClient.invalidateQueries('get-available-times-and-bookings');
         } else {
             setError('Something unexpected went wrong!');
         }
