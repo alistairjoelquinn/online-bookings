@@ -26,6 +26,8 @@ const Calendar = () => {
 
     const { status, data: bookingData } = useQuery('get-available-times-and-bookings', getAvailableTimesAndBookings);
 
+    console.log('bookingData: ', bookingData);
+
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value) {
             setSelectedDate(e.target.value);
