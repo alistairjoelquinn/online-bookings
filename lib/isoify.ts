@@ -10,5 +10,9 @@ export default (booking: BookingData) => {
     console.log('startISO: ', startISO);
     console.log('endISO: ', endISO);
 
-    return booking;
+    return {
+        ...booking,
+        start: startISO,
+        end: endISO,
+    };
 };

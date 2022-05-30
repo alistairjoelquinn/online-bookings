@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { validateIncomingValues } from '../../../lib/validate-form-values';
 import connectToDatabase from '../../../lib/mongodb';
+import isoify from '../../../lib/isoify';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('req.body: ', req.body);
@@ -17,7 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const { db } = await connectToDatabase();
 
-    const { acknowledged } = await db.collection('booked').insertOne(req.body);
+    const { acknowledged } = await db.collection('booked').insertOne(isoify(req.body));
 
     console.log('acknowledged: ', acknowledged);
 
