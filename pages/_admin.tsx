@@ -1,12 +1,15 @@
 import { useQuery } from 'react-query';
 import { useState } from 'react';
 
+import { Add } from 'grommet-icons';
 import BookingCard from '../components/BookingCard';
 import AvailableCard from '../components/AvailableCard';
 import { getAvailableTimesAndBookings } from '../lib/dates';
 import type { AvailableTime, BookedTime } from '../models/calendar';
+import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 
 const Admin = () => {
+    const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [adminPassword, setAdminPassword] = useState('');
     const [error, setError] = useState('');
@@ -41,8 +44,6 @@ const Admin = () => {
 
     const [available, booked] = data || [null, null];
 
-    console.log('push to deploy new password');
-
     if (!adminAuthenticated) {
         return (
             <div className="relative z-10 animate-reveal pt-6 dark:text-gray-100 md:h-screen md:pt-16">
@@ -66,6 +67,7 @@ const Admin = () => {
             </div>
         );
     }
+
     if (status === 'loading') return <div className="spin" />;
 
     return (
@@ -76,6 +78,7 @@ const Admin = () => {
                     <button onClick={() => setDisplayAll(val => !val)} type="button" className="btn mr-5 mb-5 md:mb-0">
                         {!displayAll ? 'Display All' : 'Display Less'}
                     </button>
+                    <Add onClick={() => setAdminWindowIsVisible(true)} {...iconHoverEventHandlers()} cursor="pointer" />
                 </div>
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">
                     {!displayAll ? 'Upcoming bookings' : 'All bookings'}
