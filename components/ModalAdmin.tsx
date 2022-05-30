@@ -9,11 +9,19 @@ interface Props {
 
 const ModalAdmin = ({ closeModal }: Props) => {
     const [error, setError] = useState('');
+    const [submitted, setSubmitted] = useState(false);
     const [availableTime, setAvailableTime] = useState<AvailableTime>({
         date: '',
         start: '',
         end: '',
     });
+
+    const updateAvailableTime = (e: any) => {
+        setAvailableTime(prevData => ({
+            ...prevData,
+            [e.target.name]: e.target.value,
+        }));
+    };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -51,7 +59,7 @@ const ModalAdmin = ({ closeModal }: Props) => {
                         <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                             Select a date:
                         </p>
-                        <input required name="date" type="date" onChange={updateBookingData} className="input w-96" />
+                        <input required name="date" type="date" onChange={updateAvailableTime} className="input w-96" />
                     </div>
                     <div className="flex w-full justify-end">
                         <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
@@ -61,13 +69,13 @@ const ModalAdmin = ({ closeModal }: Props) => {
                             name="start"
                             required
                             type="time"
-                            onChange={updateBookingData}
+                            onChange={updateAvailableTime}
                             className="input mr-7 w-36"
                         />
                         <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                             Until:
                         </p>
-                        <input name="end" required type="time" onChange={updateBookingData} className="input w-36" />
+                        <input name="end" required type="time" onChange={updateAvailableTime} className="input w-36" />
                     </div>
                     <button type="submit" className="btn">
                         Submit
