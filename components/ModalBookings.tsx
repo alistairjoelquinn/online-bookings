@@ -22,8 +22,8 @@ const ModalBookings = ({ closeModal, date }: Props) => {
     const [submitted, setSubmitted] = useState(false);
     const [bookingData, setBookingData] = useState<BookingData>({
         date,
-        from: '',
-        until: '',
+        start: '',
+        end: '',
         name: '',
         email: '',
         type: '',

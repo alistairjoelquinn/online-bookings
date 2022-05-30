@@ -16,7 +16,7 @@ const BookingThanksPanel = ({ data }: Props) => (
     <div className="flex flex-col items-center gap-2">
         <p className="modal font-semibold">Thank you {data.name}</p>
         <p className="modal">
-            You have booked a {lessonTypes[data.type]} from {data.from} till {data.until} on{' '}
+            You have booked a {lessonTypes[data.type]} from {data.start} till {data.end} on{' '}
             {new Date(data.date).toLocaleDateString('en-uk', { weekday: 'short', day: 'numeric', month: '2-digit' })}
         </p>
         <p className="modal">
