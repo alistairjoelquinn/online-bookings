@@ -7,7 +7,7 @@ interface Props {
 
 const lessonTypes = {
     cefr: 'CEFR level class',
-    business: 'Busniess English Class',
+    business: 'Business English Class',
     conversation: 'Conversation Class',
     '': '',
 };
@@ -21,7 +21,7 @@ const BookingThanksPanel = ({ data }: Props) => (
         </p>
         <p className="modal">
             If you have any questions just email me at{' '}
-            <span className="text-lg font-normal tracking-wide">englishwithfelicity@gmail.com</span>
+            <span className="font-normal tracking-wide">englishwithfelicity@gmail.com</span>
         </p>
         <p className="modal">I look forward to learning with you!</p>
     </div>
