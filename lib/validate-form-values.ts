@@ -15,7 +15,7 @@ export function validateIncomingValues(booking: BookingData) {
         error = `Oops, there's a problem with the email`;
     } else if (e && e[0] !== booking.email) {
         error = `Oops, there's a problem with the email`;
-    } else if (!booking.from || !booking.until || !booking.type || !booking.date) {
+    } else if (!booking.start || !booking.end || !booking.type || !booking.date) {
         error = 'Remember to fill out all the fields...';
     }
 
