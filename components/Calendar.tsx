@@ -90,8 +90,9 @@ const Calendar = () => {
                             >
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
                                     {generateScheduleTimes(day.id).map((time, i) => (
+                                        // console.log('time: ', time);
                                         <div
-                                            key={time}
+                                            key={time + i}
                                             className={`${checkSlot(time, bookingData, day.id, i).join(
                                                 ' ',
                                             )} h-2 ${bookingData?.[0]
