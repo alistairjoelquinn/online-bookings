@@ -8,16 +8,14 @@ import { getAvailableTimesAndBookings } from '../lib/dates';
 import type { AvailableTime, BookedTime } from '../models/calendar';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 import ModalAdmin from '../components/ModalAdmin';
+import ModalBookings from '../components/ModalBookings';
 
 const Admin = () => {
-    const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
-    // const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
-    const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime | null>({
-        start: '',
-        end: '',
-        date: '',
-    });
+    const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
+    const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
+    const [selectedBooking, setSelectedBooking] = useState<AvailableTime | null>(null);
+    const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime | null>(null);
     const [adminPassword, setAdminPassword] = useState('');
     const [error, setError] = useState('');
     const [displayAll, setDisplayAll] = useState(false);
@@ -86,7 +84,13 @@ const Admin = () => {
                     populate={selectedAvailability}
                 />
             )}
-
+            {editBookingIsVisible && (
+                <ModalBookings
+                    clearState={() => setSelectedBooking(null)}
+                    closeModal={setEditBookingIsVisible}
+                    populate={selectedBooking}
+                />
+            )}
             <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-full lg:max-w-xl">
                 <div className="mt-4 flex items-center justify-between">
                     <h3 className="mr-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">Admin Page</h3>

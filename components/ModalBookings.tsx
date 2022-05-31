@@ -8,6 +8,8 @@ import ModalContainer from './ModalContainer';
 interface Props {
     closeModal: (val: boolean) => void;
     date: string;
+    populate: BookingData | null | undefined;
+    clearState?: () => void;
 }
 
 export interface BookingData {
@@ -19,7 +21,7 @@ export interface BookingData {
     type: 'cefr' | 'conversation' | 'business' | '';
 }
 
-const ModalBookings = ({ closeModal, date }: Props) => {
+const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -64,7 +66,7 @@ const ModalBookings = ({ closeModal, date }: Props) => {
     };
 
     return (
-        <ModalContainer closeModal={closeModal}>
+        <ModalContainer clearState={clearState} closeModal={closeModal}>
             {!submitted ? (
                 <BookingFormFields
                     date={date}
