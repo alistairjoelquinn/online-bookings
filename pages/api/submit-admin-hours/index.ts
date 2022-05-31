@@ -5,8 +5,6 @@ import connectToDatabase from '../../../lib/mongodb';
 import isoify from '../../../lib/isoify';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    console.log('req.body: ', req.body);
-
     const session = await getSession({ req });
 
     if (!session) return res.status(401);
