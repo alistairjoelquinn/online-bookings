@@ -28,7 +28,13 @@ const BookingCard = ({
             </p>
         </div>
         <div className="self-start">
-            <Edit cursor="pointer" />
+            <Edit
+                onClick={() => {
+                    selectCard(item);
+                    showModal(true);
+                }}
+                cursor="pointer"
+            />
         </div>
     </div>
 );

@@ -111,7 +111,7 @@ const Admin = () => {
                           ?.filter((item: BookedTime) => new Date(item.start) > new Date())
                           .map((item: BookedTime) => (
                               <BookingCard
-                                  selectCard={item}
+                                  selectCard={setSelectedBooking}
                                   showModal={setEditBookingIsVisible}
                                   key={item._id}
                                   item={item}
@@ -121,7 +121,7 @@ const Admin = () => {
                     : booked
                           ?.map((item: BookedTime) => (
                               <BookingCard
-                                  selectCard={item}
+                                  selectCard={setSelectedBooking}
                                   showModal={setEditBookingIsVisible}
                                   key={item._id}
                                   item={item}
