@@ -89,32 +89,28 @@ const Calendar = () => {
                                 }`}
                             >
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
-                                    {generateScheduleTimes(day.id).map((time, i) => {
-                                        const offset = new Date().getTimezoneOffset() / 60;
-
-                                        return (
-                                            <div
-                                                key={time + i}
-                                                className={`${checkSlot(time, bookingData, day.id, i).join(
-                                                    ' ',
-                                                )} h-2 ${bookingData?.[0]
-                                                    .map(
-                                                        (item: AvailableTime) =>
-                                                            new Date(time) >= new Date(item.start) &&
-                                                            new Date(time) < new Date(item.end) &&
-                                                            'bg-green-300',
-                                                    )
-                                                    .filter(Boolean)}${bookingData?.[1]
-                                                    .map(
-                                                        (item: AvailableTime) =>
-                                                            new Date(time) >= new Date(item.start) &&
-                                                            new Date(time) < new Date(item.end) &&
-                                                            ' bg-purple-200',
-                                                    )
-                                                    .filter(Boolean)}`}
-                                            />
-                                        );
-                                    })}
+                                    {generateScheduleTimes(day.id).map((time, i) => (
+                                        <div
+                                            key={time + i}
+                                            className={`${checkSlot(time, bookingData, day.id, i).join(
+                                                ' ',
+                                            )} h-2 ${bookingData?.[0]
+                                                .map(
+                                                    (item: AvailableTime) =>
+                                                        new Date(time) >= new Date(item.start) &&
+                                                        new Date(time) < new Date(item.end) &&
+                                                        'bg-green-300',
+                                                )
+                                                .filter(Boolean)}${bookingData?.[1]
+                                                .map(
+                                                    (item: AvailableTime) =>
+                                                        new Date(time) >= new Date(item.start) &&
+                                                        new Date(time) < new Date(item.end) &&
+                                                        ' bg-purple-200',
+                                                )
+                                                .filter(Boolean)}`}
+                                        />
+                                    ))}
                                 </div>
                                 {scheduleTimesLabel(new Date().getTimezoneOffset() / 60).map(
                                     (time: string, i: number) => (
