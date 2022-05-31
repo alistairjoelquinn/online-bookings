@@ -9,7 +9,7 @@ import ModalContainer from './ModalContainer';
 interface Props {
     closeModal: (val: boolean) => void;
     date: string;
-    populate: BookedTime | null | undefined;
+    populate?: BookedTime | null;
     clearState?: () => void;
 }
 

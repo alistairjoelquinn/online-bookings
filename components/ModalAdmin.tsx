@@ -6,7 +6,7 @@ import type { AvailableTime } from '../models/calendar';
 
 interface Props {
     closeModal: (val: boolean) => void;
-    populate: AvailableTime | null | undefined;
+    populate: AvailableTime | null;
     clearState?: () => void;
 }
 

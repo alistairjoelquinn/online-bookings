@@ -1,10 +1,10 @@
 import React from 'react';
-import { BookingData } from './ModalBookings';
+import { BookedTime } from '../models/calendar';
 
 interface Props {
     date: string;
     error: string;
-    populate: BookingData | null | undefined;
+    populate?: BookedTime | null;
     updateBookingData: (e: any) => void;
     handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
@@ -22,7 +22,7 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit, popul
                     Select a date:
                 </p>
                 <input
-                    defaultValue={populate?.date && date}
+                    defaultValue={populate?.date ? new Date(populate.date).toLocaleDateString() : date}
                     required
                     name="date"
                     type="date"
@@ -33,7 +33,7 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit, popul
             <div className="flex w-full justify-end">
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">From:</p>
                 <input
-                    defaultValue={populate?.start}
+                    defaultValue={populate?.start && new Date(populate.start).toLocaleTimeString()}
                     name="start"
                     required
                     type="time"
@@ -42,7 +42,7 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit, popul
                 />
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">Until:</p>
                 <input
-                    defaultValue={populate?.end}
+                    defaultValue={populate?.end && new Date(populate.end).toLocaleTimeString()}
                     name="end"
                     required
                     type="time"
