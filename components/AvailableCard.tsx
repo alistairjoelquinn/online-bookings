@@ -1,7 +1,15 @@
 import { Edit } from 'grommet-icons';
 import { AvailableTime } from '../models/calendar';
 
-const BookingCard = ({ item, selectCard }: { item: AvailableTime; selectCard: (val: AvailableTime) => void }) => (
+const BookingCard = ({
+    item,
+    selectCard,
+    showModal,
+}: {
+    item: AvailableTime;
+    selectCard: (val: AvailableTime) => void;
+    showModal: (val: boolean) => void;
+}) => (
     <div className="my-2 flex w-80 animate-reveal items-center justify-between gap-2 rounded-lg border-2 border-purple-400 bg-white px-2 py-4 opacity-100 dark:bg-gray-900 sm:w-auto">
         <div>
             <p>
@@ -18,7 +26,13 @@ const BookingCard = ({ item, selectCard }: { item: AvailableTime; selectCard: (v
             </p>
         </div>
         <div className="self-start">
-            <Edit onClick={() => selectCard(item)} cursor="pointer" />
+            <Edit
+                onClick={() => {
+                    selectCard(item);
+                    showModal(true);
+                }}
+                cursor="pointer"
+            />
         </div>
     </div>
 );

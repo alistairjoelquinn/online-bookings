@@ -110,10 +110,20 @@ const Admin = () => {
                     ? available
                           ?.filter((item: AvailableTime) => new Date(item.start) > new Date())
                           .map((item: AvailableTime) => (
-                              <AvailableCard selectCard={setSelectedAvailability} item={item} key={item._id} />
+                              <AvailableCard
+                                  showModal={setAdminWindowIsVisible}
+                                  selectCard={setSelectedAvailability}
+                                  item={item}
+                                  key={item._id}
+                              />
                           ))
                     : available?.map((item: AvailableTime) => (
-                          <AvailableCard selectCard={setSelectedAvailability} item={item} key={item._id} />
+                          <AvailableCard
+                              showModal={setAdminWindowIsVisible}
+                              selectCard={setSelectedAvailability}
+                              item={item}
+                              key={item._id}
+                          />
                       ))}
             </section>
         </div>

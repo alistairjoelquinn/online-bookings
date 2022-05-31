@@ -10,6 +10,7 @@ interface Props {
 }
 
 const ModalAdmin = ({ closeModal, populate }: Props) => {
+    console.log('populate: ', populate);
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -22,6 +23,8 @@ const ModalAdmin = ({ closeModal, populate }: Props) => {
                   end: '',
               },
     );
+
+    console.log(new Date(availableTime.start).toLocaleTimeString());
 
     const updateAvailableTime = (e: any) => {
         setAvailableTime(prevData => ({
@@ -68,6 +71,7 @@ const ModalAdmin = ({ closeModal, populate }: Props) => {
                                     Select a date:
                                 </p>
                                 <input
+                                    defaultValue={availableTime.date}
                                     required
                                     name="date"
                                     type="date"
@@ -80,6 +84,7 @@ const ModalAdmin = ({ closeModal, populate }: Props) => {
                                     From:
                                 </p>
                                 <input
+                                    defaultValue={new Date(availableTime.start).toLocaleTimeString()}
                                     name="start"
                                     required
                                     type="time"
