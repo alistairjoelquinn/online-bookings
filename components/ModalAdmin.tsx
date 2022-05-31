@@ -98,7 +98,7 @@ const ModalAdmin = ({ closeModal }: Props) => {
                         </form>
                     </>
                 ) : (
-                    <p>Good job</p>
+                    <p>Yayy, that worked...</p>
                 )}
             </div>
         </ModalContainer>
