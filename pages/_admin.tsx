@@ -11,7 +11,7 @@ import ModalAdmin from '../components/ModalAdmin';
 
 const Admin = () => {
     const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
-    const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
+    // const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime>({ start: '', end: '', date: '' });
     const [adminPassword, setAdminPassword] = useState('');

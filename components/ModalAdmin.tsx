@@ -13,12 +13,15 @@ const ModalAdmin = ({ closeModal, populate }: Props) => {
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
-    const [availableTime, setAvailableTime] = useState<AvailableTime>({
-        date: '',
-        start: '',
-        end: '',
-        ...populate,
-    });
+    const [availableTime, setAvailableTime] = useState<AvailableTime>(
+        populate
+            ? { ...populate }
+            : {
+                  date: '',
+                  start: '',
+                  end: '',
+              },
+    );
 
     const updateAvailableTime = (e: any) => {
         setAvailableTime(prevData => ({
