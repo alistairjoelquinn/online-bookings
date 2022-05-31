@@ -13,7 +13,11 @@ const Admin = () => {
     const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
     // const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
-    const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime>({ start: '', end: '', date: '' });
+    const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime | null>({
+        start: '',
+        end: '',
+        date: '',
+    });
     const [adminPassword, setAdminPassword] = useState('');
     const [error, setError] = useState('');
     const [displayAll, setDisplayAll] = useState(false);
@@ -76,7 +80,11 @@ const Admin = () => {
     return (
         <div className="relative z-10 w-4/6 animate-reveal pt-6  dark:text-gray-100 md:h-screen md:pt-16">
             {adminWindowIsVisible && (
-                <ModalAdmin closeModal={setAdminWindowIsVisible} populate={selectedAvailability} />
+                <ModalAdmin
+                    clearState={() => setSelectedAvailability(null)}
+                    closeModal={setAdminWindowIsVisible}
+                    populate={selectedAvailability}
+                />
             )}
 
             <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-full lg:max-w-xl">

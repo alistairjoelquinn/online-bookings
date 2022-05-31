@@ -6,10 +6,11 @@ import type { AvailableTime } from '../models/calendar';
 
 interface Props {
     closeModal: (val: boolean) => void;
-    populate: AvailableTime;
+    populate: AvailableTime | null | undefined;
+    clearState?: () => void;
 }
 
-const ModalAdmin = ({ closeModal, populate }: Props) => {
+const ModalAdmin = ({ closeModal, populate, clearState }: Props) => {
     console.log('populate: ', populate);
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
@@ -58,7 +59,7 @@ const ModalAdmin = ({ closeModal, populate }: Props) => {
     };
 
     return (
-        <ModalContainer closeModal={closeModal}>
+        <ModalContainer clearState={clearState} closeModal={closeModal}>
             <div className="flex flex-col justify-evenly text-sm md:text-base">
                 {!submitted ? (
                     <>

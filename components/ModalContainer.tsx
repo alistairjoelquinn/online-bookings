@@ -1,7 +1,7 @@
 interface Props {
     closeModal: (val: boolean) => void;
     children?: React.ReactNode;
-    clearState: () => void;
+    clearState?: () => void;
 }
 
 const ModalContainer = ({ children, closeModal, clearState }: Props) => (
