@@ -38,7 +38,20 @@ const getCurrentDate = () =>
         .reverse()
         .join('-');
 
-const scheduleTimesLabel = ['- 07:00am', '-', '-', '- 10:00am', '-', '-', '- 01:00pm', '-', '-', '- 04:00pm', '-', '-'];
+const scheduleTimesLabel = (offset: number) => [
+    `- ${5 - offset}:00`,
+    '-',
+    '-',
+    `- ${8 - offset}:00`,
+    '-',
+    '-',
+    `- ${11 - offset}:00`,
+    '-',
+    '-',
+    `- ${2 - offset}:00`,
+    '-',
+    '-',
+];
 
 const generateScheduleTimes = (date: string) => [
     `${date}T07:00:00.000Z`,

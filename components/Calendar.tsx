@@ -112,11 +112,13 @@ const Calendar = () => {
                                         />
                                     ))}
                                 </div>
-                                {scheduleTimesLabel.map((time: string, i: number) => (
-                                    <span className="relative z-20 h-8 bg-transparent text-gray-600" key={time + i}>
-                                        {time}
-                                    </span>
-                                ))}
+                                {scheduleTimesLabel(new Date().getTimezoneOffset() / 60).map(
+                                    (time: string, i: number) => (
+                                        <span className="relative z-20 h-8 bg-transparent text-gray-600" key={time + i}>
+                                            {time}
+                                        </span>
+                                    ),
+                                )}
                             </div>
                         </div>
                     ))}
