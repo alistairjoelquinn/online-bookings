@@ -11,7 +11,6 @@ interface Props {
 }
 
 const ModalAdmin = ({ closeModal, populate, clearState }: Props) => {
-    console.log('populate: ', populate);
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -24,8 +23,6 @@ const ModalAdmin = ({ closeModal, populate, clearState }: Props) => {
                   end: '',
               },
     );
-
-    console.log(new Date(availableTime.start).toLocaleTimeString());
 
     const updateAvailableTime = (e: any) => {
         setAvailableTime(prevData => ({
@@ -105,7 +102,7 @@ const ModalAdmin = ({ closeModal, populate, clearState }: Props) => {
                                 />
                             </div>
                             <button type="submit" className="btn">
-                                Submit
+                                {populate ? 'Update' : 'Submit'}
                             </button>
                         </form>
                     </>
