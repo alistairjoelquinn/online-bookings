@@ -6,9 +6,10 @@ import type { AvailableTime } from '../models/calendar';
 
 interface Props {
     closeModal: (val: boolean) => void;
+    populate: AvailableTime;
 }
 
-const ModalAdmin = ({ closeModal }: Props) => {
+const ModalAdmin = ({ closeModal, populate }: Props) => {
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -16,6 +17,7 @@ const ModalAdmin = ({ closeModal }: Props) => {
         date: '',
         start: '',
         end: '',
+        ...populate,
     });
 
     const updateAvailableTime = (e: any) => {
