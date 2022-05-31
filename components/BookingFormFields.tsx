@@ -12,9 +12,10 @@ interface Props {
 const BookingFormFields = ({ date, error, updateBookingData, handleSubmit, populate }: Props) => (
     <>
         <p className="modal mb-4">
-            {!error
-                ? 'To complete the booking I need a few more details. Please fill in the remaining fields then click Book Now.'
-                : error}
+            {error ||
+                (populate
+                    ? 'Edit this booking by updating the fields below:'
+                    : 'To complete the booking I need a few more details. Please fill in the remaining fields then click Book Now.')}
         </p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="flex w-full justify-end">
@@ -94,7 +95,7 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit, popul
                 </select>
             </div>
             <button type="submit" className="btn">
-                Book Now
+                {populate ? 'Update' : 'Book Now'}
             </button>
         </form>
     </>
