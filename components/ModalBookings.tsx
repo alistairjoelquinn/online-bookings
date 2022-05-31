@@ -25,14 +25,18 @@ const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
-    const [bookingData, setBookingData] = useState<BookingData>({
-        date,
-        start: '',
-        end: '',
-        name: '',
-        email: '',
-        type: '',
-    });
+    const [bookingData, setBookingData] = useState<BookingData>(
+        populate
+            ? { ...populate }
+            : {
+                  date: date && '',
+                  start: '',
+                  end: '',
+                  name: '',
+                  email: '',
+                  type: '',
+              },
+    );
 
     const updateBookingData = (e: any) => {
         setBookingData(prevData => ({
@@ -69,6 +73,7 @@ const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
         <ModalContainer clearState={clearState} closeModal={closeModal}>
             {!submitted ? (
                 <BookingFormFields
+                    populate={populate}
                     date={date}
                     error={error}
                     updateBookingData={updateBookingData}

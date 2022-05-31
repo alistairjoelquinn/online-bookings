@@ -1,13 +1,15 @@
 import React from 'react';
+import { BookingData } from './ModalBookings';
 
 interface Props {
     date: string;
     error: string;
+    populate: BookingData | null | undefined;
     updateBookingData: (e: any) => void;
     handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const BookingFormFields = ({ date, error, updateBookingData, handleSubmit }: Props) => (
+const BookingFormFields = ({ date, error, updateBookingData, handleSubmit, populate }: Props) => (
     <>
         <p className="modal mb-4">
             {!error
@@ -20,7 +22,7 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit }: Pro
                     Select a date:
                 </p>
                 <input
-                    defaultValue={date}
+                    defaultValue={populate?.date && date}
                     required
                     name="date"
                     type="date"
@@ -30,27 +32,61 @@ const BookingFormFields = ({ date, error, updateBookingData, handleSubmit }: Pro
             </div>
             <div className="flex w-full justify-end">
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">From:</p>
-                <input name="start" required type="time" onChange={updateBookingData} className="input mr-7 w-36" />
+                <input
+                    defaultValue={populate?.start}
+                    name="start"
+                    required
+                    type="time"
+                    onChange={updateBookingData}
+                    className="input mr-7 w-36"
+                />
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">Until:</p>
-                <input name="end" required type="time" onChange={updateBookingData} className="input w-36" />
+                <input
+                    defaultValue={populate?.end}
+                    name="end"
+                    required
+                    type="time"
+                    onChange={updateBookingData}
+                    className="input w-36"
+                />
             </div>
             <div className="flex w-full justify-end">
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                     Full Name:
                 </p>
-                <input name="name" required type="text" onChange={updateBookingData} className="input w-96" />
+                <input
+                    defaultValue={populate?.name}
+                    name="name"
+                    required
+                    type="text"
+                    onChange={updateBookingData}
+                    className="input w-96"
+                />
             </div>
             <div className="flex w-full justify-end">
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                     Email Address:
                 </p>
-                <input name="email" required type="email" onChange={updateBookingData} className="input w-96" />
+                <input
+                    defaultValue={populate?.email}
+                    name="email"
+                    required
+                    type="email"
+                    onChange={updateBookingData}
+                    className="input w-96"
+                />
             </div>
             <div className="flex w-full justify-end">
                 <p className="modal text-md py-3 pr-5 font-medium dark:text-gray-100 md:text-lg lg:text-xl">
                     Booking Type:
                 </p>
-                <select required name="type" onChange={updateBookingData} className="input w-96 pr-4">
+                <select
+                    defaultValue={populate?.type}
+                    required
+                    name="type"
+                    onChange={updateBookingData}
+                    className="input w-96 pr-4"
+                >
                     <option value="">Choose an option...</option>
                     <option value="cefr">CEFR level class: A2 - C1</option>
                     <option value="conversation">Conversation class</option>

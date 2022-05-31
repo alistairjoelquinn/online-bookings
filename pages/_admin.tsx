@@ -8,13 +8,13 @@ import { getAvailableTimesAndBookings } from '../lib/dates';
 import type { AvailableTime, BookedTime } from '../models/calendar';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 import ModalAdmin from '../components/ModalAdmin';
-import ModalBookings from '../components/ModalBookings';
+import ModalBookings, { BookingData } from '../components/ModalBookings';
 
 const Admin = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
     const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
-    const [selectedBooking, setSelectedBooking] = useState<AvailableTime | null>(null);
+    const [selectedBooking, setSelectedBooking] = useState<BookingData | null>(null);
     const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime | null>(null);
     const [adminPassword, setAdminPassword] = useState('');
     const [error, setError] = useState('');
@@ -86,6 +86,7 @@ const Admin = () => {
             )}
             {editBookingIsVisible && (
                 <ModalBookings
+                    date=""
                     clearState={() => setSelectedBooking(null)}
                     closeModal={setEditBookingIsVisible}
                     populate={selectedBooking}
@@ -108,9 +109,15 @@ const Admin = () => {
                 {!displayAll
                     ? booked
                           ?.filter((item: BookedTime) => new Date(item.start) > new Date())
-                          .map((item: BookedTime) => <BookingCard key={item._id} item={item} />)
+                          .map((item: BookedTime) => (
+                              <BookingCard showModal={setEditBookingIsVisible} key={item._id} item={item} />
+                          ))
                           .reverse()
-                    : booked?.map((item: BookedTime) => <BookingCard key={item._id} item={item} />).reverse()}
+                    : booked
+                          ?.map((item: BookedTime) => (
+                              <BookingCard showModal={setEditBookingIsVisible} key={item._id} item={item} />
+                          ))
+                          .reverse()}
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">
                     {!displayAll ? 'Upcoming availability' : 'All availability'}
                 </h4>
