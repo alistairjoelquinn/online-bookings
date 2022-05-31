@@ -1,7 +1,15 @@
 import { Edit } from 'grommet-icons';
 import { BookedTime } from '../models/calendar';
 
-const BookingCard = ({ item }: { item: BookedTime }) => (
+const BookingCard = ({
+    item,
+    selectCard,
+    showModal,
+}: {
+    item: BookedTime;
+    selectCard: (val: BookedTime) => void;
+    showModal: (val: boolean) => void;
+}) => (
     <div className="my-2 flex w-80 animate-reveal items-center justify-between gap-2 rounded-lg border-2 border-purple-400 bg-white px-2 py-4 opacity-100 dark:bg-gray-900 sm:w-auto">
         <div>
             <p>{item.name}</p>

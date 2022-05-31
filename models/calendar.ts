@@ -11,10 +11,11 @@ export interface AvailableTime {
 }
 
 export interface BookedTime {
-    _id: string;
+    _id?: string;
     start: string;
     end: string;
     date: string;
     name: string;
     email: string;
+    type: 'cefr' | 'conversation' | 'business' | '';
 }

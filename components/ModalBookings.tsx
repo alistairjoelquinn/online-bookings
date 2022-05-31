@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useQueryClient } from 'react-query';
+import { BookedTime } from '../models/calendar';
 
 import BookingFormFields from './BookingFormFields';
 import BookingThanksPanel from './BookingThanksPanel';
@@ -8,24 +9,15 @@ import ModalContainer from './ModalContainer';
 interface Props {
     closeModal: (val: boolean) => void;
     date: string;
-    populate: BookingData | null | undefined;
+    populate: BookedTime | null | undefined;
     clearState?: () => void;
-}
-
-export interface BookingData {
-    date: string;
-    start: string;
-    end: string;
-    name: string;
-    email: string;
-    type: 'cefr' | 'conversation' | 'business' | '';
 }
 
 const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
-    const [bookingData, setBookingData] = useState<BookingData>(
+    const [bookingData, setBookingData] = useState<BookedTime>(
         populate
             ? { ...populate }
             : {

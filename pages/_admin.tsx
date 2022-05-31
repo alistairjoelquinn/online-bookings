@@ -1,20 +1,20 @@
 import { useQuery } from 'react-query';
 import { useState } from 'react';
-
 import { Add } from 'grommet-icons';
+
 import BookingCard from '../components/BookingCard';
 import AvailableCard from '../components/AvailableCard';
 import { getAvailableTimesAndBookings } from '../lib/dates';
 import type { AvailableTime, BookedTime } from '../models/calendar';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 import ModalAdmin from '../components/ModalAdmin';
-import ModalBookings, { BookingData } from '../components/ModalBookings';
+import ModalBookings from '../components/ModalBookings';
 
 const Admin = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
     const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
-    const [selectedBooking, setSelectedBooking] = useState<BookingData | null>(null);
+    const [selectedBooking, setSelectedBooking] = useState<BookedTime | null>(null);
     const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime | null>(null);
     const [adminPassword, setAdminPassword] = useState('');
     const [error, setError] = useState('');
@@ -110,12 +110,22 @@ const Admin = () => {
                     ? booked
                           ?.filter((item: BookedTime) => new Date(item.start) > new Date())
                           .map((item: BookedTime) => (
-                              <BookingCard showModal={setEditBookingIsVisible} key={item._id} item={item} />
+                              <BookingCard
+                                  selectCard={item}
+                                  showModal={setEditBookingIsVisible}
+                                  key={item._id}
+                                  item={item}
+                              />
                           ))
                           .reverse()
                     : booked
                           ?.map((item: BookedTime) => (
-                              <BookingCard showModal={setEditBookingIsVisible} key={item._id} item={item} />
+                              <BookingCard
+                                  selectCard={item}
+                                  showModal={setEditBookingIsVisible}
+                                  key={item._id}
+                                  item={item}
+                              />
                           ))
                           .reverse()}
                 <h4 className="my-4 border-b-2 border-gray-500 text-lg">
