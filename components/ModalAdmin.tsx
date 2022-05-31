@@ -63,7 +63,7 @@ const ModalAdmin = ({ closeModal, populate }: Props) => {
                 {!submitted ? (
                     <>
                         <p className="modal mb-4 text-xl font-semibold">
-                            {!error ? 'Enter your availability:' : error}
+                            {!error ? `${populate ? 'Edit' : 'Enter'} your availability:` : error}
                         </p>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                             <div className="flex w-full justify-end">
@@ -95,6 +95,7 @@ const ModalAdmin = ({ closeModal, populate }: Props) => {
                                     Until:
                                 </p>
                                 <input
+                                    defaultValue={new Date(availableTime.end).toLocaleTimeString()}
                                     name="end"
                                     required
                                     type="time"
