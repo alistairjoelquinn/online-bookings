@@ -94,7 +94,7 @@ const Calendar = () => {
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
                                     {generateScheduleTimes(day.id).map((time, i) => (
                                         <div
-                                            key={time + i}
+                                            key={time.getMilliseconds() + i}
                                             className={`${checkSlot(time, bookingData, day.id, i).join(
                                                 ' ',
                                             )} h-2 ${bookingData?.[0]
@@ -105,18 +105,14 @@ const Calendar = () => {
                                                         'bg-green-300',
                                                 )
                                                 .filter(Boolean)}${bookingData?.[1]
-                                                .map(
-                                                    (item: AvailableTime) =>
-                                                        // console.log(time, new Date(item.start));
-                                                        // if (time >= new Date(item.start) && time < new Date(item.end)) {
-                                                        //     console.log('time: ', time);
-                                                        //     console.log('new Date(item.start): ', new Date(item.start));
-                                                        //     console.log('new Date(item.end): ', new Date(item.end));
-                                                        // }
-                                                        time >= new Date(item.start).toLocaleTimeString() &&
-                                                        time < new Date(item.end).toLocaleTimeString() &&
-                                                        ' bg-purple-200',
-                                                )
+                                                .map((item: AvailableTime) => {
+                                                    console.log('item: ', item);
+                                                    return (
+                                                        time >= new Date(item.start) &&
+                                                        time < new Date(item.end) &&
+                                                        ' bg-purple-200'
+                                                    );
+                                                })
                                                 .filter(Boolean)}`}
                                         />
                                     ))}
