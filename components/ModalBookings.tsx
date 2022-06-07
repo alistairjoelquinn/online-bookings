@@ -33,6 +33,12 @@ const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
     );
 
     const updateBookingData = (e: any) => {
+        if (!bookingData.date && date) {
+            setBookingData(prev => ({
+                ...prev,
+                date,
+            }));
+        }
         setBookingData(prevData => ({
             ...prevData,
             [e.target.name]: e.target.value,
@@ -41,12 +47,6 @@ const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!bookingData.date && date) {
-            setBookingData(prev => ({
-                ...prev,
-                date,
-            }));
-        }
         if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
             setError('Remember to fill out all the input fields...');
         }
