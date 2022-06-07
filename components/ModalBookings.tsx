@@ -14,8 +14,6 @@ interface Props {
 }
 
 const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
-    console.log('date: ', date);
-    console.log('populate: ', populate);
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);

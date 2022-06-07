@@ -1,8 +1,8 @@
 import React from 'react';
-import { BookingData } from './ModalBookings';
+import { BookedTime } from '../models/calendar';
 
 interface Props {
-    data: BookingData;
+    data: BookedTime;
 }
 
 const lessonTypes = {
