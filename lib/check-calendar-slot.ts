@@ -1,7 +1,7 @@
 import { AvailableTime } from '../models/calendar';
 import { generateScheduleTimes } from './dates';
 
-export const checkSlot = (time: string, bookingData: any, dayId: string, index: number) => {
+export const checkSlot = (time: Date, bookingData: any, dayId: string, index: number) => {
     // console.log('arguments: ', time, bookingData, dayId);
     const dayTimeArray = generateScheduleTimes(dayId);
     // console.log('dayTimeArray: ', dayTimeArray);
@@ -12,13 +12,13 @@ export const checkSlot = (time: string, bookingData: any, dayId: string, index: 
     let nextStatus = 'open-slot';
 
     bookingData?.[0].forEach((item: AvailableTime) => {
-        if (new Date(time) >= new Date(item.start) && new Date(time) < new Date(item.end)) {
+        if (time >= new Date(item.start) && time < new Date(item.end)) {
             currentStatus = 'available';
         }
     });
 
     bookingData?.[1].forEach((item: AvailableTime) => {
-        if (new Date(time) >= new Date(item.start) && new Date(time) < new Date(item.end)) {
+        if (time >= new Date(item.start) && time < new Date(item.end)) {
             currentStatus = 'booked';
         }
     });

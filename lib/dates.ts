@@ -40,20 +40,28 @@ const getCurrentDate = () =>
         .reverse()
         .join('-');
 
-const scheduleTimesLabel = (offset: number) => [
-    `- ${9 + offset}:00`,
-    '-',
-    '-',
-    `- ${12 + offset}:00`,
-    '-',
-    '-',
-    `- ${15 + offset}:00`,
-    '-',
-    '-',
-    `- ${18 + offset}:00`,
-    '-',
-    '-',
-];
+const scheduleTimesLabel = (offset: number) => {
+    const date = new Date();
+    const five = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 5, 0, 0));
+    const eight = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0));
+    const one = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 13, 0, 0));
+    const four = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0));
+
+    return [
+        `- ${five.toLocaleTimeString()}`,
+        '-',
+        '-',
+        `- ${eight.toLocaleTimeString()}`,
+        '-',
+        '-',
+        `- ${one.toLocaleTimeString()}`,
+        '-',
+        '-',
+        `- ${four.toLocaleTimeString()}`,
+        '-',
+        '-',
+    ];
+};
 
 const generateScheduleTimes = (date: string) => [
     new Date(`${date}T09:00:00.000Z`),
