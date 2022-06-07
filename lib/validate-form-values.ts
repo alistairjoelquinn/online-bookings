@@ -1,7 +1,7 @@
-import { BookingData } from '../components/ModalBookings';
+import { BookedTime } from '../models/calendar';
 import { emailRegex, nameRegex } from './validation-regex';
 
-export function validateIncomingValues(booking: BookingData) {
+export function validateIncomingValues(booking: BookedTime) {
     let error;
 
     const n = booking.name.match(nameRegex);
