@@ -21,6 +21,7 @@ const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(getCurrentDate);
     const [infoWindowIsVisible, setInfoWindowIsVisible] = useState(false);
     const [bookingsWindowIsVisible, setBookingsWindowIsVisible] = useState(false);
+    const [currentDate] = useState(new Date());
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
     const router = useRouter();
 
@@ -93,7 +94,7 @@ const Calendar = () => {
                                 <div className="absolute top-0 left-0 my-4 h-full w-full px-1">
                                     {generateScheduleTimes(day.id).map((time, i) => (
                                         <div
-                                            key={time.getMilliseconds() + i}
+                                            key={time + i}
                                             className={`${checkSlot(time, bookingData, day.id, i).join(
                                                 ' ',
                                             )} h-2 ${bookingData?.[0]
@@ -104,23 +105,23 @@ const Calendar = () => {
                                                         'bg-green-300',
                                                 )
                                                 .filter(Boolean)}${bookingData?.[1]
-                                                .map((item: AvailableTime) => {
-                                                    if (time >= new Date(item.start) && time < new Date(item.end)) {
-                                                        console.log('time: ', time);
-                                                        console.log('new Date(item.start): ', new Date(item.start));
-                                                        console.log('new Date(item.end): ', new Date(item.end));
-                                                    }
-                                                    return (
-                                                        time >= new Date(item.start) &&
-                                                        time < new Date(item.end) &&
-                                                        ' bg-purple-200'
-                                                    );
-                                                })
+                                                .map(
+                                                    (item: AvailableTime) =>
+                                                        // console.log(time, new Date(item.start));
+                                                        // if (time >= new Date(item.start) && time < new Date(item.end)) {
+                                                        //     console.log('time: ', time);
+                                                        //     console.log('new Date(item.start): ', new Date(item.start));
+                                                        //     console.log('new Date(item.end): ', new Date(item.end));
+                                                        // }
+                                                        time >= new Date(item.start).toLocaleTimeString() &&
+                                                        time < new Date(item.end).toLocaleTimeString() &&
+                                                        ' bg-purple-200',
+                                                )
                                                 .filter(Boolean)}`}
                                         />
                                     ))}
                                 </div>
-                                {scheduleTimesLabel().map((time: string, i: number) => (
+                                {scheduleTimesLabel(currentDate).map((time: string, i: number) => (
                                     <span className="relative z-20 h-8 bg-transparent text-gray-600" key={time + i}>
                                         {time}
                                     </span>
