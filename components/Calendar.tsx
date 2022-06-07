@@ -104,22 +104,12 @@ const Calendar = () => {
                                                         'bg-green-300',
                                                 )
                                                 .filter(Boolean)}${bookingData?.[1]
-                                                .map((item: AvailableTime) => {
-                                                    if (
-                                                        new Date(time) >= new Date(item.start) &&
-                                                        new Date(time) < new Date(item.end)
-                                                    ) {
-                                                        console.log('time: ', time);
-                                                        console.log('new Date(time): ', new Date(time).getTime());
-                                                        console.log('item.start: ', item.start);
-                                                        console.log('item.end: ', item.end);
-                                                    }
-                                                    return (
+                                                .map(
+                                                    (item: AvailableTime) =>
                                                         new Date(time) >= new Date(item.start) &&
                                                         new Date(time) < new Date(item.end) &&
-                                                        ' bg-purple-200'
-                                                    );
-                                                })
+                                                        ' bg-purple-200',
+                                                )
                                                 .filter(Boolean)}`}
                                         />
                                     ))}
