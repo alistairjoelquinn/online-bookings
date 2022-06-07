@@ -26,6 +26,8 @@ const Calendar = () => {
 
     const { status, data: bookingData } = useQuery('get-available-times-and-bookings', getAvailableTimesAndBookings);
 
+    console.log('bookingData: ', bookingData);
+
     const dateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value) {
             setSelectedDate(e.target.value);
@@ -102,12 +104,22 @@ const Calendar = () => {
                                                         'bg-green-300',
                                                 )
                                                 .filter(Boolean)}${bookingData?.[1]
-                                                .map(
-                                                    (item: AvailableTime) =>
+                                                .map((item: AvailableTime) => {
+                                                    if (
+                                                        new Date(time) >= new Date(item.start) &&
+                                                        new Date(time) < new Date(item.end)
+                                                    ) {
+                                                        console.log('time: ', time);
+                                                        console.log('new Date(time): ', new Date(time).getTime());
+                                                        console.log('item.start: ', item.start);
+                                                        console.log('item.end: ', item.end);
+                                                    }
+                                                    return (
                                                         new Date(time) >= new Date(item.start) &&
                                                         new Date(time) < new Date(item.end) &&
-                                                        ' bg-purple-200',
-                                                )
+                                                        ' bg-purple-200'
+                                                    );
+                                                })
                                                 .filter(Boolean)}`}
                                         />
                                     ))}

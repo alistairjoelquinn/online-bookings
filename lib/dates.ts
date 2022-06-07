@@ -1,3 +1,5 @@
+import { AvailableTime, BookedTime } from '../models/calendar';
+
 const getWeek = (date: string) => {
     if (!date) return null;
 
@@ -101,7 +103,6 @@ const generateScheduleTimes = (date: string) => {
         `${date}T${19 + offset > 9 ? 19 + offset : `0${19 + offset}`}:15:00.000Z`,
         `${date}T${19 + offset > 9 ? 19 + offset : `0${19 + offset}`}:30:00.000Z`,
         `${date}T${19 + offset > 9 ? 19 + offset : `0${19 + offset}`}:45:00.000Z`,
-        `${date}T${20 + offset > 9 ? 20 + offset : `0${20 + offset}`}:00:00.000Z`,
     ];
 };
 
@@ -109,6 +110,14 @@ const getAvailableTimesAndBookings = () =>
     Promise.all([
         fetch('/api/available-times').then(res => res.json()),
         fetch('/api/current-bookings').then(res => res.json()),
-    ]);
+    ]).then(results =>
+        results.map(res =>
+            res.map((item: BookedTime | AvailableTime) => ({
+                ...item,
+                start: new Date(item.start),
+                end: new Date(item.end),
+            })),
+        ),
+    );
 
 export { getWeek, getCurrentDate, scheduleTimesLabel, getAvailableTimesAndBookings, generateScheduleTimes };
