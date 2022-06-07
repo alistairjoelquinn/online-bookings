@@ -4,7 +4,7 @@ import { generateScheduleTimes } from './dates';
 export const checkSlot = (time: string, bookingData: any, dayId: string, index: number) => {
     // console.log('arguments: ', time, bookingData, dayId);
     const dayTimeArray = generateScheduleTimes(dayId);
-    // console.log('dayTimeArray: ', dayTimeArray);
+    console.log('dayTimeArray: ', dayTimeArray);
 
     const nextSlot = dayTimeArray[index + 1];
 

@@ -40,14 +40,10 @@ const getCurrentDate = () =>
         .reverse()
         .join('-');
 
-const getTime = (dateVal, hours: number, minutes = 0, seconds = 0) =>
+const getTime = (dateVal: Date, hours: number, minutes = 0, seconds = 0) =>
     new Date(
         Date.UTC(dateVal.getFullYear(), dateVal.getMonth(), dateVal.getDate(), hours, minutes, seconds),
     ).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-
-const getTimeComparisonArea = (day: string) => {
-    console.log('day: ', day);
-};
 
 const scheduleTimesLabel = (currentDate: Date) => [
     `- ${getTime(currentDate, 5)}`,
@@ -64,59 +60,53 @@ const scheduleTimesLabel = (currentDate: Date) => [
     '-',
 ];
 
-const generateScheduleTimes = (day: string) => {
-    getTimeComparisonArea(day);
-
-    return [];
-
-    // return [
-    //     getTime(5),
-    //     getTime(5, 15),
-    //     getTime(5, 30),
-    //     getTime(5, 45),
-    //     getTime(6),
-    //     getTime(6, 15),
-    //     getTime(6, 30),
-    //     getTime(6, 45),
-    //     getTime(7),
-    //     getTime(7, 15),
-    //     getTime(7, 30),
-    //     getTime(7, 45),
-    //     getTime(8),
-    //     getTime(8, 15),
-    //     getTime(8, 30),
-    //     getTime(8, 45),
-    //     getTime(9),
-    //     getTime(9, 15),
-    //     getTime(9, 30),
-    //     getTime(9, 45),
-    //     getTime(10),
-    //     getTime(10, 15),
-    //     getTime(10, 30),
-    //     getTime(10, 45),
-    //     getTime(11),
-    //     getTime(11, 15),
-    //     getTime(11, 30),
-    //     getTime(11, 45),
-    //     getTime(12),
-    //     getTime(12, 15),
-    //     getTime(12, 30),
-    //     getTime(12, 45),
-    //     getTime(13),
-    //     getTime(13, 15),
-    //     getTime(13, 30),
-    //     getTime(13, 45),
-    //     getTime(14),
-    //     getTime(14, 15),
-    //     getTime(14, 30),
-    //     getTime(14, 45),
-    //     getTime(15),
-    //     getTime(15, 15),
-    //     getTime(15, 30),
-    //     getTime(15, 45),
-    //     getTime(16),
-    // ];
-};
+const generateScheduleTimes = (date: string) => [
+    `${date}T05:00:00.000Z`,
+    `${date}T05:15:00.000Z`,
+    `${date}T05:30:00.000Z`,
+    `${date}T05:45:00.000Z`,
+    `${date}T06:00:00.000Z`,
+    `${date}T06:15:00.000Z`,
+    `${date}T06:30:00.000Z`,
+    `${date}T06:45:00.000Z`,
+    `${date}T07:00:00.000Z`,
+    `${date}T07:15:00.000Z`,
+    `${date}T07:30:00.000Z`,
+    `${date}T07:45:00.000Z`,
+    `${date}T08:00:00.000Z`,
+    `${date}T08:15:00.000Z`,
+    `${date}T08:30:00.000Z`,
+    `${date}T08:45:00.000Z`,
+    `${date}T09:00:00.000Z`,
+    `${date}T09:15:00.000Z`,
+    `${date}T09:30:00.000Z`,
+    `${date}T09:45:00.000Z`,
+    `${date}T10:00:00.000Z`,
+    `${date}T10:15:00.000Z`,
+    `${date}T10:30:00.000Z`,
+    `${date}T10:45:00.000Z`,
+    `${date}T11:00:00.000Z`,
+    `${date}T11:15:00.000Z`,
+    `${date}T11:30:00.000Z`,
+    `${date}T11:45:00.000Z`,
+    `${date}T12:00:00.000Z`,
+    `${date}T12:15:00.000Z`,
+    `${date}T12:30:00.000Z`,
+    `${date}T12:45:00.000Z`,
+    `${date}T13:00:00.000Z`,
+    `${date}T13:15:00.000Z`,
+    `${date}T13:30:00.000Z`,
+    `${date}T13:45:00.000Z`,
+    `${date}T14:00:00.000Z`,
+    `${date}T14:15:00.000Z`,
+    `${date}T14:30:00.000Z`,
+    `${date}T14:45:00.000Z`,
+    `${date}T15:00:00.000Z`,
+    `${date}T15:15:00.000Z`,
+    `${date}T15:30:00.000Z`,
+    `${date}T15:45:00.000Z`,
+    `${date}T16:00:00.000Z`,
+];
 
 const getAvailableTimesAndBookings = () =>
     Promise.all([
