@@ -23,6 +23,9 @@ const ModalInfo = ({ closeModal }: Props) => (
                 Once you have found a suitable time click on the plus icon, and enter in the remaining details.
             </p>
             <p className="modal">Once complete, your appointment details will be displayed.</p>
+            <p className="modal pt-4 font-bold">
+                N.b. All times are adjusted and displayed according to your local timezone.
+            </p>
         </div>
     </ModalContainer>
 );
