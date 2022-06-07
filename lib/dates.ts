@@ -40,27 +40,23 @@ const getCurrentDate = () =>
         .reverse()
         .join('-');
 
-const scheduleTimesLabel = () => {
-    const date = new Date();
+const getTime = (hour: number) =>
+    new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), hour, 0, 0));
 
-    const getTimeLabel = (hour: number) =>
-        new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), hour, 0, 0));
-
-    return [
-        `- ${getTimeLabel(5).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
-        '-',
-        '-',
-        `- ${getTimeLabel(8).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
-        '-',
-        '-',
-        `- ${getTimeLabel(13).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
-        '-',
-        '-',
-        `- ${getTimeLabel(16).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
-        '-',
-        '-',
-    ];
-};
+const scheduleTimesLabel = () => [
+    `- ${getTime(5).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
+    '-',
+    '-',
+    `- ${getTime(8).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
+    '-',
+    '-',
+    `- ${getTime(13).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
+    '-',
+    '-',
+    `- ${getTime(16).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}`,
+    '-',
+    '-',
+];
 
 const generateScheduleTimes = (date: string) => [
     new Date(`${date}T09:00:00.000Z`),
