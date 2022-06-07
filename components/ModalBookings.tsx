@@ -14,6 +14,8 @@ interface Props {
 }
 
 const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
+    console.log('date: ', date);
+    console.log('populate: ', populate);
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -39,6 +41,12 @@ const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!bookingData.date && date) {
+            setBookingData(prev => ({
+                ...prev,
+                date,
+            }));
+        }
         if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
             setError('Remember to fill out all the input fields...');
         }
