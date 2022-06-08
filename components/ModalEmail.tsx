@@ -29,7 +29,7 @@ const ModalEmail = ({ setShowEmailModal }: Props) => {
             {!isCopied ? (
                 <Copy onClick={copyClickHandler} cursor="pointer" />
             ) : (
-                <p className="modal">Copied to clipboard</p>
+                <p className="modal dark:text-gray-100">Copied to clipboard</p>
             )}
         </ModalContainer>
     );
