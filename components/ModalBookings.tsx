@@ -56,7 +56,7 @@ const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
             setError(data.error);
         } else if (data.success === true) {
             setSubmitted(true);
-            queryClient.invalidateQueries('get-available-times-and-bookings');
+            queryClient.invalidateQueries('get-upcoming-times-and-bookings');
         } else {
             setError('Something unexpected went wrong!');
         }

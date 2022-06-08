@@ -10,6 +10,7 @@ import {
     scheduleTimesLabel,
     getAllTimesAndBookings,
     generateScheduleTimes,
+    getUpcomingTimesAndBookings,
 } from '../lib/dates';
 import { checkSlot } from '../lib/check-calendar-slot';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
@@ -25,7 +26,7 @@ const Calendar = () => {
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
     const router = useRouter();
 
-    const { status, data: bookingData } = useQuery('get-available-times-and-bookings', getAllTimesAndBookings);
+    const { status, data: bookingData } = useQuery('get-upcoming-times-and-bookings', getUpcomingTimesAndBookings);
 
     console.log('bookingData: ', bookingData);
 
