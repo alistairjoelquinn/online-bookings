@@ -12,7 +12,7 @@ interface Props {
     date: string;
     populate?: BookedTime | null;
     clearState?: () => void;
-    available: AvailableTime[] | undefined;
+    available?: AvailableTime[] | undefined;
 }
 
 const ModalBookings = ({ closeModal, date, populate, clearState, available }: Props) => {
