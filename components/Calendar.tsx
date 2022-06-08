@@ -77,7 +77,9 @@ const Calendar = () => {
                 </div>
             </div>
             {infoWindowIsVisible && <ModalInfo closeModal={setInfoWindowIsVisible} />}
-            {bookingsWindowIsVisible && <ModalBookings date={selectedDate} closeModal={setBookingsWindowIsVisible} />}
+            {bookingsWindowIsVisible && (
+                <ModalBookings date={selectedDate} closeModal={setBookingsWindowIsVisible} available={bookingData[0]} />
+            )}
             {week && (
                 <div className="grid grid-cols-5 gap-4">
                     {week.map(day => (

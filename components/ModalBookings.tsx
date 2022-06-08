@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQueryClient } from 'react-query';
-import { BookedTime } from '../models/calendar';
+import { checkBookingValid } from '../lib/check-booking-valid';
+import { AvailableTime, BookedTime } from '../models/calendar';
 
 import BookingFormFields from './BookingFormFields';
 import BookingThanksPanel from './BookingThanksPanel';
@@ -11,9 +12,10 @@ interface Props {
     date: string;
     populate?: BookedTime | null;
     clearState?: () => void;
+    available: AvailableTime[];
 }
 
-const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
+const ModalBookings = ({ closeModal, date, populate, clearState, available }: Props) => {
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -42,6 +44,10 @@ const ModalBookings = ({ closeModal, date, populate, clearState }: Props) => {
         e.preventDefault();
         if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
             setError('Remember to fill out all the input fields...');
+        }
+        if (!checkBookingValid(bookingData, available)) {
+            setError('You need to make sure the booking falls within the available time slots');
+            return;
         }
         const res = await fetch('/api/submit-user-booking', {
             method: 'POST',
