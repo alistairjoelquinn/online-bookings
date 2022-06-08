@@ -12,7 +12,7 @@ interface Props {
     date: string;
     populate?: BookedTime | null;
     clearState?: () => void;
-    available: AvailableTime[];
+    available: AvailableTime[] | undefined;
 }
 
 const ModalBookings = ({ closeModal, date, populate, clearState, available }: Props) => {
@@ -45,7 +45,7 @@ const ModalBookings = ({ closeModal, date, populate, clearState, available }: Pr
         if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
             setError('Remember to fill out all the input fields...');
         }
-        if (!checkBookingValid(bookingData, available)) {
+        if (available && !checkBookingValid(bookingData, available)) {
             setError('You need to make sure the booking falls within the available time slots');
             return;
         }
