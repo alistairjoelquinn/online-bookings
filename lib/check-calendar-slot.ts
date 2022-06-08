@@ -3,7 +3,6 @@ import { generateScheduleTimes } from './dates';
 
 export const checkSlot = (time: Date, bookingData: any, dayId: string, index: number) => {
     const dayTimeArray = generateScheduleTimes(dayId);
-    // console.log('dayTimeArray: ', dayTimeArray);
 
     const nextSlot = dayTimeArray[index + 1];
 
