@@ -8,7 +8,7 @@ import {
     getWeek,
     getCurrentDate,
     scheduleTimesLabel,
-    getAvailableTimesAndBookings,
+    getAllTimesAndBookings,
     generateScheduleTimes,
 } from '../lib/dates';
 import { checkSlot } from '../lib/check-calendar-slot';
@@ -25,7 +25,7 @@ const Calendar = () => {
     const week = useMemo<FormattedDate[] | null>(() => getWeek(selectedDate), [selectedDate]);
     const router = useRouter();
 
-    const { status, data: bookingData } = useQuery('get-available-times-and-bookings', getAvailableTimesAndBookings);
+    const { status, data: bookingData } = useQuery('get-available-times-and-bookings', getAllTimesAndBookings);
 
     console.log('bookingData: ', bookingData);
 

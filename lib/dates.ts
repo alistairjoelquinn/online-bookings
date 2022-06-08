@@ -108,7 +108,7 @@ const generateScheduleTimes = (date: string) => [
     new Date(`${date}T16:00:00.000Z`),
 ];
 
-const getAvailableTimesAndBookings = () =>
+const getAllTimesAndBookings = () =>
     Promise.all([
         fetch('/api/available-times').then(res => res.json()),
         fetch('/api/current-bookings').then(res => res.json()),
@@ -122,4 +122,18 @@ const getAvailableTimesAndBookings = () =>
         ),
     );
 
-export { getWeek, getCurrentDate, scheduleTimesLabel, getAvailableTimesAndBookings, generateScheduleTimes };
+// const getAvailableTimesAndBookings = () =>
+//     Promise.all([
+//         fetch('/api/available-times').then(res => res.json()),
+//         fetch('/api/current-bookings').then(res => res.json()),
+//     ]).then(results =>
+//         results.map(res =>
+//             res.map((item: BookedTime | AvailableTime) => ({
+//                 ...item,
+//                 start: new Date(item.start),
+//                 end: new Date(item.end),
+//             })),
+//         ),
+//     );
+
+export { getWeek, getCurrentDate, scheduleTimesLabel, getAllTimesAndBookings, generateScheduleTimes };

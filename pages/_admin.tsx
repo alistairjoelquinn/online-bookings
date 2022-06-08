@@ -4,7 +4,7 @@ import { Add } from 'grommet-icons';
 
 import BookingCard from '../components/BookingCard';
 import AvailableCard from '../components/AvailableCard';
-import { getAvailableTimesAndBookings } from '../lib/dates';
+import { getAllTimesAndBookings } from '../lib/dates';
 import type { AvailableTime, BookedTime } from '../models/calendar';
 import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
 import ModalAdmin from '../components/ModalAdmin';
@@ -22,7 +22,7 @@ const Admin = () => {
 
     const { status, data }: { status: string; data: [AvailableTime[], BookedTime[]] | undefined } = useQuery(
         'get-available-times-and-bookings',
-        getAvailableTimesAndBookings,
+        getAllTimesAndBookings,
     );
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
