@@ -1,4 +1,5 @@
-export const getFirstDayOfWeek = (date: Date) => {
+export const getFirstDayOfWeek = () => {
+    const date = new Date();
     const day = date.getDay();
     if (day !== 0) {
         date.setHours(-24 * day);

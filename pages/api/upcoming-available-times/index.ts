@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getFirstDayOfWeek } from '../../../lib/get-first-day-of-week';
 
 import connectToDatabase from '../../../lib/mongodb';
 
@@ -7,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const data = await db
         .collection('available')
-        .find({ created: { $gt: ISODate('2016-04-09T08:28:47') } })
+        .find({ start: { $gt: new Date(getFirstDayOfWeek()).toISOString() } })
         .toArray();
 
     return res.json(data);
