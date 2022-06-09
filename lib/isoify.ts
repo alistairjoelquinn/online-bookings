@@ -13,8 +13,5 @@ export default (time: BookedTime | AvailableTime) => {
         end: endISO,
     };
 
-    console.log('booking: ', time);
-    console.log('update: ', update);
-
     return update;
 };
