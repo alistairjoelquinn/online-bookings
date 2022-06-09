@@ -48,11 +48,11 @@ const ModalBookings = ({ closeModal, date, populate, clearState, available, book
             setError('Remember to fill out all the input fields...');
         }
         if (available && !checkBookingAvailable(bookingData, available)) {
-            setError('You need to make sure the booking falls within the available time slots');
+            setError('You need to make sure the booking falls within the available time slots.');
             return;
         }
-        if (booked && !checkNoBookingClash(bookingData, booked)) {
-            setError('You need to make sure the booking falls within the available time slots');
+        if (booked && checkNoBookingClash(bookingData, booked)) {
+            setError('This clashes with another booking. Make sure you have chosen an available slot.');
             return;
         }
         const res = await fetch('/api/submit-user-booking', {

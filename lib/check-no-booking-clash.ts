@@ -7,6 +7,7 @@ export default (data: BookedTime, booked: BookedTime[]) => {
     return booked.some(
         x =>
             (start >= new Date(x.start) && start <= new Date(x.end)) ||
-            (end >= new Date(x.start) && end <= new Date(x.end)),
+            (end >= new Date(x.start) && end <= new Date(x.end)) ||
+            (start <= new Date(x.start) && end >= new Date(x.end)),
     );
 };
