@@ -56,13 +56,16 @@ const ModalBookings = ({ closeModal, date, populate, clearState, available, book
             setError('This clashes with another booking. Make sure you have chosen an available slot.');
             return;
         }
+        console.log('bookingData: ', bookingData);
+        const isoData = isoify(bookingData);
+        console.log('isoData: ', isoData);
         const res = await fetch('/api/submit-user-booking', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(isoify(bookingData)),
+            body: JSON.stringify(isoData),
         });
         const data = await res.json();
         if (data.error) {
