@@ -37,13 +37,16 @@ const ModalAdmin = ({ closeModal, populate, clearState }: Props) => {
         if (Object.values(availableTime).filter(Boolean).length !== Object.values(availableTime).length) {
             setError('Remember to fill out all the input fields...');
         }
+        console.log('bookingData: ', availableTime);
+        const isoDataAdmin = isoify(availableTime);
+        console.log('isoData: ', isoDataAdmin);
         const res = await fetch('/api/submit-admin-hours', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(isoify(availableTime)),
+            body: JSON.stringify(isoDataAdmin),
         });
         const data = await res.json();
         if (data.error) {
