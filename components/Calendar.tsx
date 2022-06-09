@@ -80,6 +80,7 @@ const Calendar = () => {
                     date={selectedDate}
                     closeModal={setBookingsWindowIsVisible}
                     available={bookingData?.[0]}
+                    booked={bookingData?.[1]}
                 />
             )}
             {week && (

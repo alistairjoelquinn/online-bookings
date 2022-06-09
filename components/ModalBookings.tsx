@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useQueryClient } from 'react-query';
 
-import checkBookingValid from '../lib/check-booking-valid';
+import checkBookingAvailable from '../lib/check-booking-available';
+import checkNoBookingClash from '../lib/check-no-booking-clash';
 import { AvailableTime, BookedTime } from '../models/calendar';
 import BookingFormFields from './BookingFormFields';
 import BookingThanksPanel from './BookingThanksPanel';
@@ -13,9 +14,10 @@ interface Props {
     populate?: BookedTime | null;
     clearState?: () => void;
     available?: AvailableTime[] | undefined;
+    booked?: BookedTime[] | undefined;
 }
 
-const ModalBookings = ({ closeModal, date, populate, clearState, available }: Props) => {
+const ModalBookings = ({ closeModal, date, populate, clearState, available, booked }: Props) => {
     const queryClient = useQueryClient();
     const [error, setError] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -45,7 +47,11 @@ const ModalBookings = ({ closeModal, date, populate, clearState, available }: Pr
         if (Object.values(bookingData).filter(Boolean).length !== Object.values(bookingData).length) {
             setError('Remember to fill out all the input fields...');
         }
-        if (available && !checkBookingValid(bookingData, available)) {
+        if (available && !checkBookingAvailable(bookingData, available)) {
+            setError('You need to make sure the booking falls within the available time slots');
+            return;
+        }
+        if (booked && !checkNoBookingClash(bookingData, booked)) {
             setError('You need to make sure the booking falls within the available time slots');
             return;
         }
