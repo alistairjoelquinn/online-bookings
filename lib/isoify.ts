@@ -1,19 +1,19 @@
-import { BookedTime } from '../models/calendar';
+import { AvailableTime, BookedTime } from '../models/calendar';
 
-export default (booking: BookedTime) => {
-    const startTime = `${booking.date}T${booking.start}`;
-    const endTime = `${booking.date}T${booking.end}`;
+export default (time: BookedTime | AvailableTime) => {
+    const startTime = `${time.date}T${time.start}`;
+    const endTime = `${time.date}T${time.end}`;
 
     const startISO = new Date(startTime).toISOString();
     const endISO = new Date(endTime).toISOString();
 
     const update = {
-        ...booking,
+        ...time,
         start: startISO,
         end: endISO,
     };
 
-    console.log('booking: ', booking);
+    console.log('booking: ', time);
     console.log('update: ', update);
 
     return update;

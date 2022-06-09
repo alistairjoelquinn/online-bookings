@@ -3,6 +3,7 @@ import { useQueryClient } from 'react-query';
 
 import checkBookingAvailable from '../lib/check-booking-available';
 import checkNoBookingClash from '../lib/check-no-booking-clash';
+import isoify from '../lib/isoify';
 import { AvailableTime, BookedTime } from '../models/calendar';
 import BookingFormFields from './BookingFormFields';
 import BookingThanksPanel from './BookingThanksPanel';
@@ -61,7 +62,7 @@ const ModalBookings = ({ closeModal, date, populate, clearState, available, book
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(bookingData),
+            body: JSON.stringify(isoify(bookingData)),
         });
         const data = await res.json();
         if (data.error) {

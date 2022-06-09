@@ -3,6 +3,7 @@ import { useQueryClient } from 'react-query';
 
 import ModalContainer from './ModalContainer';
 import type { AvailableTime } from '../models/calendar';
+import isoify from '../lib/isoify';
 
 interface Props {
     closeModal: (val: boolean) => void;
@@ -42,7 +43,7 @@ const ModalAdmin = ({ closeModal, populate, clearState }: Props) => {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(availableTime),
+            body: JSON.stringify(isoify(availableTime)),
         });
         const data = await res.json();
         if (data.error) {
