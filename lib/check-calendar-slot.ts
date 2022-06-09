@@ -9,14 +9,16 @@ export const checkSlot = (time: Date, bookingData: any, dayId: string, index: nu
     let currentStatus = 'open-slot';
     let nextStatus = 'open-slot';
 
+    const currentTime = new Date(time);
+
     bookingData?.[0].forEach((item: AvailableTime) => {
-        if (new Date(time) >= new Date(item.start) && new Date(time) < new Date(item.end)) {
+        if (currentTime >= new Date(item.start) && currentTime < new Date(item.end)) {
             currentStatus = 'available';
         }
     });
 
     bookingData?.[1].forEach((item: AvailableTime) => {
-        if (new Date(time) >= new Date(item.start) && new Date(time) < new Date(item.end)) {
+        if (currentTime >= new Date(item.start) && currentTime < new Date(item.end)) {
             currentStatus = 'booked';
         }
     });

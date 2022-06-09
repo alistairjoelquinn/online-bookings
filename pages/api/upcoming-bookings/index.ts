@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getFirstDayOfWeek } from '../../../lib/get-first-day-of-week';
+import getFirstDayOfWeek from '../../../lib/get-first-day-of-week';
 
 import connectToDatabase from '../../../lib/mongodb';
 

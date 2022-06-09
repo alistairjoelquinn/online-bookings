@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useQueryClient } from 'react-query';
-import { checkBookingValid } from '../lib/check-booking-valid';
-import { AvailableTime, BookedTime } from '../models/calendar';
 
+import checkBookingValid from '../lib/check-booking-valid';
+import { AvailableTime, BookedTime } from '../models/calendar';
 import BookingFormFields from './BookingFormFields';
 import BookingThanksPanel from './BookingThanksPanel';
 import ModalContainer from './ModalContainer';

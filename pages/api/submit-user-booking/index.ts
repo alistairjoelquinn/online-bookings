@@ -1,7 +1,7 @@
 import { getSession } from 'next-auth/react';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { validateIncomingValues } from '../../../lib/validate-form-values';
+import validateFormValues from '../../../lib/validate-form-values';
 import connectToDatabase from '../../../lib/mongodb';
 import isoify from '../../../lib/isoify';
 
@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (!session) return res.status(401);
 
-    const error = validateIncomingValues(req.body);
+    const error = validateFormValues(req.body);
 
     if (error) return res.status(400).json({ error });
 
