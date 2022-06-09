@@ -37,7 +37,7 @@ const ModalBookings = ({ closeModal, date, populate, clearState, available, book
     const updateBookingData = (e: any) => {
         setBookingData(prevData => ({
             ...prevData,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value.trim(),
             date: !prevData.date && date ? date : prevData.date || '',
         }));
     };
