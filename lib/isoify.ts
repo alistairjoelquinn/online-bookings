@@ -4,16 +4,17 @@ export default (booking: BookedTime) => {
     const startTime = `${booking.date}T${booking.start}`;
     const endTime = `${booking.date}T${booking.end}`;
 
-    console.log('startTime: ', startTime);
-
     const startISO = new Date(startTime).toISOString();
     const endISO = new Date(endTime).toISOString();
 
-    console.log('startISO: ', startISO);
-
-    return {
+    const update = {
         ...booking,
         start: startISO,
         end: endISO,
     };
+
+    console.log('booking: ', booking);
+    console.log('update: ', update);
+
+    return update;
 };
