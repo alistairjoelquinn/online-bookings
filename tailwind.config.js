@@ -57,7 +57,7 @@ module.exports = {
             },
             animation: {
                 reveal: 'reveal 0.5s ease-in-out',
-                shroud: 'shroud 0.5s ease-in-out',
+                shroud: 'shroud 0.5s ease-in',
             },
         },
     },
