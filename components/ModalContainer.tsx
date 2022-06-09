@@ -7,7 +7,7 @@ interface Props {
 const ModalContainer = ({ children, closeModal, clearState }: Props) => (
     <>
         <div
-            className="fixed inset-0 z-30 animate-shroud bg-gray-600 opacity-70"
+            className="fixed inset-0 z-30 animate-shroud bg-shroud opacity-70"
             onClick={() => {
                 clearState?.();
                 closeModal(false);

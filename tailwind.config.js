@@ -11,6 +11,7 @@ module.exports = {
             },
             colors: {
                 offwhite: '#F0F0F0',
+                shroud: 'rgb(75 85 99)',
             },
             typography: theme => ({
                 dark: {
