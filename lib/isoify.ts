@@ -13,5 +13,8 @@ export default (booking: BookedTime) => {
         end: endISO,
     };
 
+    console.log('booking: ', booking);
+    console.log('update: ', update);
+
     return update;
 };
