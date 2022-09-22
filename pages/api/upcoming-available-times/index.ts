@@ -3,13 +3,13 @@ import getFirstDayOfWeek from '../../../lib/get-first-day-of-week';
 
 import connectToDatabase from '../../../lib/mongodb';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const { db } = await connectToDatabase();
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const { db } = await connectToDatabase();
 
-    const data = await db
-        .collection('available')
-        .find({ start: { $gt: new Date(getFirstDayOfWeek()).toISOString() } })
-        .toArray();
+  const data = await db
+    .collection('available')
+    .find({ start: { $gt: new Date(getFirstDayOfWeek()).toISOString() } })
+    .toArray();
 
-    return res.json(data);
-};
+  return res.json(data);
+}
