@@ -1,7 +1,7 @@
+import Calendar from 'components/Calendar';
+import Login from 'components/Login';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
-import Calendar from '../components/Calendar';
-import Login from '../components/Login';
 
 export default function Bookings() {
   const { status } = useSession();

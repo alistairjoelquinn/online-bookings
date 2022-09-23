@@ -1,14 +1,13 @@
-import { useQuery } from 'react-query';
-import { useState } from 'react';
+import AvailableCard from 'components/AvailableCard';
+import BookingCard from 'components/BookingCard';
+import ModalAdmin from 'components/ModalAdmin';
+import ModalBookings from 'components/ModalBookings';
 import { Add } from 'grommet-icons';
-
-import BookingCard from '../components/BookingCard';
-import AvailableCard from '../components/AvailableCard';
-import { getAllTimesAndBookings } from '../lib/dates';
-import type { AvailableTime, BookedTime } from '../models/calendar';
-import iconHoverEventHandlers from '../lib/icon-hover-event-handlers';
-import ModalAdmin from '../components/ModalAdmin';
-import ModalBookings from '../components/ModalBookings';
+import { getAllTimesAndBookings } from 'lib/dates';
+import iconHoverEventHandlers from 'lib/icon-hover-event-handlers';
+import type { AvailableTime, BookedTime } from 'models/calendar';
+import { useState } from 'react';
+import { useQuery } from 'react-query';
 
 export default function Admin() {
   const [adminAuthenticated, setAdminAuthenticated] = useState(false);
