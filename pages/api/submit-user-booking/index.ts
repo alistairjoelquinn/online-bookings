@@ -1,8 +1,7 @@
-import { getSession } from 'next-auth/react';
+import connectToDatabase from 'lib/mongodb';
+import validateFormValues from 'lib/validate-form-values';
 import type { NextApiRequest, NextApiResponse } from 'next';
-
-import validateFormValues from '../../../lib/validate-form-values';
-import connectToDatabase from '../../../lib/mongodb';
+import { getSession } from 'next-auth/react';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req });
