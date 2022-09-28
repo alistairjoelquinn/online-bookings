@@ -1,5 +1,5 @@
+import { BookedTime } from 'models/calendar';
 import React from 'react';
-import { BookedTime } from '../models/calendar';
 
 interface Props {
   date: string;

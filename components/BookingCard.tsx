@@ -1,5 +1,5 @@
 import { Edit } from 'grommet-icons';
-import { BookedTime } from '../models/calendar';
+import { BookedTime } from 'models/calendar';
 
 interface Props {
   item: BookedTime;
