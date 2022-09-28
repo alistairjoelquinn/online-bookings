@@ -13,16 +13,20 @@ export default function Admin() {
   const [adminAuthenticated, setAdminAuthenticated] = useState(false);
   const [adminWindowIsVisible, setAdminWindowIsVisible] = useState(false);
   const [editBookingIsVisible, setEditBookingIsVisible] = useState(false);
-  const [selectedBooking, setSelectedBooking] = useState<BookedTime | null>(null);
-  const [selectedAvailability, setSelectedAvailability] = useState<AvailableTime | null>(null);
+  const [selectedBooking, setSelectedBooking] = useState<BookedTime | null>(
+    null,
+  );
+  const [selectedAvailability, setSelectedAvailability] =
+    useState<AvailableTime | null>(null);
   const [adminPassword, setAdminPassword] = useState('');
   const [error, setError] = useState('');
   const [displayAll, setDisplayAll] = useState(false);
 
-  const { status, data }: { status: string; data: [AvailableTime[], BookedTime[]] | undefined } = useQuery(
-    'get-available-times-and-bookings',
-    getAllTimesAndBookings,
-  );
+  const {
+    status,
+    data,
+  }: { status: string; data: [AvailableTime[], BookedTime[]] | undefined } =
+    useQuery('get-available-times-and-bookings', getAllTimesAndBookings);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -93,18 +97,28 @@ export default function Admin() {
       )}
       <section className="max-w-6xl overflow-scroll px-4 pt-0 pb-6 text-left md:h-full lg:max-w-xl">
         <div className="mt-4 flex items-center justify-between">
-          <h3 className="mr-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">Admin Page</h3>
-          <button onClick={() => setDisplayAll(val => !val)} type="button" className="btn mr-5 mb-5 md:mb-0">
+          <h3 className="mr-6 text-5xl font-extrabold sm:text-5xl md:text-4xl lg:text-5xl">
+            Admin Page
+          </h3>
+          <button
+            onClick={() => setDisplayAll(val => !val)}
+            type="button"
+            className="btn mr-5 mb-5 md:mb-0"
+          >
             {!displayAll ? 'Display All' : 'Display Less'}
           </button>
-          <Add onClick={() => setAdminWindowIsVisible(true)} {...iconHoverEventHandlers()} cursor="pointer" />
+          <Add
+            onClick={() => setAdminWindowIsVisible(true)}
+            {...iconHoverEventHandlers()}
+            cursor="pointer"
+          />
         </div>
         <h4 className="my-4 border-b-2 border-gray-500 text-lg">
           {!displayAll ? 'Upcoming bookings' : 'All bookings'}
         </h4>
-        {booked && booked.filter((item: BookedTime) => new Date(item.start) > new Date()).length < 1 && (
-          <p>No upcoming bookings...</p>
-        )}
+        {booked &&
+          booked.filter((item: BookedTime) => new Date(item.start) > new Date())
+            .length < 1 && <p>No upcoming bookings...</p>}
         {!displayAll
           ? booked
               ?.filter((item: BookedTime) => new Date(item.start) > new Date())
@@ -130,12 +144,15 @@ export default function Admin() {
         <h4 className="my-4 border-b-2 border-gray-500 text-lg">
           {!displayAll ? 'Upcoming availability' : 'All availability'}
         </h4>
-        {available && available.filter((item: AvailableTime) => new Date(item.start) > new Date()).length < 1 && (
-          <p>No upcoming availability...</p>
-        )}
+        {available &&
+          available.filter(
+            (item: AvailableTime) => new Date(item.start) > new Date(),
+          ).length < 1 && <p>No upcoming availability...</p>}
         {!displayAll
           ? available
-              ?.filter((item: AvailableTime) => new Date(item.start) > new Date())
+              ?.filter(
+                (item: AvailableTime) => new Date(item.start) > new Date(),
+              )
               .map((item: AvailableTime) => (
                 <AvailableCard
                   showModal={setAdminWindowIsVisible}
