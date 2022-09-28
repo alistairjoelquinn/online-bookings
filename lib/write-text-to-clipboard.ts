@@ -1,1 +1,3 @@
-export default (text: string) => navigator.clipboard.writeText(text);
+export default function writeTextToClipboard(text: string) {
+  navigator.clipboard.writeText(text);
+}
