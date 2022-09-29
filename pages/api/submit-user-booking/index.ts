@@ -1,5 +1,5 @@
 import connectToDatabase from 'lib/mongodb';
-import { validateFormValues } from 'lib/utils';
+import { validateFormValues } from 'lib/validation/form-validation';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 

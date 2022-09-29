@@ -1,10 +1,16 @@
-import { emailRegex, nameRegex } from 'lib/validation-regex';
 import { AvailableTime, BookedTime } from 'models/calendar';
 
+/**
+ * Accepts a string as a parameter and immediately writes that string to the
+ * clipboard.
+ */
 export function writeTextToClipboard(text: string) {
   navigator.clipboard.writeText(text);
 }
 
+/**
+ * Updates the class which switches the dark mode setting between light and dark
+ */
 export function updateDarkModePreference() {
   if (document.documentElement.classList.contains('dark')) {
     document.documentElement.classList.remove('dark');
@@ -15,27 +21,9 @@ export function updateDarkModePreference() {
   }
 }
 
-export function validateFormValues(booking: BookedTime) {
-  let error;
-
-  const n = booking.name.match(nameRegex);
-  const e = booking.email.match(emailRegex);
-
-  if (!n) {
-    error = `Oops, there's a problem with the name`;
-  } else if (n && n[0] !== booking.name) {
-    error = `Oops, there's a problem with the name`;
-  } else if (!e) {
-    error = `Oops, there's a problem with the email`;
-  } else if (e && e[0] !== booking.email) {
-    error = `Oops, there's a problem with the email`;
-  } else if (!booking.start || !booking.end || !booking.type || !booking.date) {
-    error = 'Remember to fill out all the fields...';
-  }
-
-  return error;
-}
-
+/**
+ * Returns the event handlers for creating the hover effect on an icon.
+ */
 export function iconHoverEventHandlers() {
   return {
     onMouseOver: (e: any) => {
@@ -51,6 +39,10 @@ export function iconHoverEventHandlers() {
   };
 }
 
+/**
+ * Accepts an object as a parameter and returns the same object excpet with the
+ * start and end times converted to ISO time strings.
+ */
 export function isoify(time: BookedTime | AvailableTime) {
   const startTime = `${time.date}T${time.start}`;
   const endTime = `${time.date}T${time.end}`;
