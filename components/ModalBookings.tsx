@@ -1,8 +1,7 @@
 import BookingFormFields from 'components/BookingFormFields';
 import BookingThanksPanel from 'components/BookingThanksPanel';
 import ModalContainer from 'components/ModalContainer';
-import checkBookingAvailable from 'lib/check-booking-available';
-import checkNoBookingClash from 'lib/check-no-booking-clash';
+import { checkBookingAvailable, checkNoBookingClash } from 'lib/bookings';
 import { isoify } from 'lib/utils';
 import { AvailableTime, BookedTime } from 'models/calendar';
 import { useState } from 'react';

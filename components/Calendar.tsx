@@ -1,7 +1,7 @@
 import ModalBookings from 'components/ModalBookings';
 import ModalInfo from 'components/ModalInfo';
 import { Add, CircleInformation } from 'grommet-icons';
-import { checkSlot } from 'lib/check-calendar-slot';
+import { checkSlot } from 'lib/bookings';
 import {
   generateScheduleTimes,
   getCurrentDate,
@@ -9,7 +9,7 @@ import {
   getWeek,
   scheduleTimesLabel,
 } from 'lib/dates';
-import iconHoverEventHandlers from 'lib/icon-hover-event-handlers';
+import { iconHoverEventHandlers } from 'lib/utils';
 import { AvailableTime, FormattedDate } from 'models/calendar';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

@@ -1,4 +1,4 @@
-import { AvailableTime, BookedTime } from '../models/calendar';
+import { AvailableTime, BookedTime } from 'models/calendar';
 
 const getWeek = (date: string) => {
   if (!date) return null;
