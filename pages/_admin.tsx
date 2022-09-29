@@ -4,7 +4,7 @@ import ModalAdmin from 'components/ModalAdmin';
 import ModalBookings from 'components/ModalBookings';
 import { Add } from 'grommet-icons';
 import { getAllTimesAndBookings } from 'lib/dates';
-import iconHoverEventHandlers from 'lib/icon-hover-event-handlers';
+import { iconHoverEventHandlers } from 'lib/utils';
 import type { AvailableTime, BookedTime } from 'models/calendar';
 import { useState } from 'react';
 import { useQuery } from 'react-query';

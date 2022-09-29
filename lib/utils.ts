@@ -1,7 +1,7 @@
 import { BookedTime } from '../models/calendar';
 import { emailRegex, nameRegex } from './validation-regex';
 
-export default function handler(booking: BookedTime) {
+export function validateFormValues(booking: BookedTime) {
   let error;
 
   const n = booking.name.match(nameRegex);
@@ -20,4 +20,19 @@ export default function handler(booking: BookedTime) {
   }
 
   return error;
+}
+
+export function iconHoverEventHandlers() {
+  return {
+    onMouseOver: (e: any) => {
+      if (document.documentElement.classList.contains('dark')) {
+        e.currentTarget.children[0].style.stroke = 'white';
+      } else {
+        e.currentTarget.children[0].style.stroke = 'black';
+      }
+    },
+    onMouseOut: (e: any) => {
+      e.currentTarget.children[0].style.stroke = '';
+    },
+  };
 }
