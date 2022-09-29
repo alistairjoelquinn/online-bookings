@@ -6,7 +6,11 @@ export default NextAuth({
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        password: { label: 'Password', type: 'password', placeholder: 'password' },
+        password: {
+          label: 'Password',
+          type: 'password',
+          placeholder: 'password',
+        },
       },
       async authorize(credentials) {
         if (!credentials || !credentials.password) return null;
