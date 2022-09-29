@@ -3,7 +3,7 @@ import BookingThanksPanel from 'components/BookingThanksPanel';
 import ModalContainer from 'components/ModalContainer';
 import checkBookingAvailable from 'lib/check-booking-available';
 import checkNoBookingClash from 'lib/check-no-booking-clash';
-import isoify from 'lib/isoify';
+import { isoify } from 'lib/utils';
 import { AvailableTime, BookedTime } from 'models/calendar';
 import { useState } from 'react';
 import { useQueryClient } from 'react-query';

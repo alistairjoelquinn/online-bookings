@@ -1,5 +1,5 @@
 import { Linkedin, Mail, Moon } from 'grommet-icons';
-import updateDarkModePreference from 'lib/update-dark-mode-preference';
+import { updateDarkModePreference } from 'lib/utils';
 
 interface Props {
   setShowEmailModal: (val: boolean) => void;

@@ -1,5 +1,19 @@
-import { BookedTime } from '../models/calendar';
-import { emailRegex, nameRegex } from './validation-regex';
+import { emailRegex, nameRegex } from 'lib/validation-regex';
+import { AvailableTime, BookedTime } from 'models/calendar';
+
+export function writeTextToClipboard(text: string) {
+  navigator.clipboard.writeText(text);
+}
+
+export function updateDarkModePreference() {
+  if (document.documentElement.classList.contains('dark')) {
+    document.documentElement.classList.remove('dark');
+    localStorage.theme = 'light';
+  } else if (!document.documentElement.classList.contains('dark')) {
+    document.documentElement.classList.add('dark');
+    localStorage.theme = 'dark';
+  }
+}
 
 export function validateFormValues(booking: BookedTime) {
   let error;
@@ -35,4 +49,20 @@ export function iconHoverEventHandlers() {
       e.currentTarget.children[0].style.stroke = '';
     },
   };
+}
+
+export function isoify(time: BookedTime | AvailableTime) {
+  const startTime = `${time.date}T${time.start}`;
+  const endTime = `${time.date}T${time.end}`;
+
+  const startISO = new Date(startTime).toISOString();
+  const endISO = new Date(endTime).toISOString();
+
+  const update = {
+    ...time,
+    start: startISO,
+    end: endISO,
+  };
+
+  return update;
 }

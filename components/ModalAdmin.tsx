@@ -1,5 +1,5 @@
 import ModalContainer from 'components/ModalContainer';
-import isoify from 'lib/isoify';
+import { isoify } from 'lib/utils';
 import type { AvailableTime } from 'models/calendar';
 import { useState } from 'react';
 import { useQueryClient } from 'react-query';

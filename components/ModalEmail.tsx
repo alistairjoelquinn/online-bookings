@@ -1,6 +1,6 @@
 import ModalContainer from 'components/ModalContainer';
 import { Copy } from 'grommet-icons';
-import writeTextToClipboard from 'lib/write-text-to-clipboard';
+import { writeTextToClipboard } from 'lib/utils';
 import { useState } from 'react';
 
 interface Props {
