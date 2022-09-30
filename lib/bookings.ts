@@ -13,12 +13,6 @@ export function checkNoBookingClash(data: BookedTime, booked: BookedTime[]) {
   );
 }
 
-enum SlotStatus {
-  OpenSlot = 'open-slot',
-  Available = 'available',
-  Booked = 'booked',
-}
-
 export function checkBookingAvailable(
   data: BookedTime,
   available: AvailableTime[],
@@ -41,8 +35,8 @@ export function checkSlot(
 
   const nextSlot = dayTimeArray[index + 1];
 
-  let currentStatus: SlotStatus = SlotStatus.OpenSlot;
-  let nextStatus: SlotStatus = SlotStatus.OpenSlot;
+  let currentStatus = 'open-slot';
+  let nextStatus = 'open-slot';
 
   const currentTime = new Date(time);
 
@@ -51,7 +45,7 @@ export function checkSlot(
       currentTime >= new Date(item.start) &&
       currentTime < new Date(item.end)
     ) {
-      currentStatus = SlotStatus.Available;
+      currentStatus = 'available';
     }
   });
 
@@ -60,7 +54,7 @@ export function checkSlot(
       currentTime >= new Date(item.start) &&
       currentTime < new Date(item.end)
     ) {
-      currentStatus = SlotStatus.Booked;
+      currentStatus = 'booked';
     }
   });
 
@@ -69,7 +63,7 @@ export function checkSlot(
       new Date(nextSlot) >= new Date(item.start) &&
       new Date(nextSlot) < new Date(item.end)
     ) {
-      nextStatus = SlotStatus.Available;
+      nextStatus = 'available';
     }
   });
 
@@ -78,27 +72,23 @@ export function checkSlot(
       new Date(nextSlot) >= new Date(item.start) &&
       new Date(nextSlot) < new Date(item.end)
     ) {
-      nextStatus = SlotStatus.Booked;
+      nextStatus = 'booked';
     }
   });
 
   let closingBlockFormat;
 
   if (
-    (currentStatus === SlotStatus.Available &&
-      nextStatus === SlotStatus.Booked) ||
-    (currentStatus === SlotStatus.Available &&
-      nextStatus === SlotStatus.OpenSlot) ||
-    (currentStatus === SlotStatus.Booked &&
-      nextStatus === SlotStatus.Available) ||
-    (currentStatus === SlotStatus.Booked && nextStatus === SlotStatus.OpenSlot)
+    (currentStatus === 'available' && nextStatus === 'booked') ||
+    (currentStatus === 'available' && nextStatus === 'open-slot') ||
+    (currentStatus === 'booked' && nextStatus === 'available') ||
+    (currentStatus === 'booked' && nextStatus === 'open-slot')
   ) {
     closingBlockFormat = 'end';
   }
   if (
-    (currentStatus === SlotStatus.Available &&
-      nextStatus === SlotStatus.Available) ||
-    (currentStatus === SlotStatus.Booked && nextStatus === SlotStatus.Booked)
+    (currentStatus === 'available' && nextStatus === 'available') ||
+    (currentStatus === 'booked' && nextStatus === 'booked')
   ) {
     closingBlockFormat = 'block-center';
   }
